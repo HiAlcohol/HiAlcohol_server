@@ -1,64 +1,9 @@
--- create table
--- drop table material;
-
-create table `user` (
-	`id` bigint NOT NULL AUTO_INCREMENT,
-	`email` varchar(100) NOT NULL UNIQUE,
-	`nickname` varchar(50) NOT NULL,
-	PRIMARY KEY (`id`)
-);
-
-create table `post` (
-	`id` bigint NOT NULL AUTO_INCREMENT,
-	`userId` bigint NOT NULL,
-	`title` varchar(255) NOT NULL,
-	`content` varchar(3000),
-	`createdate` datetime NOT NULL,
-	`updatedate` datetime,
-	PRIMARY KEY (`id`)
-);
-
-create table `like` (
-	`id` bigint NOT NULL AUTO_INCREMENT,
-	`postId` bigint NOT NULL,
-	`userId` bigint NOT NULL,
-	PRIMARY KEY (`id`)
-);
-
-create table `recipe` (
-	`id` bigint NOT NULL AUTO_INCREMENT,
-	`cocktail` varchar(40) NOT NULL UNIQUE,
-	`rate` varchar(255),
-	`content` varchar(2000)
-	PRIMARY KEY (`id`)
-);
-
-create table `material` (
-	`id` bigint NOT NULL AUTO_INCREMENT,
-	`material` varchar(50) NOT NULL UNIQUE,
-	PRIMARY KEY (`id`)
-);
-
-create table `inclusion` (
-	`id` bigint NOT NULL AUTO_INCREMENT,
-	`recipeId` bigint NOT NULL,
-	`materialId` bigint NOT NULL,
-	PRIMARY KEY (`id`)
-);
-
-create table `product` (
-	`id` bigint NOT NULL AUTO_INCREMENT,
-	`name` varchar(40) NOT NULL UNIQUE,
-	`alcolType` varchar(20),
-	PRIMARY KEY (`id`)
-);
-
 -- // insert data
 -- insert into `recipe` values(null, 'cocktail', 'content')
 -- 재료테이블
 -- 재료테이블
 INSERT INTO `material`
-(1, '보드카');
+VALUES(1, '보드카');
 
 INSERT INTO `material`
 VALUES(2, '커피 리큐어');
@@ -197,3 +142,36 @@ VALUES(46, '탄산수');
 
 INSERT INTO `material`
 VALUES(47, '레몬주스');
+
+INSERT INTO `material`
+VALUES(48, '그레이프 주스');
+
+INSERT INTO `material`
+VALUES(49, '오렌지 퀴라소');
+
+INSERT INTO `material`
+VALUES(50, '크림 드 카시스');
+
+INSERT INTO `material`
+VALUES(51, '칼린스믹스');
+
+INSERT INTO `material`
+VALUES(52, '깔루아');
+
+INSERT INTO `material`
+VALUES(53, '토닉워터');
+
+INSERT INTO `material`
+VALUES(53, '칼루아');
+
+INSERT INTO `material`
+VALUES(54, '우유');
+
+INSERT INTO `material`
+VALUES(55, '피치 리큐어');
+
+INSERT INTO `material`
+VALUES(56, '맥주');
+
+INSERT INTO `material`
+VALUES(57, '샴페인');
