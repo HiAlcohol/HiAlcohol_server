@@ -29,7 +29,7 @@ create table `recipe` (
 	`id` bigint NOT NULL AUTO_INCREMENT,
 	`cocktail` varchar(40) NOT NULL UNIQUE,
 	`rate` varchar(255),
-	`content` varchar(2000)
+	`content` varchar(2000),
 	PRIMARY KEY (`id`)
 );
 
