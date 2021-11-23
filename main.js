@@ -1,9 +1,9 @@
 const express = require('express');
 const app = express();
 const port = 3000;
-const template = require('./home.js');
+const template = require('./template/home.js');
 const bodyParser = require('body-parser');
-const home = require('./home.js');
+const home = require('./template/home.js');
 
 app.use(bodyParser.urlencoded({extended: false}));
 app.get('/', (req, res) => {
