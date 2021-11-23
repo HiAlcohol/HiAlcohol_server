@@ -1,7 +1,6 @@
 const express = require('express');
 const app = express();
 const port = 3000;
-const template = require('./template/home.js');
 const bodyParser = require('body-parser');
 const home = require('./template/home.js');
 
