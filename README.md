@@ -5,8 +5,8 @@ entry point: main.js
 dependency: express, mysql, body-parser
 
 
-database 생성
-mysql 접속
-create database hialcohol
-use hialcohol
-source query.sql;
+#### database 생성
+1. mysql 접속 (terminal -> mysql -u root -p)
+2. create database hialcohol
+3. use hialcohol
+4. source query.sql;
