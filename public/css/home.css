@@ -1,0 +1,84 @@
+*{margin:0;padding:0;}
+html{
+	overflow: hidden;
+}
+header{
+    margin-top: 120px;
+    margin-bottom: 30px;
+}
+
+body {
+	padding: 20px;
+    margin: 0;
+    background-color: #242424;
+    text-align: center;
+    font-size: 15px;
+}
+
+a {
+	text-decoration: none;
+	color: white;
+	font-size: 35px;
+}
+
+.homebar {
+    align-items: center;
+}
+
+.line{
+    width: 80%;
+    display: inline-block;
+    text-align: center;
+    height: 1px;
+    background-color: #505050;
+}
+
+.homebar__search{
+    height: 45px;
+    width: 300px;
+    top: 211px;
+    margin: 0 auto;
+    margin-bottom: 30px;
+    border: 1px solid #8BFEE2;
+    border-radius: 33px;
+    box-shadow: 0 0 10px 0.5px rgba(11, 243, 188, 0.5);
+}
+
+.homebar__search input {
+    height: 42px;
+    width: 80%;
+    margin-left: 15px;
+    border: 0;
+    border-radius: 33px;
+    color: #dddddd;
+    background-color: #242424;
+    float: left;
+}
+
+.homebar__search button {
+    height: 25px;
+    width: 25px;
+    margin-top: 10px;
+    margin-right: 10px;
+    color: #0BF3BC;
+    border: 0;
+    background-color: #242424;
+}
+
+#teststartbtn{
+    height: 40px;
+    width: 185px;
+    left: 95px;
+    top: 489px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 50px;
+    background: #0BF3BC;
+    color: white;
+    border: 0;
+}
+
+.homebar__recommend {
+    margin: 0 auto;
+    margin-top: 40px;
+}
