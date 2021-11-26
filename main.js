@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const port = 3000;
 const bodyParser = require('body-parser');
-const indexRouter = require('./route/indexRouter.js')
+const indexRouter = require('./routes/indexRouter.js')
 
 
 // parse application/x-www-form-urlencoded
