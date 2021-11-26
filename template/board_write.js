@@ -40,6 +40,12 @@ module.exports = {
 		return `
 		<!DOCTYPE html>
 <html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>공지사항</title>
+    <link rel="stylesheet" href="/public/css/board_write_css.css">
+</head>
 <style>
     @import url("https://fonts.googleapis.com/css2?family=Pattaya&display=swap");
       p {
