@@ -4,7 +4,6 @@
 create table `user` (
 	`id` bigint NOT NULL AUTO_INCREMENT,
 	`kakaoid` bigint NOT NULL UNIQUE,
-	-- `email` varchar(100) UNIQUE,
 	`profile_image` TEXT,
 	`nickname` varchar(50) NOT NULL,
 	PRIMARY KEY (`id`)
