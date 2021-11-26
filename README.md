@@ -2,7 +2,7 @@
 
 entry point: main.js
 
-dependency: express, mysql, body-parser
+dependency: express, mysql, body-parser, passport-kakao
 
 
 #### database 생성

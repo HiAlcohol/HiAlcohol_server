@@ -23,7 +23,7 @@ module.exports = {
 		</a>
 	</div>
 	<div class="login_btn">
-		<a href="#">
+		<a href="/oauth/kakao">
 		<div class="container">
 			<p class="login">로그인하기</p>
 			<img src="public/img/loginIcon.png" width="25px" />

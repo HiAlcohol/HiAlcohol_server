@@ -2,7 +2,24 @@ const express = require('express');
 const app = express();
 const port = 3000;
 const bodyParser = require('body-parser');
-const indexRouter = require('./route/indexRouter.js')
+const indexRouter = require('./routes/indexRouter.js')
+const passport = require('passport')
+const KaKaoStrategy = require('passport-kakao').Strategy
+
+passport.use(new KaKaoStrategy({
+		clientID: '989236d695e051a00be147f5a2d11274',
+		clientSecret: '',
+		callbackURL: 'localhost:3000'
+	},
+	(accessToken, refreshToken, profile, done) => {
+		console.log(profile);
+		// 사용자의 정보는 profile에 들어있다.
+		// User.findOrCreate(..., (err, user) => {
+		//   if (err) { return done(err) }
+		//   return done(null, user)
+		// })
+	  }
+));
 
 
 // parse application/x-www-form-urlencoded
