@@ -13,7 +13,7 @@ module.exports = {
 		<div class="board_wrap">
         <div class="main_title">
             <div class="exit">
-                <a href="board-list.html"><img class="x_icon" src="public/img/x_icon.png"></a>
+                <a href="board-list.html"><img class="x_icon" src="/public/img/x_icon.png"></a>
             </div>
             <div class="hi_alcohol">
                 <a href="home.html" style="font-family: 'Pattaya', sans-serif; color: #0bf3bc">Hi Alcohol</a>
@@ -62,7 +62,7 @@ module.exports = {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>공지사항</title>
-    <link rel="stylesheet" href="public/css/board_write_css.css">
+    <link rel="stylesheet" href="/public/css/board_write_css.css">
 </head>
 <body>
 		`;
