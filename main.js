@@ -3,33 +3,24 @@ const app = express();
 const port = 3000;
 const bodyParser = require('body-parser');
 const indexRouter = require('./routes/indexRouter.js')
-const passport = require('passport')
-const KaKaoStrategy = require('passport-kakao').Strategy
-
-passport.use(new KaKaoStrategy({
-		clientID: '989236d695e051a00be147f5a2d11274',
-		clientSecret: '',
-		callbackURL: 'localhost:3000'
-	},
-	(accessToken, refreshToken, profile, done) => {
-		console.log(profile);
-		// 사용자의 정보는 profile에 들어있다.
-		// User.findOrCreate(..., (err, user) => {
-		//   if (err) { return done(err) }
-		//   return done(null, user)
-		// })
-	  }
-));
-
+const session = require('express-session');
+const oauthRouter = require('./routes/loginRouter.js');
 
 // parse application/x-www-form-urlencoded
 // 사용자가 요청할 때 마다 호출
 app.use(bodyParser.urlencoded({extended: false}));
+app.use(session({
+	secret: 'ras',
+	resave: true,
+	secure: false,
+	saveUninitialized: false
+}));
 
 // 정적 파일 (css, js) 경로 등록
 // public 아래에 정적 파일 정리
 app.use('/public', express.static( __dirname + '/public'));
 // app.use('/topic', topicRouter);
+app.use('/oauth', oauthRouter);
 
 app.use('/', indexRouter);
 
