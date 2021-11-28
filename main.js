@@ -4,6 +4,7 @@ const port = 3000;
 const bodyParser = require('body-parser');
 const indexRouter = require('./route/indexRouter.js')
 const boardRouter = require('./route/boardRouter.js')
+const search_listRouter = require('./routes/search_listRouter.js')
 
 
 // parse application/x-www-form-urlencoded
@@ -18,6 +19,7 @@ app.use('/public', express.static( __dirname + '/public'));
 app.use('/', indexRouter);
 
 app.use('/board', boardRouter);
+app.use('/search_list', search_listRouter);
 
 app.use(function(req, res, next) {	
     res.status(404).send('Sorry cant find that!');
