@@ -3,7 +3,8 @@
 
 create table `user` (
 	`id` bigint NOT NULL AUTO_INCREMENT,
-	`email` varchar(100) NOT NULL UNIQUE,
+	`kakaoid` bigint NOT NULL UNIQUE,
+	`profile_image` TEXT,
 	`nickname` varchar(50) NOT NULL,
 	PRIMARY KEY (`id`)
 );
