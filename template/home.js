@@ -42,7 +42,7 @@ module.exports = {
 			</a>
 		</div>
 		<div class="menu_wrap">
-			<div><a href="#">꿀조합 게시판</a></div>
+			<div><a href="/board">꿀조합 게시판</a></div>
 			<div><a href="#">우리동네 주류매장</a></div>
 			<div><a href="#">내가 쓴 꿀조합</a></div>
 			<div><a href="#">좋아요 리스트</a></div>
