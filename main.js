@@ -2,9 +2,11 @@ const express = require('express');
 const app = express();
 const port = 3000;
 const bodyParser = require('body-parser');
-const indexRouter = require('./route/indexRouter.js')
-const boardRouter = require('./route/boardRouter.js')
+const indexRouter = require('./routes/indexRouter.js')
+const boardRouter = require('./routes/boardRouter.js')
 const search_listRouter = require('./routes/search_listRouter.js')
+const boardProcessRouter = require('./routes/boardProcessRouter.js')
+const db = require('./config/db.js')
 
 
 // parse application/x-www-form-urlencoded
@@ -19,6 +21,9 @@ app.use('/public', express.static( __dirname + '/public'));
 app.use('/', indexRouter);
 
 app.use('/board', boardRouter);
+
+app.use('/board_process', boardProcessRouter);
+
 app.use('/search_list', search_listRouter);
 
 app.use(function(req, res, next) {	

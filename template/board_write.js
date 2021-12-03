@@ -11,6 +11,7 @@ module.exports = {
 	HOME: function() {
 		return `
 		<div class="board_wrap">
+        <form action="http://localhost:3000/board_process" method="post" >
         <div class="main_title">
             <div class="exit">
                 <a href="board-list.html"><img class="x_icon" src="/public/img/x_icon.png"></a>
@@ -19,20 +20,22 @@ module.exports = {
                 <a href="home.html" style="font-family: 'Pattaya', sans-serif; color: #0bf3bc">Hi Alcohol</a>
             </div>
             <div class="completion">
-                <a href="board_view.html" style="color: #0BF3BC;">완료</a>
+                <input type="submit" value= "완료" style="background-color: #242424; color: #0BF3BC; font-size: 15px; border: 0;
+                outline: 0;">
             </div>
             
         </div>
         <div class ="container" >
             <div class="title">
-                <input type="text" placeholder=" 제목" >
+                <input type="text" name="title" placeholder=" 제목" >
             </div>
             <div class="Contents">
-                <textarea placeholder="    
+                <textarea name="content" placeholder="    
  내용 입력"></textarea>
             </div>
         
         </div>
+        </form>
 	</nav>
 	`
 	},
