@@ -1,0 +1,56 @@
+body {
+    padding: 20px;
+    margin: 0 auto;
+    width: 40%;
+    background-color: #242424;
+    font-size: 15px;
+
+}
+
+
+.main_title{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.hi_alcohol{
+    font-family: 'Pattaya', sans-serif; 
+    color: #0BF3BC; 
+    font-size: 25px;
+
+}
+
+a { 
+    text-decoration:none ;
+} 
+
+.container{
+    text-align: center;
+}
+
+
+.title input{
+    background-color:#242424; 
+    height: 30px; 
+    width: 90%;
+    color: white;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    border-color: none ;
+    border-bottom: white 1px solid;
+}
+
+.Contents textarea{
+    background-color:#242424; 
+    height:550px; 
+    width: 90%;
+    color: white;
+    border-radius: 0.5em;
+    border-color: white;
+}
+.completion {
+    color: #0BF3BC;
+   
+}

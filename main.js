@@ -6,6 +6,10 @@ const indexRouter = require('./routes/indexRouter.js')
 const session = require('express-session');
 const oauthRouter = require('./routes/loginRouter.js');
 
+const boardRouter = require('./route/boardRouter.js')
+const search_listRouter = require('./routes/search_listRouter.js')
+
+
 // parse application/x-www-form-urlencoded
 // 사용자가 요청할 때 마다 호출
 app.use(bodyParser.urlencoded({extended: false}));
@@ -23,6 +27,9 @@ app.use('/public', express.static( __dirname + '/public'));
 app.use('/oauth', oauthRouter);
 
 app.use('/', indexRouter);
+
+app.use('/board', boardRouter);
+app.use('/search_list', search_listRouter);
 
 app.use(function(req, res, next) {	
     res.status(404).send('Sorry cant find that!');

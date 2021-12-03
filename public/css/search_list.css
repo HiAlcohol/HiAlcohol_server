@@ -1,0 +1,193 @@
+@charset "utf-8";
+/*폰트*/
+@import url('https://fonts.googleapis.com/css2?family=Pattaya&display=swap');
+
+p {
+    font-family: 'Pattaya', sans-serif;
+    color: white;
+}
+
+@font-face {
+    font-family: 'GmarketSansMedium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+*:not(i) {
+    font-family: GmarketSansMedium;
+}
+
+body {
+    margin: 0;
+    background-color: #242424;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+header {
+    height: 70px;
+    width: 100%;
+    padding-top: 2px;
+    background-color: #242424;
+    position: fixed;
+}
+
+header h2 {
+    margin-top: -20px;
+}
+
+main {
+    padding-top: 100px;
+}
+
+/* 검색창 */
+.search {
+    height: 45px;
+    width: 90%;
+    margin: 0 auto;
+    border: 1px solid #8BFEE2;
+    border-radius: 33px;
+    box-shadow: 0 0 10px 0.5px rgba(11, 243, 188, 0.5);
+}
+
+.search input {
+    height: 42px;
+    width: 80%;
+    margin-left: 15px;
+    border: 0;
+    border-radius: 33px;
+    color: #dddddd;
+    background-color: #242424;
+    float: left;
+}
+
+.search input:focus {
+    outline: none;
+}
+
+.search button {
+    height: 25px;
+    width: 25px;
+    margin-top: 10px;
+    margin-right: 10px;
+    color: #0BF3BC;
+    border: 0;
+    background-color: #242424;
+}
+
+/* 리스트 */
+.list {
+    width: 90%;
+    height: 150px;
+    margin: 0 auto;
+    padding-top: 30px;
+    padding-bottom: 10px;
+}
+
+.list>p {
+    width: 50px;
+}
+
+.list a {
+    margin-top: 10px;
+    margin-left: 10px;
+    float: left;
+    font-size: 17px;
+    color: white;
+    text-decoration: none;
+}
+
+.list .recipe {
+    margin-top: 10px;
+    border: 0;
+    font-size: 20px;
+    color: white;
+    background-color: #242424;
+    float: right;
+    cursor: pointer;
+}
+
+.input div {
+    height: 35px;
+    line-height: 35px;
+    min-width: 70px;
+    margin-top: 15px;
+    margin-right: 12px;
+    border: 1px solid #0BF3BC;
+    border-radius: 15px;
+    font-size: 15px;
+    color: #0BF3BC;
+    float: left;
+    display: inline-block;
+}
+
+/* 모달창 */
+#modal-overlay {
+    top: 0; left: 0;   right: 0; bottom: 0;
+    position: absolute;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.25);
+}
+#modal {
+    display: none;
+    position: fixed;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+}
+
+#modal .modal-window {
+    background: #242424;
+    border-radius: 10px;
+    width: 400px;
+    height: 500px;
+    position: relative;
+    padding: 15px;
+}
+
+#modal .title {
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+
+#modal .title h2 {
+    display: inline;
+}
+
+#modal .modal_close {
+    display: inline;
+    float: right;
+    padding-right: 10px;
+    cursor: pointer;
+    color: white;
+}
+
+#modal .input {
+    display : flex;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+#modal .input div {
+    height: 35px;
+    line-height: 35px;
+    min-width: 70px;
+    margin-top: 15px;
+    margin-right: 12px;
+    border: 1px solid #0BF3BC;
+    border-radius: 15px;
+    font-size: 15px;
+    color: #0BF3BC;
+    display: inline-block;
+}
+
+li {
+    color: white;
+    text-align: left;
+    padding-bottom: 20px;
+    font-size: 16px;
+}

@@ -49,7 +49,7 @@ create table `inclusion` (
 
 create table `product` (
 	`id` bigint NOT NULL AUTO_INCREMENT,
-	`name` varchar(40) NOT NULL UNIQUE,
 	`alcolType` varchar(20),
+	`name` varchar(40) NOT NULL UNIQUE,
 	PRIMARY KEY (`id`)
 );
