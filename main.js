@@ -26,9 +26,11 @@ app.use('/board_process', boardProcessRouter);
 
 app.use('/search_list', search_listRouter);
 
+
 app.use(function(req, res, next) {	
     res.status(404).send('Sorry cant find that!');
 });
+
 
 app.use(function (err, req, res, next) {
     console.error(err.stack)

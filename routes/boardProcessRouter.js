@@ -4,7 +4,6 @@ const { fstat } = require('fs');
 const router = express.Router();
 const mysql = require('mysql');
 
-// var db = require('../config/db.js')
 const db = mysql.createConnection({
 	host: 'localhost',
 	user: 'root',
@@ -31,6 +30,8 @@ router.post('/', function(request, response) {
 
     
 });
+
+
 
 
 module.exports = router;
