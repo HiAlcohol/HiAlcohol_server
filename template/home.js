@@ -8,7 +8,11 @@ module.exports = {
 		${tail}
 		`
 	},
-	HOME: function() {
+	HOME: function(nickname, loginIcon) {
+		if (nickname === undefined) {
+			nickname = '로그인하기';
+			loginIcon = '/public/img/loginIcon.png';
+		}
 		return `
 		<div class="header">
 	<!-- hamburger menu -->
@@ -18,15 +22,14 @@ module.exports = {
 			<div class="bar1"></div>
 			<div class="bar2"></div>
 			<div class="bar3"></div>
-			<!-- <img src="public/img/menuIcon.png" width="40px" /> -->
 		</div>
 		</a>
 	</div>
 	<div class="login_btn">
 		<a href="/oauth/kakao">
 		<div class="container">
-			<p class="login">로그인하기</p>
-			<img src="public/img/loginIcon.png" width="25px" />
+			<p class="login">${nickname}</p>
+			<img src="${loginIcon}" width="25px" />
 		</div>
 		</a>
 	</div>

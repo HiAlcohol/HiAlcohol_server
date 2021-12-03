@@ -7,8 +7,8 @@ const session = require('express-session');
 const oauthRouter = require('./routes/loginRouter.js');
 
 const boardRouter = require('./route/boardRouter.js')
-const search_listRouter = require('./routes/search_listRouter.js')
-
+const search_listRouter = require('./routes/search_listRouter.js');
+const passport = require('passport');
 
 // parse application/x-www-form-urlencoded
 // 사용자가 요청할 때 마다 호출
@@ -17,8 +17,10 @@ app.use(session({
 	secret: 'ras',
 	resave: true,
 	secure: false,
-	saveUninitialized: false
+	saveUninitialized: true
 }));
+app.use(passport.initialize());
+app.use(passport.session());
 
 // 정적 파일 (css, js) 경로 등록
 // public 아래에 정적 파일 정리
