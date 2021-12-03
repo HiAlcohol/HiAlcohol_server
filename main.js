@@ -9,7 +9,12 @@ const oauthRouter = require('./routes/loginRouter.js');
 const boardRouter = require('./route/boardRouter.js')
 const search_listRouter = require('./routes/search_listRouter.js');
 const passport = require('passport');
+const flash = require('connect-flash');
 
+const passportConfig = require('./passport');
+const cookieParser = require('cookie-parser');
+app.use(cookieParser('ras'));
+passportConfig();
 // parse application/x-www-form-urlencoded
 // 사용자가 요청할 때 마다 호출
 app.use(bodyParser.urlencoded({extended: false}));
@@ -21,11 +26,11 @@ app.use(session({
 }));
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(flash());
 
 // 정적 파일 (css, js) 경로 등록
 // public 아래에 정적 파일 정리
 app.use('/public', express.static( __dirname + '/public'));
-// app.use('/topic', topicRouter);
 app.use('/oauth', oauthRouter);
 
 app.use('/', indexRouter);

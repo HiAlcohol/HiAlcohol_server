@@ -17,21 +17,32 @@ module.exports = {
 						});
 				})
 			}
-			// return done(null, {'id': result.id, 'profile': result.profile_image, 'nickname': result.nickname});
-			return done(null, false, {message: 'existed user'});
+			return done(null, result[0]);
+			// return done(null, false, {message: 'existed user'});
 		});
 	},
-	findOne: function(kakaoid) {
+	findOne: async function(kakaoid, done) {
 		db.query(`SELECT * FROM user WHERE kakaoid = ?`, [kakaoid],
+			function(err, result) {
+				if (err) throw err;
+				console.log('findOne: ', result);
+				var json = JSON.stringify(result[0]);
+				var userinfo = JSON.parse(json);
+				return result[0];
+				// return done(null, result[0]);
+			});
+	},
+	findById: async function(id) {
+		db.query(`SELECT * FROM user WHERE kakaoid = ?`, [id],
 			function(err, result) {
 				if (err) throw err;
 				console.log(result);
 				var json = JSON.stringify(result[0]);
-				var userinfo = JSON.parse(json);
-				return userinfo;
+				// var userinfo = JSON.parse(json);
+				return json;
 			});
 	},
-	create: function (user) {
+	create: async function (user) {
 		db.query(`SELECT * FROM user WHERE kakaoid = ?`, [user.kakaoid],
 			function(err1, result1) {
 				if (err1) throw err1;
@@ -43,10 +54,13 @@ module.exports = {
 							if (err2) throw err2;
 							var json = JSON.stringify(result2[0]);
 							var userinfo = JSON.parse(json);
-							return userinfo;
+							return result2;
 						});
 					});
 				}
+				var json = JSON.stringify(result1[0]);
+				var userinfo = JSON.parse(json);
+				return result1[0];
 			});
 	}
 };
