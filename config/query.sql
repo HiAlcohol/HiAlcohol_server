@@ -19,7 +19,7 @@ create table `post` (
 	PRIMARY KEY (`id`)
 );
 
-create table `like` (
+create table `liked` (
 	`id` bigint NOT NULL AUTO_INCREMENT,
 	`postId` bigint NOT NULL,
 	`userId` bigint NOT NULL,

@@ -1,4 +1,5 @@
 -- 제품 테이블
+
 INSERT INTO `product`
 VALUES(NULL, '보드카', '앱솔루트');
 
