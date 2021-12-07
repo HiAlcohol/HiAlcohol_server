@@ -6,7 +6,7 @@ const indexRouter = require('./routes/indexRouter.js')
 const session = require('express-session');
 const oauthRouter = require('./routes/loginRouter.js');
 
-const boardRouter = require('./route/boardRouter.js')
+const boardRouter = require('./routes/boardRouter.js')
 const search_listRouter = require('./routes/search_listRouter.js');
 const passport = require('passport');
 const flash = require('connect-flash');
