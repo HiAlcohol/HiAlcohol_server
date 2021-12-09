@@ -1,26 +1,23 @@
 const express = require('express');
 const router = express.Router();
 const search_list = require('../template/search_list.js');
-const mysql = require('mysql');
+var db = require('../config/db'); // db.js 폴더 경로
 
 var url = require('url');
 
-var db = mysql.createConnection({
-    host:'localhost',
-    user:'root',
-    password:'root',
-    database:'hialcohol'
-});
-db.connect();
+// sql = `select * from recipe`
+
+sql = `select recipe.cocktail, material.material from recipe, material  where
+material.id =any(select inclusion.materialId from inclusion where inclusion.recipeId= recipe.id )`
 
 router.get('/', function(request, response){
-	db.query(`select * from recipe`, function(err, result){
-		if (err) throw err;
-			var id = result[0].id;
-			var cocktail = result[0].cocktail;
 
+	db.query(sql, function(err, result){
+		if (err) throw err;
+
+		
 			var list = search_list.LIST(result)
-			var html = search_list.HTML(id, cocktail, list)
+			var html = search_list.HTML( list)
 	
 			response.send(html);		
 		});

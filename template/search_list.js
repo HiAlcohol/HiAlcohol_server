@@ -1,5 +1,5 @@
 module.exports = {
-	HTML: function(id, cocktail, list) {
+	HTML: function(list) {
 		const head = this.HEAD();
 		const tail = this.TAIL();
         
@@ -57,13 +57,13 @@ module.exports = {
     <main>
     
         <!-- 검색창 -->
-        <div class="search">
+        <form class="search" method="get" action=search>
             <input type="text" name="searchtxt" placeholder="술 이름을 입력해주세요.">
-            <button type="submit" onclick=" location.href='search.html'">
+            <button type="submit">
                 <i class="fas fa-search" style="font-size: 20px;"></i>
             </button>
     
-        </div>
+        </form>
         
         <!-- 검색 결과 리스트(반복될 요소) -->
         ${list}
@@ -96,7 +96,7 @@ module.exports = {
     
             <div class="content">
                 <div class="input">
-                    <div>${id}</div>
+                    <div>재료</div>
                     <div>맥콜</div>
                     <div>사이다</div>
                 </div>
@@ -147,27 +147,35 @@ module.exports = {
 		`
 	}, 
     LIST: function(result) {
-        var list = '<ul>';
         var i = 0;
+
+        var list = '';
+        var name = `
+        <div class="list" id="list1">
+        <a href="">${result[i].cocktail}</a>
+        <div class="recipe" id="btn1">></div>
+        <br><br>`;
+    //     var mat = ` 
+    //     <div class="input">
+    //     <div>${result[i].cocktail}</div></div>
+    // </div>`;
+
         while(i<result.length){
             
+
             list = list + 
-            `
-            <div class="list" id="list1">
-            <a href="">${result[i].cocktail}</a>
-            <div class="recipe" id="btn1">></div>
-            <br><br>
-            <div class="input">
-                <div>${result[i].id}</div>
-            </div>
-            </div>
-              `;
-            i = i+1;
+                `
+                <div class="list" id="list1">
+                <a href="">${result[i].cocktail}</a>
+                <div class="recipe" id="btn1">></div>
+                <br><br>`+ 
+                ` 
+                <div class="input">
+                    <div>${result[i].material}</div></div>
+                </div>`;
+            i = i + 1;
         }
-        list = list + '</ul>';
+
         return list;
     }
 };
-
-`
-`;
