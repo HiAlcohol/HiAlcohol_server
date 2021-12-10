@@ -57,12 +57,11 @@ module.exports = {
     <main>
     
         <!-- 검색창 -->
-        <form class="search" method="get" action=search>
-            <input type="text" name="searchtxt" placeholder="술 이름을 입력해주세요.">
+        <form class="search" method="get" action=search_list>
+            <input type="text" name="keyword" placeholder="술 이름을 입력해주세요.">
             <button type="submit">
                 <i class="fas fa-search" style="font-size: 20px;"></i>
             </button>
-    
         </form>
         
         <!-- 검색 결과 리스트(반복될 요소) -->

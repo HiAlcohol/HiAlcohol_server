@@ -2,7 +2,6 @@ const express = require('express');
 const router = express.Router();
 const search_list = require('../template/search_list.js');
 var db = require('../config/db'); // db.js 폴더 경로
-
 var url = require('url');
 
 // sql = `select * from recipe`
@@ -15,12 +14,14 @@ router.get('/', function(request, response){
 	db.query(sql, function(err, result){
 		if (err) throw err;
 
+		var list = search_list.LIST(result)
+		var html = search_list.HTML( list)
 		
-			var list = search_list.LIST(result)
-			var html = search_list.HTML( list)
+		var keyword = request.query.keyword;
+		console.log(keyword);
 	
-			response.send(html);		
+		response.send(html);		
 		});
-});
 
+});
 module.exports = router;
