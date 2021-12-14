@@ -36,6 +36,7 @@ header {
 
 header h2 {
     margin-top: -20px;
+    color: aliceblue;
 }
 
 main {
@@ -43,4 +44,9 @@ main {
     padding-top: 100px;
 }
 
+#map{
+    margin: auto;
+    width:600px;
+    height:700px;
+}
 
