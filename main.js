@@ -33,7 +33,7 @@ app.use(session({
 		host: "localhost",
 		port: 3306,
 		user: "root",
-		password: "qwerty123",
+		password: "mysql1234",
 		database: "hialcohol"
 	})
 }));
