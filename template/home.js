@@ -8,81 +8,17 @@ module.exports = {
 		${tail}
 		`
 	},
-	HOME: function(nickname, loginIcon) {
-		if (nickname === undefined) {
+	HOME: function(user) {
+		console.log('HOME: ', user);
+		if (user === undefined) {
 			nickname = '로그인하기';
-			loginIcon = '/public/img/loginIcon.png';
+			profile_image = '/public/img/loginIcon.png';
+		} else {
+			nickname = user.nickname;
+			profile_image = user.profile_image;
 		}
 		return `
-		<div class="header">
-	<!-- hamburger menu -->
-	<div class="menu_btn">
-		<a href="#">
-		<div class="container">
-			<div class="bar1"></div>
-			<div class="bar2"></div>
-			<div class="bar3"></div>
-		</div>
-		</a>
-	</div>
-	<div class="login_btn">
-		<a href="/oauth/kakao">
-		<div class="container">
-			<p class="login">${nickname}</p>
-			<img src="${loginIcon}" width="25px" />
-		</div>
-		</a>
-	</div>
-	</div>
-
-	<div class="menu_bg"></div>
-	<div class="sidebar_menu">
-		<div class="close_btn">
-			<a href="#">
-				<div class="container">
-					<img src="public/img/back.png" height="18px" style="text-align: right; display: flexbox;"/>
-				</div>
-			</a>
-		</div>
-		<div class="menu_wrap">
-			<div><a href="#">꿀조합 게시판</a></div>
-			<div><a href="#">우리동네 주류매장</a></div>
-			<div><a href="#">내가 쓴 꿀조합</a></div>
-			<div><a href="#">좋아요 리스트</a></div>
-			<div><a href="#">로그아웃</a></div>
-		</div>
-	</div>
-	<nav class="homebar">
-	<header>
-		<a
-		href="index.html"
-		style="font-family: 'Pattaya', sans-serif; color: #0bf3bc"
-		>Hi Alcohol
-		</a>
-		<span style="color: #0bf3bc">
-		<i class="fas fa-glass-martini-alt" style="font-size: 30px"></i>
-		</span>
-	</header>
-	<div class="homebar__search">
-		<input type="text" placeholder="예시 : 보드카" />
-		<button type="submit" onclick=" location.href='search.html'">
-		<i class="fas fa-search" style="font-size: 20px"></i>
-		</button>
-	</div>
-	<div class="homebar__recommend">
-		<p style="color: white">이달의 술 추천</p>
-		<p style="color: white">소다주</p>
-		<br />
-		<img src="public/img/cocktail.png" alt="cocktailImg" width="100" height="100" />
-	</div>
-	</nav>
-	`
-	},
-	HEAD: function() {
-		return `
-		<!DOCTYPE html>
-<html lang="en">
-<head>
+		<head>
 	<meta charset="UTF-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -121,6 +57,75 @@ module.exports = {
     ></script>
   </head>
   <body>
+		<div class="header">
+	<!-- hamburger menu -->
+	<div class="menu_btn">
+		<a href="#">
+		<div class="container">
+			<div class="bar1"></div>
+			<div class="bar2"></div>
+			<div class="bar3"></div>
+		</div>
+		</a>
+	</div>
+	<div class="login_btn">
+		<a href="/oauth/kakao">
+		<div class="container">
+			<p class="login">${nickname}</p>
+			<img src="${profile_image}" width="25px" />
+		</div>
+		</a>
+	</div>
+	</div>
+
+	<div class="menu_bg"></div>
+	<div class="sidebar_menu">
+		<div class="close_btn">
+			<a href="#">
+				<div class="container">
+					<img src="public/img/back.png" height="18px" style="text-align: right; display: flexbox;"/>
+				</div>
+			</a>
+		</div>
+		<div class="menu_wrap">
+			<div><a href="#">꿀조합 게시판</a></div>
+			<div><a href="#">우리동네 주류매장</a></div>
+			<div><a href="#">내가 쓴 꿀조합</a></div>
+			<div><a href="#">좋아요 리스트</a></div>
+			<div><a href="/logout">로그아웃</a></div>
+		</div>
+	</div>
+	<nav class="homebar">
+	<header>
+		<a
+		href="index.html"
+		style="font-family: 'Pattaya', sans-serif; color: #0bf3bc"
+		>Hi Alcohol
+		</a>
+		<span style="color: #0bf3bc">
+		<i class="fas fa-glass-martini-alt" style="font-size: 30px"></i>
+		</span>
+	</header>
+	<div class="homebar__search">
+		<input type="text" placeholder="예시 : 보드카" />
+		<button type="submit" onclick=" location.href='search.html'">
+		<i class="fas fa-search" style="font-size: 20px"></i>
+		</button>
+	</div>
+	<div class="homebar__recommend">
+		<p style="color: white">이달의 술 추천</p>
+		<p style="color: white">소다주</p>
+		<br />
+		<img src="public/img/cocktail.png" alt="cocktailImg" width="100" height="100" />
+	</div>
+	</nav>
+	`
+	},
+	HEAD: function() {
+		return `
+		<!DOCTYPE html>
+<html lang="en">
+
 		`;
 	},
 	TAIL: function() {
