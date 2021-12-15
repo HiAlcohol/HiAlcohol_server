@@ -5,14 +5,16 @@ const db = require('../config/db');
 
 module.exports = () => {
 	passport.serializeUser((user, done) => {
-		// console.log('serializeUser:', user.kakaoid);
-		done(null, user.kakaoid);
+		console.log('serializeUser:', user);
+		// console.log('')
+		done(null, user.id);
 	});
 
 	passport.deserializeUser((id, done) => {
-		db.query(`SELECT * FROM user WHERE kakaoid=?`, [id], function(err, result) {
+		db.query(`SELECT * FROM user WHERE id=?`, [id], function(err, result) {
 			if (err) throw err
-			done(null, result);
+			console.log('deserializeUser: ', result[0]);
+			done(null, result[0]);
 		})
 	})
 

@@ -4,6 +4,8 @@ const port = 3000;
 const bodyParser = require('body-parser');
 const indexRouter = require('./routes/indexRouter.js')
 const session = require('express-session');
+const MySQLStore = require('express-mysql-session')(session);
+
 const oauthRouter = require('./routes/loginRouter.js');
 
 const boardRouter = require('./routes/boardRouter.js')
@@ -13,6 +15,7 @@ const flash = require('connect-flash');
 
 const passportConfig = require('./passport');
 const cookieParser = require('cookie-parser');
+
 app.use(cookieParser('ras'));
 passportConfig();
 // parse application/x-www-form-urlencoded
@@ -20,13 +23,21 @@ passportConfig();
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(session({
 	secret: 'ras',
-	resave: true,
+	resave: false,
 	secure: false,
-	saveUninitialized: true
+	saveUninitialized: true,
+	store: new MySQLStore({
+		host: "localhost",
+		port: 3306,
+		user: "root",
+		password: "qwerty123",
+		database: "hialcohol"
+	})
 }));
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
+
 
 // 정적 파일 (css, js) 경로 등록
 // public 아래에 정적 파일 정리
@@ -37,6 +48,13 @@ app.use('/', indexRouter);
 
 app.use('/board', boardRouter);
 app.use('/search_list', search_listRouter);
+
+app.get('/logout', function(req, res) {
+	req.logout();
+	req.session.save(() => {
+		res.redirect('/');
+	})
+});
 
 app.use(function(req, res, next) {	
     res.status(404).send('Sorry cant find that!');
