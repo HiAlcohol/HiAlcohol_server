@@ -60,15 +60,46 @@ module.exports = {
 
         <body>
         <main>
+        <!-- 우리동네 주류매장 -->
         <div id="map"></div>
         <script>
-            var container = document.getElementById('map');
-            var options = {
-                center: new kakao.maps.LatLng(33.450701, 126.570667),
-                level: 3
-            };
-    
-            var map = new kakao.maps.Map(container, options);
+        var infowindow = new kakao.maps.InfoWindow({zIndex:1});
+        var mapContainer = document.getElementById('map'), 
+            mapOption = {
+                center: new kakao.maps.LatLng(37.566826, 126.9786567), 
+                level: 3 
+            };  
+        
+        var map = new kakao.maps.Map(mapContainer, mapOption); 
+        var ps = new kakao.maps.services.Places(); 
+        ps.keywordSearch('주류유통', placesSearchCB); 
+        
+        function placesSearchCB (data, status, pagination) {
+            if (status === kakao.maps.services.Status.OK) {
+        
+                var bounds = new kakao.maps.LatLngBounds();
+        
+                for (var i=0; i<data.length; i++) {
+                    displayMarker(data[i]);    
+                    bounds.extend(new kakao.maps.LatLng(data[i].y, data[i].x));
+                }       
+        
+                map.setBounds(bounds);
+            } 
+        }
+        
+        function displayMarker(place) {
+
+            var marker = new kakao.maps.Marker({
+                map: map,
+                position: new kakao.maps.LatLng(place.y, place.x) 
+            });
+        
+            kakao.maps.event.addListener(marker, 'click', function() {
+                infowindow.setContent('<div style="padding:5px;font-size:12px;">' + place.place_name + '</div>');
+                infowindow.open(map, marker);
+            });
+        }
         </script>
         </main>
 	`
@@ -83,10 +114,13 @@ module.exports = {
     
     <link rel="stylesheet" href="public/css/map.css" />
     <link rel="stylesheet" href="public/css/menu.css" />
+    <script src="public/js/menu.js" type="text/javascript"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=3a0965c75cdc0b99976416f11247b105"></script>
-	<script src="public/js/menu.js" type="text/javascript"></script>
-	<title>Hi Alcohol Map</title>
+	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=3a0965c75cdc0b99976416f11247b105&libraries=services"></script>
+	<script>
+            
+    </script>
+    <title>Hi Alcohol Map</title>
 
   </head>
   <body>
