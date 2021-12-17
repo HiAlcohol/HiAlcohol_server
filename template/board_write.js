@@ -17,7 +17,7 @@ module.exports = {
                 <a href="board-list.html"><img class="x_icon" src="/public/img/x_icon.png"></a>
             </div>
             <div class="hi_alcohol">
-                <a href="home.html" style="font-family: 'Pattaya', sans-serif; color: #0bf3bc">Hi Alcohol</a>
+                <a href="/" style="font-family: 'Pattaya', sans-serif; color: #0bf3bc">Hi Alcohol</a>
             </div>
             <div class="completion">
                 <input type="submit" value= "완료" style="background-color: #242424; color: #0BF3BC; font-size: 15px; border: 0;

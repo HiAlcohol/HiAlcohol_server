@@ -41,7 +41,7 @@ module.exports = {
 							// login 시에만 보이게 할 예정
 						</div>
 					</div>
-					<div class="logo" >Hi Alcohol</div>
+					<a href="/"><div class="logo" >Hi Alcohol</div></a>
 					<div width="45px"></div>
             	</div>
 				
