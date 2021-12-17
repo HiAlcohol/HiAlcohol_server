@@ -108,7 +108,7 @@ module.exports = {
 		<i class="fas fa-glass-martini-alt" style="font-size: 30px"></i>
 		</span>
 	</header>
-	<form class="homebar_search" method="get" action=search_list>
+	<form class="homebar__search" method="get" action=search_list>
       <input type="text" name="keyword" placeholder="예시 : 보드카">
       <button type="submit" onclick=" location.href='search_list.js">
          <i class="fas fa-search" style="font-size: 20px;"></i>

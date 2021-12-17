@@ -163,9 +163,6 @@ INSERT INTO `material`
 VALUES(53, '토닉워터');
 
 INSERT INTO `material`
-VALUES(53, '칼루아');
-
-INSERT INTO `material`
 VALUES(54, '우유');
 
 INSERT INTO `material`
