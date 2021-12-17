@@ -112,12 +112,12 @@ module.exports = {
 		<i class="fas fa-glass-martini-alt" style="font-size: 30px"></i>
 		</span>
 	</header>
-	<div class="homebar__search">
-		<input type="text" placeholder="예시 : 보드카" />
-		<button type="submit" onclick=" location.href='search.html'">
-		<i class="fas fa-search" style="font-size: 20px"></i>
-		</button>
-	</div>
+	<form class="homebar_search" method="get" action=search_list>
+      <input type="text" name="keyword" placeholder="예시 : 보드카">
+      <button type="submit" onclick=" location.href='search_list.js">
+         <i class="fas fa-search" style="font-size: 20px;"></i>
+      </button>
+   </form>
 	<div class="homebar__recommend">
 		<p style="color: white">이달의 술 추천</p>
 		<p style="color: white">소다주</p>
