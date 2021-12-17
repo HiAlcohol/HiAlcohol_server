@@ -1,0 +1,14 @@
+INSERT INTO `liked`
+VALUES (NULL, 1, 1);
+
+INSERT INTO `liked`
+VALUES (NULL, 2, 2);
+
+INSERT INTO `liked`
+VALUES (NULL, 2, 1);
+
+INSERT INTO `liked`
+VALUES (NULL, 3, 1);
+
+INSERT INTO `liked`
+VALUES (NULL, 4, 3);

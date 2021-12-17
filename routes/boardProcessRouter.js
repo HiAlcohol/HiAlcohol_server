@@ -6,7 +6,6 @@ const mysql = require('mysql');
 const db = require('../config/db.js');
 
 
-
 router.post('/', function(request, response) {
     const body = request.body;
     let title = body.title;

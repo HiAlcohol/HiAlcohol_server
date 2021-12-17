@@ -13,7 +13,7 @@ router.get('/', function(request, response) {
 	if (request.query.id === undefined) {
 		db.query(`SELECT post.id, post.title, post.createdate, count(*) 'count' 
 			FROM (SELECT * FROM post WHERE post.userId=${request.user.id}) post, liked 
-			WHERE post.id = liked.postId  group by post.id`, 
+			WHERE post.id = liked.postId group by post.id`, 
 		function(err, result) {
 			console.log(result);
 			var list ='';
@@ -39,9 +39,9 @@ router.get('/', function(request, response) {
 			response.send(html);
 		})
 	} else {
-		db.query(`SELECT * FROM post WHERE id=?`, [request.query.id], function(err, result) {
+		// db.query(`SELECT * FROM post WHERE id=?`, [request.query.id], function(err, result) {
 
-		})
+		// })
 	}
 	
 });
