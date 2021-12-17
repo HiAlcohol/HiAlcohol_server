@@ -100,7 +100,7 @@ module.exports = {
 	<nav class="homebar">
 	<header>
 		<a
-		href="index.html"
+		href="/"
 		style="font-family: 'Pattaya', sans-serif; color: #0bf3bc"
 		>Hi Alcohol
 		</a>

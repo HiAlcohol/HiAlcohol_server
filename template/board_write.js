@@ -36,13 +36,13 @@ module.exports = {
 </head>
 <body>
 		<div class="board_wrap">
-        <form action="http://localhost:3000/board_process" method="post" >
+        <form action="/board_process" method="post" >
         <div class="main_title">
             <div class="exit">
                 <a href="board-list.html"><img class="x_icon" src="/public/img/x_icon.png"></a>
             </div>
             <div class="hi_alcohol">
-                <a href="home.html" style="font-family: 'Pattaya', sans-serif; color: #0bf3bc">Hi Alcohol</a>
+                <a href="/" style="font-family: 'Pattaya', sans-serif; color: #0bf3bc">Hi Alcohol</a>
             </div>
             <div class="completion">
                 <input type="submit" value= "완료" style="background-color: #242424; color: #0BF3BC; font-size: 15px; border: 0;

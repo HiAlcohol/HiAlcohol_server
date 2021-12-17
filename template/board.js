@@ -36,14 +36,14 @@ module.exports = {
 					</div>
 					<div class="menu_wrap">
 						<div><a href="/board">꿀조합 게시판</a></div>
-						<div><a href="#">우리동네 주류매장</a></div>
+						<div><a href="/map">우리동네 주류매장</a></div>
 						<div><a href="/myboard">내가 쓴 꿀조합</a></div>
 						<div><a href="/likes">좋아요 리스트</a></div>
 						<div><a href="/logout">로그아웃</a></div>
 						// login 시에만 보이게 할 예정
 					</div>
 				</div>
-                <div class="logo">Hi Alcohol</div>
+                <a href="/"><div class="logo">Hi Alcohol</div></a>
                 <button type="button" class="writeBtn" id="img_btn"><img class="writeBtn" src="/public/img/writeButton.png"></button>
                 <!-- <div class="writeIcon"><img src="writeButton.png"></div> -->
             </div>
@@ -78,6 +78,7 @@ module.exports = {
 
     <link rel="stylesheet" href="/public/css/board.css">
 	<link rel="stylesheet" href="public/css/menu.css" />
+	<link rel="stylesheet" href="public/css/home.css" />
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 	<script src="public/js/menu.js" type="text/javascript"></script>
     <style>
