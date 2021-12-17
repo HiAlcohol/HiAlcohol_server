@@ -8,11 +8,35 @@ const mysql = require('mysql');
 const { post } = require('./indexRouter.js');
 const db = require('../config/db.js');
 
+function dateFormat(date) {
+	var newdate = new Date(date);
+	let month = newdate.getMonth() + 1;
+	let day = newdate.getDate();
 
+	month = month >= 10 ? month : '0' + month;
+	day = day >= 10 ? day : '0' + day;
+
+	return newdate.getFullYear() + '.' + month + '.' + day + ' ';
+}; 
+
+router.get('/write', function(request, response) {
+	const body = board_write.HOME();
+	response.send(board_write.HTML(body));
+});
 
 router.get('/', function(request, response) {
-	const body = board.HOME();
-	response.send(board.HTML(body));
+	db.query(`SELECT * from post`, function(err, result){
+		if (err) throw err;
+		var list = '';
+		for (var i = 0; i < result.length; i++) {
+			var title = result[i].title;
+			var userId = result[i].userId;
+			var createdate = dateFormat(result[i].createdate);
+			list += board.HOME(title, userId, createdate);
+		};
+		var body = board.HTML(list);
+		response.send(body);
+	});
 });
 
 router.get('/write', function(request, response) {
