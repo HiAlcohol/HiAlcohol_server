@@ -64,25 +64,8 @@ module.exports = {
             </button>
         </form>
         
-        <!-- 검색 결과 리스트(반복될 요소) -->
         ${list}
-
-        <div class="list" id="list1">
-            <a href="">내 마음대로 주</a>
-            <div class="recipe" id="btn1">></div>
-            <br><br>
-            <div class="input">
-                <div>체리</div>
-                <div>맥콜</div>
-                <div>사이다</div>
-                <div>소주</div>
-                <div>깔라만씨 토닉워터</div>
-                <div>토닉워터</div>
-                <div>토닉워터</div>
-            </div>  
-        </div>
        
-        
     </main>
     <!--    모달창(칵테일 레시피)     -->
     <div id="modal-overlay"></div>
@@ -149,15 +132,7 @@ module.exports = {
         var i = 0;
 
         var list = '';
-        var name = `
-        <div class="list" id="list1">
-        <a href="">${result[i].cocktail}</a>
-        <div class="recipe" id="btn1">></div>
-        <br><br>`;
-    //     var mat = ` 
-    //     <div class="input">
-    //     <div>${result[i].cocktail}</div></div>
-    // </div>`;
+
 
         while(i<result.length){
 			var j = 0;
