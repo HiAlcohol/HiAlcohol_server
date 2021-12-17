@@ -3,14 +3,7 @@ const express = require('express');
 const { fstat } = require('fs');
 const router = express.Router();
 const mysql = require('mysql');
-
-var db = require('../config/db.js')
-// const db = mysql.createConnection({
-// 	host: 'localhost',
-// 	user: 'root',
-// 	password: 'mysql1234',
-// 	database: 'hialcohol'
-// });
+const db = require('../config/db.js');
 
 
 router.post('/', function(request, response) {

@@ -38,7 +38,6 @@ module.exports = {
 							<div><a href="/myboard">내가 쓴 꿀조합</a></div>
 							<div><a href="/likes">좋아요 리스트</a></div>
 							<div><a href="/logout">로그아웃</a></div>
-							// login 시에만 보이게 할 예정
 						</div>
 					</div>
 					<a href="/"><div class="logo" >Hi Alcohol</div></a>
