@@ -39,6 +39,7 @@ header h2 {
 }
 
 main {
+    min-width: 500px;
     padding-top: 100px;
 }
 
