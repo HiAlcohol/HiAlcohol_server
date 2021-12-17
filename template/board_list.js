@@ -9,7 +9,7 @@ module.exports = {
                     </div>
                     <div class="like">
                         <button type="button" class="likebtn" id="img_btn"><img src="heart_outline.png"></button>
-                        <div>123</div>
+                        <div class="cnt">123</div>
                     </div>
                 </div>
                 <!-- 게시물 샘플 끝 (반복될 요소)-->

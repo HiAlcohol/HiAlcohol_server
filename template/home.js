@@ -19,11 +19,11 @@ module.exports = {
 		} else {
 			nickname = user.nickname;
 			profile_image = user.profile_image;
-			// menu_list = `
-			// <div><a href="#">내가 쓴 꿀조합</a></div>
-			// <div><a href="#">좋아요 리스트</a></div>
-			// <div><a href="/logout">로그아웃</a></div>
-			// `
+			menu_list = `
+			<div><a href="/myboard">내가 쓴 꿀조합</a></div>
+			<div><a href="/likes">좋아요 리스트</a></div>
+			<div><a href="/logout">로그아웃</a></div>
+			`
 		}
 		return `
 		
@@ -95,10 +95,6 @@ module.exports = {
 			<div><a href="/board">꿀조합 게시판</a></div>
 			<div><a href="#">우리동네 주류매장</a></div>
 			${menu_list}
-			<div><a href="/myboard">내가 쓴 꿀조합</a></div>
-			<div><a href="/likes">좋아요 리스트</a></div>
-			<div><a href="/logout">로그아웃</a></div>
-			// login 시에만 보이게 할 예정
 		</div>
 	</div>
 	<nav class="homebar">
@@ -135,6 +131,7 @@ module.exports = {
 	<meta charset="UTF-8" />
 	
 	<link rel="stylesheet" href="public/css/menu.css" />
+	<link rel="stylesheet" href="public/css/home.css" />
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 	<script src="public/js/menu.js" type="text/javascript"></script>
 		`;
