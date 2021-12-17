@@ -16,6 +16,9 @@ const flash = require('connect-flash');
 const passportConfig = require('./passport');
 const cookieParser = require('cookie-parser');
 
+const boardProcessRouter = require('./routes/boardProcessRouter.js')
+const db = require('./config/db.js')
+
 app.use(cookieParser('ras'));
 passportConfig();
 // parse application/x-www-form-urlencoded
@@ -47,7 +50,11 @@ app.use('/oauth', oauthRouter);
 app.use('/', indexRouter);
 
 app.use('/board', boardRouter);
+
 app.use('/search_list', search_listRouter);
+
+app.use('/board_process', boardProcessRouter);
+
 
 app.get('/logout', function(req, res) {
 	req.logout();
