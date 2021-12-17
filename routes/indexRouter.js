@@ -5,7 +5,6 @@ const home = require('../template/home.js');
 
 router.get('/', function(request, response) {
 	console.log('path: /');
-	console.log(request)
 	const body = home.HOME(request.user);
 	response.send(home.HTML(body));
 });

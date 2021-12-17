@@ -10,16 +10,23 @@ module.exports = {
 	},
 	HOME: function(user) {
 		console.log('HOME: ', user);
+		var nickname = '';
+		var profile_image = '';
+		var menu_list ='';
 		if (user === undefined) {
 			nickname = '로그인하기';
 			profile_image = '/public/img/loginIcon.png';
 		} else {
 			nickname = user.nickname;
 			profile_image = user.profile_image;
+			menu_list = `
+			<div><a href="#">내가 쓴 꿀조합</a></div>
+			<div><a href="#">좋아요 리스트</a></div>
+			<div><a href="/logout">로그아웃</a></div>
+			`
 		}
 		return `
-		<head>
-	<meta charset="UTF-8" />
+		
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<link
@@ -27,12 +34,9 @@ module.exports = {
 	href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
 	crossorigin="anonymous"
 	/>
+	<title>Hi Alcohol</title>
 	<!-- css, js 경로 수정-->
 	<link rel="stylesheet" href="public/css/home.css" />
-	<link rel="stylesheet" href="public/css/menu.css" />
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-	<script src="public/js/menu.js" type="text/javascript"></script>
-	<title>Hi Alcohol</title>
 	<style>
 	@import url("https://fonts.googleapis.com/css2?family=Pattaya&display=swap");
 	p {
@@ -90,9 +94,7 @@ module.exports = {
 		<div class="menu_wrap">
 			<div><a href="#">꿀조합 게시판</a></div>
 			<div><a href="#">우리동네 주류매장</a></div>
-			<div><a href="#">내가 쓴 꿀조합</a></div>
-			<div><a href="#">좋아요 리스트</a></div>
-			<div><a href="/logout">로그아웃</a></div>
+			${menu_list}
 		</div>
 	</div>
 	<nav class="homebar">
@@ -125,7 +127,12 @@ module.exports = {
 		return `
 		<!DOCTYPE html>
 <html lang="en">
-
+<head>
+	<meta charset="UTF-8" />
+	
+	<link rel="stylesheet" href="public/css/menu.css" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+	<script src="public/js/menu.js" type="text/javascript"></script>
 		`;
 	},
 	TAIL: function() {
