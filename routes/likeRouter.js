@@ -34,7 +34,7 @@ router.get('/', function(request, response) {
 				</a>
 				`
 			}
-			var body = template.HOME(list);
+			var body = template.HOME(list, request.user);
 			var html = template.HTML(body);
 			response.send(html);
 		})

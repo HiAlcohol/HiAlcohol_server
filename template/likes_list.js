@@ -1,3 +1,5 @@
+const menu = require('./menu.js');
+
 module.exports = {
 	HTML: function(body) {
 		const head = this.HEAD();
@@ -8,7 +10,8 @@ module.exports = {
 		${tail}
 		`
 	},
-	HOME: function(like_list) {
+	HOME: function(like_list, user) {
+		var menu_list = menu.MENU(user);
 		return `
 		<div class="wrapper">
 			<div class="contentWrapper">
@@ -32,13 +35,8 @@ module.exports = {
 								</div>
 							</a>
 						</div>
-						<div class="menu_wrap">
-							<div><a href="/board">꿀조합 게시판</a></div>
-							<div><a href="#">우리동네 주류매장</a></div>
-							<div><a href="/myboard">내가 쓴 꿀조합</a></div>
-							<div><a href="/likes">좋아요 리스트</a></div>
-							<div><a href="/logout">로그아웃</a></div>
-						</div>
+						${menu_list}
+						
 					</div>
 					<a href="/"><div class="logo" >Hi Alcohol</div></a>
 					<div width="45px"></div>

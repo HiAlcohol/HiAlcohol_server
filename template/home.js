@@ -1,3 +1,5 @@
+const menu = require('./menu.js');
+
 module.exports = {
 	HTML: function(body) {
 		const head = this.HEAD();
@@ -12,18 +14,13 @@ module.exports = {
 		console.log('HOME: ', user);
 		var nickname = '';
 		var profile_image = '';
-		var menu_list ='';
+		var menu_list = menu.MENU(user);
 		if (user === undefined) {
 			nickname = '로그인하기';
 			profile_image = '/public/img/loginIcon.png';
 		} else {
 			nickname = user.nickname;
 			profile_image = user.profile_image;
-			menu_list = `
-			<div><a href="/myboard">내가 쓴 꿀조합</a></div>
-			<div><a href="/likes">좋아요 리스트</a></div>
-			<div><a href="/logout">로그아웃</a></div>
-			`
 		}
 		return `
 		
@@ -91,11 +88,7 @@ module.exports = {
 				</div>
 			</a>
 		</div>
-		<div class="menu_wrap">
-			<div><a href="/board">꿀조합 게시판</a></div>
-			<div><a href="#">우리동네 주류매장</a></div>
-			${menu_list}
-		</div>
+		${menu_list}
 	</div>
 	<nav class="homebar">
 	<header>

@@ -7,7 +7,7 @@ const session = require('express-session');
 const MySQLStore = require('express-mysql-session')(session);
 
 const oauthRouter = require('./routes/loginRouter.js');
-
+const likeRouter = require('./routes/likeRouter');
 const boardRouter = require('./routes/boardRouter.js')
 const search_listRouter = require('./routes/search_listRouter.js');
 const mapRouter = require('./routes/mapRouter');
@@ -57,6 +57,8 @@ app.use('/search_list', search_listRouter);
 app.use('/map', mapRouter);
 
 app.use('/board_process', boardProcessRouter);
+
+app.use('/likes', likeRouter);
 
 
 app.get('/logout', function(req, res) {
