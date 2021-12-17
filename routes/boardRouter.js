@@ -24,7 +24,7 @@ router.get('/view', function(request, response){
 
 	db.query(`SELECT * from post`, function(err, result){
 
-		var queryData = request.parse(_url, true).query;
+		queryData = request.query;
 
 		if (err) throw err;
 		db.query(`SELECT * from post WHERE id=?`, [queryData.id], function(err2, result2){
