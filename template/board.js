@@ -14,6 +14,7 @@ module.exports = {
             <div class="subject">
                 <p>${title}</p>
                 <div class="info"><span>${userId}  </span> | <span>  ${createdate}</span></div>
+
             </div>
             <div class="like">
             <button type="button" class="likebtn" id="img_btn"><img src="/public/img/heart_outline.png"></button>
@@ -72,6 +73,7 @@ module.exports = {
         
                     width: 100%;
                     height: 80px;
+
         
                     padding: 20px;
                     box-sizing: border-box;

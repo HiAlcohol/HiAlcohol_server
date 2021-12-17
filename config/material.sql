@@ -2,6 +2,7 @@
 -- insert into `recipe` values(null, 'cocktail', 'content')
 -- 재료테이블
 -- 재료테이블
+
 INSERT INTO `material`
 VALUES(1, '보드카');
 
@@ -160,9 +161,6 @@ VALUES(52, '깔루아');
 
 INSERT INTO `material`
 VALUES(53, '토닉워터');
-
-INSERT INTO `material`
-VALUES(53, '칼루아');
 
 INSERT INTO `material`
 VALUES(54, '우유');

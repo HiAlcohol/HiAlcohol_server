@@ -1,4 +1,5 @@
 -- 제품 테이블
+
 INSERT INTO `product`
 VALUES(NULL, '보드카', '앱솔루트');
 
@@ -88,3 +89,18 @@ VALUES (NULL, '럼', '골드 오브 모리셔스');
 
 INSERT INTO `product`
 VALUES(NULL, '럼', '엘 도라도');
+
+INSERT INTO `product`
+VALUES(NULL, '드라이진', '봄베이 사파이어');
+
+INSERT INTO `product`
+VALUES(NULL, '드라이진', '고든스');
+
+INSERT INTO `product`
+VALUES(NULL, '드라이진', '비피터');
+
+INSERT INTO `product`
+VALUES(NULL, '드라이진', '런던 드라이 진');
+
+INSERT INTO `product`
+VALUES(NULL, '드라이진', '라리오스');

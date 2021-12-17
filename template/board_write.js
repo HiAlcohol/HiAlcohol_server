@@ -1,44 +1,8 @@
 module.exports = {
 	HTML: function(body) {
-		const head = this.HEAD();
-		const tail = this.TAIL();
+		
 		return `
-		${head}
-		${body}
-		${tail}
-		`
-	},
-	HOME: function() {
-		return `
-		<div class="board_wrap">
-        <div class="main_title">
-            <div class="exit">
-                <a href="board-list.html"><img class="x_icon" src="/public/img/x_icon.png"></a>
-            </div>
-            <div class="hi_alcohol">
-                <a href="home.html" style="font-family: 'Pattaya', sans-serif; color: #0bf3bc">Hi Alcohol</a>
-            </div>
-            <div class="completion">
-                <a href="board_view.html" style="color: #0BF3BC;">완료</a>
-            </div>
-            
-        </div>
-        <div class ="container" >
-            <div class="title">
-                <input type="text" placeholder=" 제목" >
-            </div>
-            <div class="Contents">
-                <textarea placeholder="    
- 내용 입력"></textarea>
-            </div>
-        
-        </div>
-	</nav>
-	`
-	},
-	HEAD: function() {
-		return `
-		<!DOCTYPE html>
+        <!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
@@ -71,12 +35,36 @@ module.exports = {
     <link rel="stylesheet" href="/public/css/board_write_css.css">
 </head>
 <body>
-		`;
-	},
-	TAIL: function() {
-		return `
-		</body>
+		<div class="board_wrap">
+        <form action="/board_process" method="post" >
+        <div class="main_title">
+            <div class="exit">
+                <a href="board-list.html"><img class="x_icon" src="/public/img/x_icon.png"></a>
+            </div>
+            <div class="hi_alcohol">
+                <a href="/" style="font-family: 'Pattaya', sans-serif; color: #0bf3bc">Hi Alcohol</a>
+            </div>
+            <div class="completion">
+                <input type="submit" value= "완료" style="background-color: #242424; color: #0BF3BC; font-size: 15px; border: 0;
+                outline: 0;">
+            </div>
+            
+        </div>
+        <div class ="container" >
+            <div class="title">
+                <input type="text" name="title" placeholder=" 제목" >
+            </div>
+            <div class="Contents">
+                <textarea name="content" placeholder="    
+ 내용 입력"></textarea>
+            </div>
+        
+        </div>
+        </form>
+	</nav>
+	</body>
 </html>
 		`
 	}
+	
 };

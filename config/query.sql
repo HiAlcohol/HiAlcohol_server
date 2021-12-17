@@ -19,7 +19,7 @@ create table `post` (
 	PRIMARY KEY (`id`)
 );
 
-create table `like` (
+create table `liked` (
 	`id` bigint NOT NULL AUTO_INCREMENT,
 	`postId` bigint NOT NULL,
 	`userId` bigint NOT NULL,
@@ -49,7 +49,7 @@ create table `inclusion` (
 
 create table `product` (
 	`id` bigint NOT NULL AUTO_INCREMENT,
-	`name` varchar(40) NOT NULL UNIQUE,
 	`alcolType` varchar(20),
+	`name` varchar(40) NOT NULL UNIQUE,
 	PRIMARY KEY (`id`)
 );

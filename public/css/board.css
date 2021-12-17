@@ -9,11 +9,12 @@ body {
 }
 /*개별 적용*/
 .wrapper {
-    width: 500px;
+    /* width: 500px; */
     height: 100%;
     min-height: 100vh;
     background-color:#242424;
     margin: auto;
+	padding: 10px;
 }
 .menuBar {
     display: flex;
@@ -33,6 +34,14 @@ body {
     background-color: #242424;
 }
 
+.header2 {
+	height: 50px;
+	display: flex;
+	justify-content: center;
+	justify-content: space-between;
+	align-items: center;
+}
+
 /* menu */
 /* .menuIcon {
     width: 30px;
@@ -41,9 +50,12 @@ body {
 } */
 
 .logo {
+	display: flex;
+	justify-content: center;
     font-family: 'Pattaya';
     font-size: 25px;
     color: #0BF3BC;
+	align-items: center;
 }
 
 /* .writeIcon {
@@ -60,10 +72,11 @@ body {
 }
 
 .writeBtn{
-    width: 32px;
-    height: 32px;
+    width: 40px;
     background-color: transparent;
     border: none;
+	margin-right: 20px;
+	padding-top: 5px;
 }
 
 /*content*/
@@ -76,6 +89,9 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+	margin-bottom: 15px;
+	
+	text-decoration: none;
 }
 .content p {
     margin: 0;
@@ -91,8 +107,18 @@ body {
     margin-top: 14px;
 }
 
+.like {
+	display: flexbox;
+	justify-content: center;
+	align-items: center;
+}
+
 .likebtn {
     background-color: #242424;
     border: none;
     align-items: center;
+}
+.cnt {
+	text-align: center;
+	font-size: 15px;
 }
