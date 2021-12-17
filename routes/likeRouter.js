@@ -19,7 +19,7 @@ router.get('/', function(request, response) {
 		console.log(result[0].createdate)
 		for (var i = 0;i < result.length; i++) {
 			list += `
-			<a href="#">
+			<a href='/likes?id=${result[i].id}'>
 				<div class="content">
                     <div class="subject">
                         <p>${result[i].title}</p>
