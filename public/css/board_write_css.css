@@ -1,12 +1,17 @@
 body {
-    padding: 20px;
+    /* padding: 20px;
     margin: 0 auto;
-    width: 40%;
+    width: 40%; */
+    padding: 20px;
+    margin-left: 10%;
+    margin-right: 10%;
     background-color: #242424;
     font-size: 15px;
 
 }
-
+.board_wrap{
+    text-align: center;
+}
 
 .main_title{
     display: flex;

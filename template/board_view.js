@@ -23,7 +23,7 @@ module.exports = {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>공지사항</title>
+    <title>게시글 상세보기 페이지</title>
     <link rel="stylesheet" href="/public/css/board_view_css.css">
     <link rel="stylesheet" href="/public/css/menu.css">
     <link
@@ -48,23 +48,24 @@ module.exports = {
             </div>
         </a>
     </div>
-    <div class="menu_bg"></div>
-    <div class="sidebar_menu">
-		<div class="close_btn">
-			<a href="#">
-				<div class="container">
-					<img src="public/img/back.png" height="18px" style="text-align: right; display: flexbox;"/>
+				<div class="menu_bg"></div>
+				<div class="sidebar_menu">
+					<div class="close_btn">
+						<a href="#">
+							<div class="container">
+								<img src="public/img/back.png" height="18px" style="text-align: right; display: flexbox;"/>
+							</div>
+						</a>
+					</div>
+					<div class="menu_wrap">
+						<div><a href="/board">꿀조합 게시판</a></div>
+						<div><a href="/map">우리동네 주류매장</a></div>
+						<div><a href="/myboard">내가 쓴 꿀조합</a></div>
+						<div><a href="/likes">좋아요 리스트</a></div>
+						<div><a href="/logout">로그아웃</a></div>
+						// login 시에만 보이게 할 예정
+					</div>
 				</div>
-			</a>
-		</div>
-		<div class="menu_wrap">
-			<div><a href="/board">꿀조합 게시판</a></div>
-			<div><a href="#">우리동네 주류매장</a></div>
-			<div><a href="/myboard">내가 쓴 꿀조합</a></div>
-			<div><a href="/likes">좋아요 리스트</a></div>
-			<div><a href="/logout">로그아웃</a></div>
-		</div>
-	</div>
             <div class="hi_alcohol">
                 <a href="/" style="font-family: 'Pattaya', sans-serif; color: #0bf3bc">Hi Alcohol</a>
             </div>

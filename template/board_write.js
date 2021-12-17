@@ -7,7 +7,7 @@ module.exports = {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>공지사항</title>
+    <title>글 작성 페이지</title>
     <link rel="stylesheet" href="/public/css/board_write_css.css">
 </head>
 <style>
@@ -39,7 +39,7 @@ module.exports = {
         <form action="/board_process" method="post" >
         <div class="main_title">
             <div class="exit">
-                <a href="board-list.html"><img class="x_icon" src="/public/img/x_icon.png"></a>
+                <a href="/board"><img class="x_icon" src="/public/img/x_icon.png"></a>
             </div>
             <div class="hi_alcohol">
                 <a href="/" style="font-family: 'Pattaya', sans-serif; color: #0bf3bc">Hi Alcohol</a>

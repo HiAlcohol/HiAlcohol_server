@@ -44,7 +44,10 @@ module.exports = {
 					</div>
 				</div>
                 <a href="/"><div class="logo">Hi Alcohol</div></a>
-                <button type="button" class="writeBtn" id="img_btn"><img class="writeBtn" src="/public/img/writeButton.png"></button>
+				<div class = "writeBtn">
+					<a href="/board/write"><img class="writeBtn" src="/public/img/writeButton.png"></a>
+				</div>
+                
                 <!-- <div class="writeIcon"><img src="writeButton.png"></div> -->
             </div>
             <div class="contentList">
