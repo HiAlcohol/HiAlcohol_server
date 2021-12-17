@@ -44,7 +44,7 @@ module.exports = {
 					</div>
 				</div>
                 <div class="logo">Hi Alcohol</div>
-                <button type="button" class="writeBtn" id="img_btn"><img class="writeBtn" src="/public/img/writeButton.png" width="40px"></button>
+                <button type="button" class="writeBtn" id="img_btn"><img class="writeBtn" src="/public/img/writeButton.png"></button>
                 <!-- <div class="writeIcon"><img src="writeButton.png"></div> -->
             </div>
             <div class="contentList">
