@@ -66,7 +66,7 @@ module.exports = {
 		</div>
 	</div>
             <div class="hi_alcohol">
-                <a href="home.html" style="font-family: 'Pattaya', sans-serif; color: #0bf3bc">Hi Alcohol</a>
+                <a href="/" style="font-family: 'Pattaya', sans-serif; color: #0bf3bc">Hi Alcohol</a>
             </div>
             <div class="completion">
                 <p></p>
