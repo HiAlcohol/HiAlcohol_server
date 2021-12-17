@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const search_list = require('../template/search_list.js');
+const recipe = require('../template/recipe.js');
 var db = require('../config/db'); // db.js 폴더 경로
 var url = require('url');
 
@@ -79,6 +80,37 @@ router.get('/', async function(request, response){
 		});
 	})
 	
+});
+
+router.get('/recipe', function(request, response){
+
+
+	db.query(`select * from recipe`, function(err, result){
+
+		var _url = request.url;
+		var queryData = url.parse(_url, true).query;
+
+		if (err) throw err;
+		db.query(`select * from recipe WHERE id=?`, [queryData.id], function(err2, result2){
+
+			if (err2) throw err2;
+
+			var name = result2[0].cocktail;
+			var rate = result2[0].rate;
+			var content = result2[0].content;
+
+			
+
+			var html = recipe.HTML(name, rate, content);
+
+			response.send(html);
+			// response.send(result2);
+		});
+
+
+	});
+
+
 });
 
 module.exports = router;
