@@ -5,7 +5,6 @@ const board = require('../template/board.js');
 const board_write = require('../template/board_write.js');
 const board_view = require('../template/board_view.js');
 const mysql = require('mysql');
-var url = require('url');
 const { post } = require('./indexRouter.js');
 const db = require('../config/db.js');
 
@@ -13,11 +12,11 @@ const db = require('../config/db.js');
 
 router.get('/', function(request, response) {
 	const body = board.HOME();
+	response.send(board.HTML(body));
 });
 
 router.get('/write', function(request, response) {
-	const body = board.HOME();
-	response.send(board_write.HTML(body));
+	response.send(board_write.HTML(board_write.HTML));
 });
 
 router.get('/view', function(request, response){
@@ -25,8 +24,7 @@ router.get('/view', function(request, response){
 
 	db.query(`SELECT * from post`, function(err, result){
 
-		var _url = request.url;
-		var queryData = url.parse(_url, true).query;
+		var queryData = request.parse(_url, true).query;
 
 		if (err) throw err;
 		db.query(`SELECT * from post WHERE id=?`, [queryData.id], function(err2, result2){

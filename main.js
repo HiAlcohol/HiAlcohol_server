@@ -7,7 +7,7 @@ const session = require('express-session');
 const MySQLStore = require('express-mysql-session')(session);
 
 const oauthRouter = require('./routes/loginRouter.js');
-const likeRouter = require('./routes/likeRouter');
+
 const boardRouter = require('./routes/boardRouter.js')
 const search_listRouter = require('./routes/search_listRouter.js');
 const passport = require('passport');
@@ -47,13 +47,13 @@ app.use(flash());
 app.use('/public', express.static( __dirname + '/public'));
 app.use('/oauth', oauthRouter);
 
+app.use('/', indexRouter);
+
 app.use('/board', boardRouter);
 
 app.use('/search_list', search_listRouter);
 
 app.use('/board_process', boardProcessRouter);
-
-app.use('/likes', likeRouter);
 
 
 app.get('/logout', function(req, res) {
@@ -62,8 +62,6 @@ app.get('/logout', function(req, res) {
 		res.redirect('/');
 	})
 });
-
-app.use('/', indexRouter);
 
 app.use(function(req, res, next) {	
     res.status(404).send('Sorry cant find that!');
