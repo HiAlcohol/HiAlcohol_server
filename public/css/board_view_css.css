@@ -1,0 +1,89 @@
+*:not(i) {
+    font-family: GmarketSansMedium;
+}
+
+body {
+    padding: 20px;
+    margin-left: 10%;
+    margin-right: 10%;
+    background-color: #242424;
+    font-size: 15px;
+    color: white;
+}
+
+a { 
+    text-decoration:none ;
+
+}
+
+.board_wrap{
+    text-align: center;
+}
+.board_wrap .title{
+    margin-bottom: 20px;
+    margin-top: 20px;
+    box-sizing: border-box;
+    text-align: left;
+
+}
+.container{
+    width: 100%;
+    margin: 0 auto;
+    max-width: 700px;
+
+}
+.heading{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.user_data{
+    display: flex;
+
+}
+.user_data p{
+   color: gray;
+   font-size: 12px;
+}
+.user_data p:nth-child(2){
+    padding: 0 5px;
+}
+.content{
+   width: 100%;
+   height: 50vh;    
+   text-align: left;
+}
+.option{
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+}
+.option a{
+   font-size: 20px;
+   text-decoration: none;
+   color: white;
+
+}
+.option p{
+padding: 0 30px;
+font-size: 20px;
+}
+.like img{
+   width: 30px;
+   height: 30px;
+}
+.like p{
+   font-size: 12px;
+}
+
+.hi_alcohol{
+    font-family: 'Pattaya', sans-serif; 
+    color: #0BF3BC; 
+    font-size: 25px;
+
+}
+.main_title{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

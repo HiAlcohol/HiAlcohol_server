@@ -33,7 +33,7 @@ app.use(session({
 		host: "localhost",
 		port: 3306,
 		user: "root",
-		password: "qwerty123",
+		password: "mysql1234",
 		database: "hialcohol"
 	})
 }));
@@ -66,6 +66,7 @@ app.get('/logout', function(req, res) {
 app.use(function(req, res, next) {	
     res.status(404).send('Sorry cant find that!');
 });
+
 
 app.use(function (err, req, res, next) {
     console.error(err.stack)
