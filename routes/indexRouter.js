@@ -7,8 +7,6 @@ router.get('/', function(request, response) {
 	console.log('path: /');
 	console.log(request)
 	const body = home.HOME(request.user);
-	console.log('1');
-	console.log(request.session);
 	response.send(home.HTML(body));
 });
 
