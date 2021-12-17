@@ -10,6 +10,7 @@ const oauthRouter = require('./routes/loginRouter.js');
 
 const boardRouter = require('./routes/boardRouter.js')
 const search_listRouter = require('./routes/search_listRouter.js');
+const mapRouter = require('./routes/mapRouter');
 const passport = require('passport');
 const flash = require('connect-flash');
 
@@ -33,7 +34,7 @@ app.use(session({
 		host: "localhost",
 		port: 3306,
 		user: "root",
-		password: "qwerty123",
+		password: "qwert123",
 		database: "hialcohol"
 	})
 }));
@@ -52,6 +53,8 @@ app.use('/', indexRouter);
 app.use('/board', boardRouter);
 
 app.use('/search_list', search_listRouter);
+
+app.use('/map', mapRouter);
 
 app.use('/board_process', boardProcessRouter);
 
