@@ -160,7 +160,14 @@ module.exports = {
     // </div>`;
 
         while(i<result.length){
-            
+			var j = 0;
+			var materials = ``;
+            while (j < result[i].materials.length) {
+				materials += `
+                    <div>${result[i].materials[j]}</div>
+				`
+				j++;
+			}
 
             list = list + 
                 `
@@ -170,7 +177,7 @@ module.exports = {
                 <br><br>`+ 
                 ` 
                 <div class="input">
-                    <div>${result[i].material}</div></div>
+                    ${materials}</div>
                 </div>`;
             i = i + 1;
         }
