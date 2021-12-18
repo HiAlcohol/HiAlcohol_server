@@ -18,7 +18,7 @@ module.exports = {
             </div>
             <div class="like">
             <button type="button" class="likebtn" id="img_btn"><img src="/public/img/heart_outline.png"></button>
-                <div>조아요 개수</div>
+                <div class="cnt">조아요 개수</div>
             </div>
         </div>
         `;
