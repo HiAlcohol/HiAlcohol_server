@@ -34,8 +34,14 @@ header {
     position: fixed;
 }
 
-header h2 {
-    margin-top: -20px;
+.hi_alcohol{
+    margin-top: -30px;
+    margin-bottom: 100px;
+}
+
+.hi_alcohol a{
+	text-decoration: none;
+	font-size: 35px;
 }
 
 main {
