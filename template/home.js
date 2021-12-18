@@ -62,11 +62,11 @@ module.exports = {
 	<!-- hamburger menu -->
 	<div class="menu_btn">
 		<a href="#">
-		<div class="container">
-			<div class="bar1"></div>
-			<div class="bar2"></div>
-			<div class="bar3"></div>
-		</div>
+			<div class="container">
+				<div class="bar1"></div>
+				<div class="bar2"></div>
+				<div class="bar3"></div>
+			</div>
 		</a>
 	</div>
 	<div class="login_btn">

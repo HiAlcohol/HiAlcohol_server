@@ -13,7 +13,6 @@ module.exports = {
                     <div class="bar1"></div>
                     <div class="bar2"></div>
                     <div class="bar3"></div>
-                    <!-- <img src="menuIcon.png" width="40px" /> -->
                 </div>
             </a>
         </div>
