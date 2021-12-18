@@ -80,28 +80,18 @@ module.exports = {
             <div><a href="#">로그아웃</a></div>
         </div>
     </div>
-            <div class="hi_alcohol">
-                <a href="home.html" style="font-family: 'Pattaya', sans-serif; color: #0bf3bc">Hi Alcohol</a>
-            </div>
-
+        <div class="hi_alcohol">
+            <a href="/" style="font-family: 'Pattaya', sans-serif; color: #0bf3bc">Hi Alcohol</a>
+        </div>
 
         <div class="recipe">
-            <div class="title">
-                <h2 style="color: white">${name}</h2>
-                <div class="modal_close">X</div>
-            </div>
-    
-            <div class="content">
-                <div class="input">
-                    <div>재료</div>
-                    <div>맥콜</div>
-                    <div>사이다</div>
-                </div>
-    
-                <h3 style="color: white">${rate}</h3>
-                <br><br>
-               <p>${content}</p>
-            </div>
+            <div>&nbsp${name}&nbsp</div>
+            <br><br><br>
+            <p>- 비율 -</p>
+            <h2 style="color: white">${rate}</h2>
+            <br><br>
+            <h2>${content}</h2>
+        </div>
     
         </div>
 
