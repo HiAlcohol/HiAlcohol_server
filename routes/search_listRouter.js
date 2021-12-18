@@ -13,7 +13,7 @@ class Item
 
 router.get('/', async function(request, response){
 	
-	sql = `select recipe.cocktail, material.material from recipe, material  where
+	sql = `select recipe.id, recipe.cocktail, material.material from recipe, material  where
 	material.id =any(select inclusion.materialId from inclusion where inclusion.recipeId= recipe.id )`
 	
 	db.query(sql, function(err0, result0){
@@ -21,7 +21,7 @@ router.get('/', async function(request, response){
 		var queryData = url.parse(_url, true).query;
 		// console.log(queryData.query)
 
-		sql2 = `select recipe.cocktail, material.material from recipe, material  where recipe.id=any(select recipeId from inclusion 
+		sql2 = `select recipe.id, recipe.cocktail, material.material from recipe, material  where recipe.id=any(select recipeId from inclusion 
 			where  materialId = any(select id from material 
 				where material= '${queryData.keyword}' or material = any(select alcolType from product where name='${queryData.keyword}'))) 
 				and material.id =any(select inclusion.materialId from inclusion where inclusion.recipeId= recipe.id )`
@@ -37,6 +37,7 @@ router.get('/', async function(request, response){
 			if(result.length===0){
 				for (var i = 0;i < result0.length - 1;i++) {
 					var item = new Item();
+					item.id = result0[i].id;
 					item.cocktail = result0[i].cocktail;
 					item.materials[0] = result0[i].material;
 					recipe_list[index] = item;
@@ -56,6 +57,7 @@ router.get('/', async function(request, response){
 			} else{
 				for (var i = 0;i < result.length - 1;i++) {
 					var item = new Item();
+					item.id = result[i].id;
 					item.cocktail = result[i].cocktail;
 					item.materials[0] = result[i].material;
 					recipe_list[index] = item;
@@ -74,7 +76,7 @@ router.get('/', async function(request, response){
 				var html = search_list.HTML( list)
 			}
 			
-			// console.log(recipe_list)
+			console.log(recipe_list)
 			
 			response.send(html);
 		});
@@ -98,8 +100,6 @@ router.get('/recipe', function(request, response){
 			var name = result2[0].cocktail;
 			var rate = result2[0].rate;
 			var content = result2[0].content;
-
-			
 
 			var html = recipe.HTML(name, rate, content);
 

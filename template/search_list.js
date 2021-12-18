@@ -67,6 +67,7 @@ module.exports = {
         ${list}
        
     </main>
+    
      
 		${tail}
 		`
@@ -119,8 +120,8 @@ module.exports = {
             list = list + 
                 `
                 <div class="list" id="list1">
-                <a href="">${result[i].cocktail}</a>
-                <div class="recipe" id="btn1">></div>
+                <a href="/search_list/recipe?id=${result[i].id}">${result[i].cocktail}</a>
+               
                 <br><br>`+ 
                 ` 
                 <div class="input">
