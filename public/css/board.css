@@ -83,6 +83,7 @@ body {
 .contentList{
     padding: 20px;
     box-sizing: border-box;
+    margin-bottom: 30;
 }
 .content {
     display: flex;

@@ -91,6 +91,7 @@
 .menu_wrap {
 	list-style: none;
 	padding: 10px;
+	background-color: #2f2f2f;
 }
 .menu_wrap div {
 	margin-bottom: 26px;
@@ -101,4 +102,9 @@
 	font-size: 13pt;
 	color: #8b8b8b;
 	text-decoration: none;
+}
+
+.blank {
+	width: 45px;
+	padding: 10px;
 }

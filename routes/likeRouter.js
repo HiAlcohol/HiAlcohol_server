@@ -12,7 +12,7 @@ router.get('/', function(request, response) {
 	}
 	if (request.query.id === undefined) {
 		db.query(`SELECT post.id, post.title, post.createdate, count(*) 'count' 
-			FROM (SELECT * FROM post WHERE post.userId=${request.user.id}) post, liked 
+			FROM post, liked 
 			WHERE post.id = liked.postId group by post.id`, 
 		function(err, result) {
 			console.log(result);

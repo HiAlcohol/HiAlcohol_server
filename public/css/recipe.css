@@ -1,0 +1,52 @@
+@charset "utf-8";
+/*폰트*/
+@import url('https://fonts.googleapis.com/css2?family=Pattaya&display=swap');
+
+p {
+    font-family: 'Pattaya', sans-serif;
+    color: white;
+}
+
+h2 {
+    color: white;
+}
+
+@font-face {
+    font-family: 'GmarketSansMedium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+*:not(i) {
+    font-family: GmarketSansMedium;
+}
+
+body {
+	padding: 20px;
+    margin: 0;
+    background-color: #242424;
+    text-align: center;
+    font-size: 15px;
+}
+.hi_alcohol{
+    margin-top: -40px;
+    margin-bottom: 100px;
+}
+
+.hi_alcohol a{
+	text-decoration: none;
+	font-size: 35px;
+}
+
+.recipe div{
+    height: 70px;
+    line-height: 70px;
+    max-width: 600px;
+    margin: auto;
+    border:  2px solid white;
+    border-radius: 15px;
+    font-size: 30px;
+    color: white;
+    display: inline-block;
+}

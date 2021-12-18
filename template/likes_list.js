@@ -31,7 +31,7 @@ module.exports = {
 						<div class="close_btn">
 							<a href="#">
 								<div class="container">
-									<img src="public/img/back.png" height="18px" style="text-align: right; display: flexbox;"/>
+									<img src="/public/img/back.png" height="18px" style="text-align: right; display: flexbox;"/>
 								</div>
 							</a>
 						</div>
@@ -39,7 +39,7 @@ module.exports = {
 						
 					</div>
 					<a href="/"><div class="logo" >Hi Alcohol</div></a>
-					<div width="45px"></div>
+					<div class="blank"></div>
             	</div>
 				
 			
@@ -62,8 +62,8 @@ module.exports = {
     <title>Document</title>
 
     <link rel="stylesheet" href="/public/css/board.css">
-	<link rel="stylesheet" href="public/css/menu.css" />
-	<link rel="stylesheet" href="public/css/home.css" />
+	<link rel="stylesheet" href="/public/css/menu.css" />
+	<link rel="stylesheet" href="/public/css/home.css" />
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 	<script src="public/js/menu.js" type="text/javascript"></script>
     <style>

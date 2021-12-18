@@ -13,7 +13,6 @@ module.exports = {
                     <div class="bar1"></div>
                     <div class="bar2"></div>
                     <div class="bar3"></div>
-                    <!-- <img src="menuIcon.png" width="40px" /> -->
                 </div>
             </a>
         </div>
@@ -21,23 +20,9 @@ module.exports = {
         <div class="sidebar_menu">
             <div class="close_btn">
                 <a href="#">
-                    <div class="container">
-                        <div
-                                class="change bar1 a"
-                                style="
-                    -webkit-transform: rotate(-45deg) translate(-1px, 1px);
-                    transform: rotate(-45deg) translate(-1px, 1px);
-                  "
-                        ></div>
-                        <div
-                                class="bar3 change b"
-                                style="
-                    -webkit-transform: rotate(45deg) translate(-4px, -4px);
-                    transform: rotate(45deg) translate(-4px, -4px);
-                  "
-                        ></div>
-                    </div>
-                    <!-- <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBkPSJNMjMuOTU0IDIxLjAzbC05LjE4NC05LjA5NSA5LjA5Mi05LjE3NC0yLjgzMi0yLjgwNy05LjA5IDkuMTc5LTkuMTc2LTkuMDg4LTIuODEgMi44MSA5LjE4NiA5LjEwNS05LjA5NSA5LjE4NCAyLjgxIDIuODEgOS4xMTItOS4xOTIgOS4xOCA5LjF6Ii8+PC9zdmc+"> -->
+				<div class="container">
+				<img src="/public/img/back.png" height="18px" style="text-align: right; display: flexbox;"/>
+			</div>
                 </a>
             </div>
             <div class="menu_wrap">
@@ -49,9 +34,9 @@ module.exports = {
             </div>
         </div>
     
-        <h2 style="font-family: 'Pattaya', sans-serif; color: #0bf3bc">
-            Hi Alcohol
-        </h2>
+        <div class="hi_alcohol">
+        <a href="/" style="font-family: 'Pattaya', sans-serif; color: #0bf3bc">Hi Alcohol</a>
+        </div>
     
     </header>
     <main>
@@ -67,34 +52,7 @@ module.exports = {
         ${list}
        
     </main>
-    <!--    모달창(칵테일 레시피)     -->
-    <div id="modal-overlay"></div>
-    <div id="modal">
-        <div class="modal-window">
-            <div class="title">
-                <h2 style="color: white">내 마음대로 주</h2>
-                <div class="modal_close">X</div>
-            </div>
     
-            <div class="content">
-                <div class="input">
-                    <div>재료</div>
-                    <div>맥콜</div>
-                    <div>사이다</div>
-                </div>
-    
-                <h3 style="color: white">소주 5 : 맥주 1 : 사이다 0.1</h3>
-                <ol>
-                    <li>소주를 한 병 넣는다.</li>
-                    <li>소주를 두 병 넣는다.</li>
-                    <li>소주를 세 병 마시면서 쉰다.</li>
-                    <li>소주를 네 병 넣는다.</li>
-                    <li>소주를 다섯 병 넣고 섞어서 원샷한다.</li>
-                </ol>
-            </div>
-    
-        </div>
-    </div>
      
 		${tail}
 		`
@@ -147,8 +105,8 @@ module.exports = {
             list = list + 
                 `
                 <div class="list" id="list1">
-                <a href="">${result[i].cocktail}</a>
-                <div class="recipe" id="btn1">></div>
+                <a href="/search_list/recipe?id=${result[i].id}">${result[i].cocktail}</a>
+               
                 <br><br>`+ 
                 ` 
                 <div class="input">
