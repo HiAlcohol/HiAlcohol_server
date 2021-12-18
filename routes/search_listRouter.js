@@ -14,7 +14,8 @@ class Item
 router.get('/', async function(request, response){
 	
 	sql = `select recipe.id, recipe.cocktail, material.material from recipe, material  where
-	material.id =any(select inclusion.materialId from inclusion where inclusion.recipeId= recipe.id )`
+	material.id =any(select inclusion.materialId from inclusion where inclusion.recipeId= recipe.id )
+	order by recipe.cocktail asc`
 	
 	db.query(sql, function(err0, result0){
 		var _url = request.url;
@@ -24,7 +25,7 @@ router.get('/', async function(request, response){
 		sql2 = `select recipe.id, recipe.cocktail, material.material from recipe, material  where recipe.id=any(select recipeId from inclusion 
 			where  materialId = any(select id from material 
 				where material= '${queryData.keyword}' or material = any(select alcolType from product where name='${queryData.keyword}'))) 
-				and material.id =any(select inclusion.materialId from inclusion where inclusion.recipeId= recipe.id )`
+				and material.id =any(select inclusion.materialId from inclusion where inclusion.recipeId= recipe.id ) order by recipe.cocktail asc`
 		
 		if(err0) throw err0;
 
@@ -42,7 +43,7 @@ router.get('/', async function(request, response){
 					item.materials[0] = result0[i].material;
 					recipe_list[index] = item;
 					for (var j = i + 1; j < result0.length; j++){
-						if (result0[i].cocktail === result0[j].cocktail) {
+						if (result0[i].id === result0[j].id) {
 							recipe_list[index].materials[recipe_list[index].materials.length] = result0[j].material;
 						} else {
 							index++;
@@ -62,7 +63,7 @@ router.get('/', async function(request, response){
 					item.materials[0] = result[i].material;
 					recipe_list[index] = item;
 					for (var j = i + 1; j < result.length; j++){
-						if (result[i].cocktail === result[j].cocktail) {
+						if (result[i].id === result[j].id) {
 							recipe_list[index].materials[recipe_list[index].materials.length] = result[j].material;
 						} else {
 							index++;
