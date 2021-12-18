@@ -39,7 +39,7 @@ module.exports = {
 						
 					</div>
 					<a href="/"><div class="logo" >Hi Alcohol</div></a>
-					<div width="45px"></div>
+					<div class="blank"></div>
             	</div>
 				
 			

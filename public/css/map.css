@@ -26,24 +26,28 @@ p {
 body {
     margin: 0;
     background-color: #242424;
-    display: flex;
-    justify-content: center;
+    /* display: flex; */
+    /* justify-content: center; */
     text-align: center;
 }
 
 header {
-    height: 70px;
+    /* height: 70px; */
     width: 100%;
     padding-top: 2px;
     /* background-color: #242424; */
     position: fixed;
 }
 
-header h2 {
-    margin-top: -50px;
+header a {
+    /* margin-top: -50px; */
+	text-decoration: none;
+	font-size: 25px;
 }
 
 main {
+	display: flex;
+    justify-content: center;
     min-width: 700px;
     padding-top: 100px;
 }

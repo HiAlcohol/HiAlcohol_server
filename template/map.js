@@ -13,9 +13,10 @@ module.exports = {
     HOME: function(user) {
 		var menu_list = menu.MENU(user);
        return `
-         <header>
-		 <div class="header" style={{padding="20px"}}>
-			<div class="menu_btn" style={{position="inherit"; padding="20px"; zIndex="1"}}>
+	   <header>
+		 <div class="header">
+		 
+			<div class="menu_btn">
 				<a href="#">
 					<div class="container">
 						<div class="bar1"></div>
@@ -24,8 +25,11 @@ module.exports = {
 					</div>
 				</a>
 			</div>
+			
+			<a href="/" style="font-family: 'Pattaya', sans-serif; color: #0bf3bc">Hi Alcohol</a>
+			<div class="blank"></div>
 		</div>
-     
+		</header>
 		<div class="menu_bg"></div>
 		<div class="sidebar_menu">
 			<div class="close_btn">
@@ -37,11 +41,7 @@ module.exports = {
 			</div>
 			${menu_list}
 		</div>
-         <h2 style="font-family: 'Pattaya', sans-serif; color: #0bf3bc">
-             Hi Alcohol
-         </h2>
-		 
-     </header>
+         
          <main>
          <!-- 우리동네 주류매장 -->
          <div id="map"></div>
