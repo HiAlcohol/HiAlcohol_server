@@ -76,7 +76,7 @@ router.get('/', async function(request, response){
 				var html = search_list.HTML( list)
 			}
 			
-			console.log(recipe_list)
+			// console.log(recipe_list)
 			
 			response.send(html);
 		});

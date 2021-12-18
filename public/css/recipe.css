@@ -7,6 +7,10 @@ p {
     color: white;
 }
 
+h2 {
+    color: white;
+}
+
 @font-face {
     font-family: 'GmarketSansMedium';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
@@ -18,11 +22,6 @@ p {
     font-family: GmarketSansMedium;
 }
 
-header{
-    margin-top: 120px;
-    margin-bottom: 30px;
-}
-
 body {
 	padding: 20px;
     margin: 0;
@@ -30,38 +29,24 @@ body {
     text-align: center;
     font-size: 15px;
 }
+.hi_alcohol{
+    margin-top: -40px;
+    margin-bottom: 100px;
+}
 
-a {
+.hi_alcohol a{
 	text-decoration: none;
-	color: white;
 	font-size: 35px;
 }
 
-#recipe .title {
-    margin-top: 10px;
-    margin-bottom: 30px;
-}
-
-#recipe .title h2 {
-    display: inline;
-}
-
-#recipe .input {
-    display : flex;
-    justify-content: center;
-    margin-bottom: 40px;
-}
-
-#recipe .input div {
-    height: 35px;
-    line-height: 35px;
-    min-width: 70px;
-    margin-top: 15px;
-    margin-right: 12px;
-    border: 1px solid #0BF3BC;
+.recipe div{
+    height: 70px;
+    line-height: 70px;
+    max-width: 600px;
+    margin: auto;
+    border:  2px solid white;
     border-radius: 15px;
-    font-size: 15px;
-    color: #0BF3BC;
+    font-size: 30px;
+    color: white;
     display: inline-block;
 }
-
