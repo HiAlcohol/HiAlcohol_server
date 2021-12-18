@@ -101,12 +101,25 @@ router.get('/edit', function(request, response){
 			// var like_num = 10000; // 좋아요 연결 후 반영하기
 			var content = result2[0].content;
 
+
 			db.query(`SELECT nickname FROM user WHERE kakaoid = ?;`, [userId], function(err3, result3){
+				
+				if(!request.isAuthenticated()){
+					response.send('<script>alert("로그인이 필요한 서비스입니다.");\
+					location.href="/oauth/kakao";</script>');
+				}else{
+					if( userId !== request.user.kakaoid){
+						response.send('<script>alert("접근 권한이 없습니다.");\
+						location.href="/board";</script>');
+					}else{
+						// var user_id = result3[0].nickname;
 
-				var user_id = result3[0].nickname;
-
-				var html = board_edit.HTML(title, content, queryData.id)
-				response.send(html);
+						var html = board_edit.HTML(title, content, queryData.id)
+						response.send(html);
+					}
+				}
+				
+				
 			})	
 			
 		});
