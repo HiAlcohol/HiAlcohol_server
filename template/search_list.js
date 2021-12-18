@@ -20,23 +20,9 @@ module.exports = {
         <div class="sidebar_menu">
             <div class="close_btn">
                 <a href="#">
-                    <div class="container">
-                        <div
-                                class="change bar1 a"
-                                style="
-                    -webkit-transform: rotate(-45deg) translate(-1px, 1px);
-                    transform: rotate(-45deg) translate(-1px, 1px);
-                  "
-                        ></div>
-                        <div
-                                class="bar3 change b"
-                                style="
-                    -webkit-transform: rotate(45deg) translate(-4px, -4px);
-                    transform: rotate(45deg) translate(-4px, -4px);
-                  "
-                        ></div>
-                    </div>
-                    <!-- <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBkPSJNMjMuOTU0IDIxLjAzbC05LjE4NC05LjA5NSA5LjA5Mi05LjE3NC0yLjgzMi0yLjgwNy05LjA5IDkuMTc5LTkuMTc2LTkuMDg4LTIuODEgMi44MSA5LjE4NiA5LjEwNS05LjA5NSA5LjE4NCAyLjgxIDIuODEgOS4xMTItOS4xOTIgOS4xOCA5LjF6Ii8+PC9zdmc+"> -->
+				<div class="container">
+				<img src="/public/img/back.png" height="18px" style="text-align: right; display: flexbox;"/>
+			</div>
                 </a>
             </div>
             <div class="menu_wrap">

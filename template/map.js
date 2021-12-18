@@ -1,3 +1,5 @@
+const menu = require('./menu.js');
+
 module.exports = {
     HTML: function(body) {
        const head = this.HEAD();
@@ -8,7 +10,8 @@ module.exports = {
        ${tail}
        `
     },
-    HOME: function() {
+    HOME: function(user) {
+		var menu_list = menu.MENU(user);
        return `
          <header>
          <div class="menu_btn">
@@ -27,17 +30,11 @@ module.exports = {
          <div class="close_btn">
              <a href="#">
                  <div class="container">
-                     <img src="public/img/back.png" height="18px" style="text-align: right; display: flexbox;"/>
+                     <img src="/public/img/back.png" height="18px" style="text-align: right; display: flexbox;"/>
                  </div>
              </a>
          </div>
-         <div class="menu_wrap">
-             <div><a href="#">꿀조합 게시판</a></div>
-             <div><a href="#">우리동네 주류매장</a></div>
-             <div><a href="#">내가 쓴 꿀조합</a></div>
-             <div><a href="#">좋아요 리스트</a></div>
-             <div><a href="#">로그아웃</a></div>
-         </div>
+         ${menu_list}
      </div>
          <h2 style="font-family: 'Pattaya', sans-serif; color: #0bf3bc">
              Hi Alcohol
@@ -133,10 +130,10 @@ module.exports = {
  <head>
     <meta charset="UTF-8" />
     
-     <link rel="stylesheet" href="public/css/map.css" />
-     <link rel="stylesheet" href="public/css/menu.css" />
+     <link rel="stylesheet" href="/public/css/map.css" />
+     <link rel="stylesheet" href="/public/css/menu.css" />
      <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-     <script src="public/js/menu.js" type="text/javascript"></script>
+     <script src="/public/js/menu.js" type="text/javascript"></script>
     <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=3a0965c75cdc0b99976416f11247b105&libraries=services"></script>
     <script>
              

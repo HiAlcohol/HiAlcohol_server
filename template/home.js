@@ -84,7 +84,7 @@ module.exports = {
 		<div class="close_btn">
 			<a href="#">
 				<div class="container">
-					<img src="public/img/back.png" height="18px" style="text-align: right; display: flexbox;"/>
+					<img src="/public/img/back.png" height="18px" style="text-align: right; display: flexbox;"/>
 				</div>
 			</a>
 		</div>
@@ -111,7 +111,7 @@ module.exports = {
 		<p style="color: white">이달의 술 추천</p>
 		<p style="color: white">소다주</p>
 		<br />
-		<img src="public/img/cocktail.png" alt="cocktailImg" width="100" height="100" />
+		<img src="/public/img/cocktail.png" alt="cocktailImg" width="100" height="100" />
 	</div>
 	</nav>
 	`
@@ -126,7 +126,7 @@ module.exports = {
 	<link rel="stylesheet" href="public/css/menu.css" />
 	<link rel="stylesheet" href="public/css/home.css" />
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-	<script src="public/js/menu.js" type="text/javascript"></script>
+	<script src="/public/js/menu.js" type="text/javascript"></script>
 		`;
 	},
 	TAIL: function() {
