@@ -65,14 +65,18 @@ router.get('/view', function(request, response){
 			if (err2) throw err2;
 
 			var title = result2[0].title;
-			var user_id = result2[0].userID;
+			var userId = result2[0].userId;
 			var date = result2[0].createdate;
 			var like_num = 10000; // 좋아요 연결 후 반영하기
 			var content = result2[0].content;
 
-			var html = board_view.HTML(title, user_id, date, like_num, content)
+			db.query(`SELECT nickname FROM user WHERE kakaoid = ?;`, [userId], function(err3, result3){
 
-			response.send(html);
+				var user_id = result3[0].nickname;
+
+				var html = board_view.HTML(title, user_id, date, like_num, content)
+				response.send(html);
+			})	
 			
 		});
 
