@@ -34,6 +34,7 @@ router.get('/', function(request, response) {
 			var createdate = dateFormat(result[i].createdate);
 			list += board.HOME(title, userId, createdate);
 		};
+
 		var body = board.HTML(list);
 		response.send(body);
 	});
@@ -71,6 +72,21 @@ router.get('/view', function(request, response){
 	});
 
 
+});
+
+router.post('/write', function(request, response) {
+    const body = request.body;
+    let title = body.title;
+    let content = body.content;
+    var today = new Date()
+
+
+    db.query(`INSERT INTO post (id, userID, title, content, createdate, updatedate) VALUES (?,?,?,?,now(),now())`, [null, '111', title, content, null, null], function(err, result){
+        if (err) console.error("err : " + err);
+        response.redirect('/board');
+    })
+
+    
 });
 
 module.exports = router; 

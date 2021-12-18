@@ -12,13 +12,13 @@ router.post('/', function(request, response) {
     let title = body.title;
     let content = body.content;
     var today = new Date()
+    var userID = request.user.kakaoid;
 
 
-    db.query(`INSERT INTO post (id, userID, title, content, createdate, updatedate) VALUES (?,?,?,?,now(),now())`, [null, '111', title, content, null, null], function(err, result){
+    db.query(`INSERT INTO post (id, userID, title, content, createdate, updatedate) VALUES (?,?,?,?,now(),now())`, [null, userID, title, content, null, null], function(err, result){
         if (err) console.error("err : " + err);
         response.redirect('/board');
     })
-
     
 });
 
