@@ -67,34 +67,6 @@ module.exports = {
         ${list}
        
     </main>
-    <!--    모달창(칵테일 레시피)     -->
-    <div id="modal-overlay"></div>
-    <div id="modal">
-        <div class="modal-window">
-            <div class="title">
-                <h2 style="color: white">내 마음대로 주</h2>
-                <div class="modal_close">X</div>
-            </div>
-    
-            <div class="content">
-                <div class="input">
-                    <div>재료</div>
-                    <div>맥콜</div>
-                    <div>사이다</div>
-                </div>
-    
-                <h3 style="color: white">소주 5 : 맥주 1 : 사이다 0.1</h3>
-                <ol>
-                    <li>소주를 한 병 넣는다.</li>
-                    <li>소주를 두 병 넣는다.</li>
-                    <li>소주를 세 병 마시면서 쉰다.</li>
-                    <li>소주를 네 병 넣는다.</li>
-                    <li>소주를 다섯 병 넣고 섞어서 원샷한다.</li>
-                </ol>
-            </div>
-    
-        </div>
-    </div>
      
 		${tail}
 		`
