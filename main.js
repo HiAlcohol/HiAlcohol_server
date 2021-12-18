@@ -1,24 +1,23 @@
 const express = require('express');
 const app = express();
-const port = 3000;
 const bodyParser = require('body-parser');
-const indexRouter = require('./routes/indexRouter.js')
 const session = require('express-session');
 const MySQLStore = require('express-mysql-session')(session);
+const passport = require('passport');
+const flash = require('connect-flash');
+const cookieParser = require('cookie-parser');
 
+const indexRouter = require('./routes/indexRouter.js')
 const oauthRouter = require('./routes/loginRouter.js');
 const likeRouter = require('./routes/likeRouter');
 const boardRouter = require('./routes/boardRouter.js')
 const search_listRouter = require('./routes/search_listRouter.js');
 const mapRouter = require('./routes/mapRouter');
-const passport = require('passport');
-const flash = require('connect-flash');
-
 const passportConfig = require('./passport');
-const cookieParser = require('cookie-parser');
+const boardProcessRouter = require('./routes/boardProcessRouter.js');
+const env = require('./config/env.js');
 
-const boardProcessRouter = require('./routes/boardProcessRouter.js')
-const db = require('./config/db.js')
+const port = env.port;
 
 app.use(cookieParser('ras'));
 passportConfig();
@@ -31,11 +30,11 @@ app.use(session({
 	secure: false,
 	saveUninitialized: true,
 	store: new MySQLStore({
-		host: "localhost",
+		host: env.host,
 		port: 3306,
-		user: "root",
-		password: "qwerty123",
-		database: "hialcohol"
+		user: env.user,
+		password: env.password,
+		database: env.database
 	})
 }));
 app.use(passport.initialize());
