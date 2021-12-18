@@ -108,8 +108,9 @@ module.exports = {
       </button>
    </form>
 	<div class="homebar__recommend">
-		<p style="color: white">이달의 술 추천</p>
-		<p style="color: white">소다주</p>
+		<p style="color: white">오늘의 술 추천</p>
+		<br>
+		<a href="/search_list/recipe?id=1">블랙러시안</a>
 		<br />
 		<img src="public/img/cocktail.png" alt="cocktailImg" width="100" height="100" />
 	</div>
