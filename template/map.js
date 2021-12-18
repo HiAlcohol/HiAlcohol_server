@@ -14,40 +14,40 @@ module.exports = {
 		var menu_list = menu.MENU(user);
        return `
          <header>
-         <div class="menu_btn">
-         <a href="#">
-         <div class="container">
-             <div class="bar1"></div>
-             <div class="bar2"></div>
-             <div class="bar3"></div>
-         </div>
-         </a>
-     </div>
+		 <div class="header" style={{padding="20px"}}>
+			<div class="menu_btn" style={{position="inherit"; padding="20px"; zIndex="1"}}>
+				<a href="#">
+					<div class="container">
+						<div class="bar1"></div>
+						<div class="bar2"></div>
+						<div class="bar3"></div>
+					</div>
+				</a>
+			</div>
+		</div>
      
-     </div>
-     <div class="menu_bg"></div>
-     <div class="sidebar_menu">
-         <div class="close_btn">
-             <a href="#">
-                 <div class="container">
-                     <img src="/public/img/back.png" height="18px" style="text-align: right; display: flexbox;"/>
-                 </div>
-             </a>
-         </div>
-         ${menu_list}
-     </div>
+		<div class="menu_bg"></div>
+		<div class="sidebar_menu">
+			<div class="close_btn">
+				<a href="#">
+					<div class="container">
+						<img src="/public/img/back.png" height="18px" style="text-align: right; display: flexbox;"/>
+					</div>
+				</a>
+			</div>
+			${menu_list}
+		</div>
          <h2 style="font-family: 'Pattaya', sans-serif; color: #0bf3bc">
              Hi Alcohol
          </h2>
+		 
      </header>
- 
-         <body>
          <main>
          <!-- 우리동네 주류매장 -->
          <div id="map"></div>
  
          <script>
-         var infowindow = new kakao.maps.InfoWindow({zIndex:1});
+         var infowindow = new kakao.maps.InfoWindow({zIndex:0});
   
          if (navigator.geolocation) {
           
@@ -71,7 +71,7 @@ module.exports = {
              mapContainer = document.getElementById('map'), 
              mapOption = {
                  center: locPosition,
-                 level: 5 
+                 level: 5
              };
           
              var map = new kakao.maps.Map(mapContainer, mapOption);
