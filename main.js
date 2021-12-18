@@ -15,6 +15,7 @@ const search_listRouter = require('./routes/search_listRouter.js');
 const mapRouter = require('./routes/mapRouter');
 const passportConfig = require('./passport');
 const boardProcessRouter = require('./routes/boardProcessRouter.js');
+const myboardRouter = require('./routes/myboardRouter.js');
 const env = require('./config/env.js');
 
 const port = env.port;
@@ -59,6 +60,7 @@ app.use('/board_process', boardProcessRouter);
 
 app.use('/likes', likeRouter);
 
+app.use('/myboard', myboardRouter);
 
 app.get('/logout', function(req, res) {
 	req.logout();
