@@ -11,14 +11,15 @@ const db = require('../config/db.js');
 router.post('/', function(request, response) {
 
         const body = request.body;
+        queryData = request.query;
+
         let title = body.title;
         let content = body.content;
-        var userID = request.user.kakaoid;
+        
     
-    
-        db.query(`INSERT INTO post (id, userID, title, content, createdate, updatedate) VALUES (?,?,?,?,now(),now())`, [null, userID, title, content, null, null], function(err, result){
+        db.query(`UPDATE post SET title=?, content=?, updatedate=? WHERE id=?`, [title, content, null, queryData.id], function(err, result){
             if (err) console.error("err : " + err);
-            response.redirect('/board');
+            response.redirect('/');
         })
     
     

@@ -1,5 +1,5 @@
 module.exports = {
-	HTML: function(title, user_id, date, like_num, content ) {
+	HTML: function(title, user_id, date, like_num, content,post_id ) {
 		
 		return `
 
@@ -91,7 +91,7 @@ module.exports = {
             </div>
             <div class="content">${content}</div>
             <div class="option">
-                <a href="#">수정</a>
+                <a href="/board/edit?id=${post_id}">수정</a>
                 <p>  |  </p>
                 <a href="#">삭제</a>
             </div>
@@ -103,20 +103,6 @@ module.exports = {
 		
 		`
 	}
-    // ,
-    // list:function(topics){
-    //     // 인자 topics에 main.js template.list(topics)의 topics이 들어옴
-        
-    //         var list = '<ul>';
-    //           var i = 0;
-      
-    //           while(i < topics.length){
-    //             list = list + `<li><a href="/?id=${topics[i].id}">${topics[i].title}</a></li>`;
-    //             // topics 각 id와 title 값이 링크 주소와 이름이 됨
-    //             i = i + 1;
-    //           }
-    //           list = list+'</ul>';
-    //          return list;
-    //     }
+ 
 };
     
