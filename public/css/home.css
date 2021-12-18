@@ -18,7 +18,7 @@ body {
 a {
 	text-decoration: none;
 	color: white;
-	font-size: 15px;
+	font-size: 35px;
 }
 
 .homebar {
@@ -31,6 +31,12 @@ a {
     text-align: center;
     height: 1px;
     background-color: #505050;
+}
+
+.homebar__recommend a{
+	text-decoration: none;
+	color: white;
+	font-size: 15px;
 }
 
 .homebar__search{
