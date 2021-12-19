@@ -125,8 +125,8 @@ module.exports = {
 <head>
 	<meta charset="UTF-8" />
 	
-	<link rel="stylesheet" href="public/css/menu.css" />
-	<link rel="stylesheet" href="public/css/home.css" />
+	<link rel="stylesheet" href="/public/css/menu.css" />
+	<link rel="stylesheet" href="/public/css/home.css" />
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 	<script src="/public/js/menu.js" type="text/javascript"></script>
 		`;
