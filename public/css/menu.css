@@ -71,6 +71,7 @@
 	position: absolute;
 	top: 0;
 	left: -50%;
+	z-index: 2;
 }
 .close_btn {
 	padding-left: 20px;
