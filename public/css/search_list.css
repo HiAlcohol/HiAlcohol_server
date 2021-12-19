@@ -23,8 +23,8 @@ p {
 body {
     margin: 0;
     background-color: #242424;
-    display: flex;
-    justify-content: center;
+    /* display: flex;
+    justify-content: center; */
     text-align: center;
 }
 
@@ -32,7 +32,7 @@ header {
     height: 70px;
     width: 100%;
     padding-top: 2px;
-    background-color: #242424;
+    /* background-color: #242424; */
     position: fixed;
 }
 

@@ -50,7 +50,7 @@ module.exports = {
                 </div>
             </a>
         </div>
-        <div class="hi_alcohol">
+        <div class = "hi_alcohol">
             <a href="/" style="font-family: 'Pattaya', sans-serif; color: #0bf3bc">Hi Alcohol</a>
         </div>
         <div class="blank"></div>
@@ -73,7 +73,7 @@ module.exports = {
             <div>&nbsp${name}&nbsp</div>
             <br><br><br>
             <p>- 비율 -</p>
-            <h2 style="color: white">${rate}</h2>
+            <h2>${rate}</h2>
             <br><br>
             <h2>${content}</h2>
         </div>

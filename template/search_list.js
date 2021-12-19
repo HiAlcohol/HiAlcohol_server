@@ -39,9 +39,6 @@ module.exports = {
     ${menu_list}
 </div>
     
-    <div class="hi_alcohol">
-        <a href="/" style="font-family: 'Pattaya', sans-serif; color: #0bf3bc">Hi Alcohol</a>
-    </div>
     
     </header>
     <main>
