@@ -111,7 +111,21 @@ module.exports = {
 					<a href="/board/write"><img class="writeBtn" src="/public/img/writeButton.png"></a>
 				</div>
             </div>
+
+            <div class="dropdown">
+            <form action="" method="GET" class="jung">
+            <label for="singer">정렬</label>
+            <select id="singer" name="singer" required>
+                <option value="new" selected>최신순</option>
+                <option value="likes">좋아요순</option>
+            </select>
+        </form>
+        </div>
             <div class="contentList">
+            
+           
+            
+            
         `;
     },
     TAIL: function() {

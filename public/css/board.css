@@ -128,3 +128,12 @@ a {
 	text-align: center;
 	font-size: 15px;
 }
+
+.dropdown{
+    text-align: right;
+    margin-right: 20px;
+}
+
+.jung select{
+    color: black ;
+}
