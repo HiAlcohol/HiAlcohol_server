@@ -8,6 +8,9 @@ body {
     margin: 0;
     background-color:#242424;
 }
+a {
+	text-decoration: none;
+}
 /*개별 적용*/
 .wrapper {
     /* width: 500px; */
@@ -15,7 +18,7 @@ body {
     min-height: 100vh;
     background-color:#242424;
     margin: auto;
-	padding: 10px;
+	/* padding: 10px; */
 }
 .menuBar {
     display: flex;
@@ -76,13 +79,15 @@ body {
     width: 40px;
     background-color: transparent;
     border: none;
-	margin-right: 20px;
-	padding-top: 5px;
+	/* margin-right: 20px; */
+	padding-top: 2px;
 }
 
 /*content*/
 .contentList{
     padding: 20px;
+	padding-left: 30px;
+	padding-right: 30px;
     box-sizing: border-box;
     margin-bottom: 30;
 }
@@ -123,4 +128,13 @@ body {
 .cnt {
 	text-align: center;
 	font-size: 15px;
+}
+
+.dropdown{
+    text-align: right;
+    margin-right: 20px;
+}
+
+.sort select{
+    color: black ;
 }

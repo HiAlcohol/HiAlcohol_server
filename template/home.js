@@ -113,7 +113,7 @@ module.exports = {
 		<br>
 		<a href="/search_list/recipe?id=${cockId}">${cockName} ></a>
 		<br />
-		<img src="/public/img/cocktail.png" alt="cocktailImg" width="100" height="100" />
+		<img src="/public/img/cocktail.png" alt="cocktailImg" width="100" height="100" style="padding: 20px;" />
 	</div>
 	</nav>
 	`

@@ -7,10 +7,6 @@ p {
     color: white;
 }
 
-h2 {
-    color: white;
-}
-
 @font-face {
     font-family: 'GmarketSansMedium';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
@@ -18,12 +14,68 @@ h2 {
     font-style: normal;
 }
 
+.logo {
+	display: flex;
+	justify-content: center;
+    font-family: 'Pattaya';
+    font-size: 25px;
+    color: #0BF3BC;
+	align-items: center;
+}
+
+h2 {
+    color: white;
+}
+
 *:not(i) {
     font-family: GmarketSansMedium;
 }
 
-.header {
-	margin:10px;
+.menuBar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 100%;
+    height: 80px;
+
+    padding: 20px;
+    box-sizing: border-box;
+
+    position: absolute;
+    position: sticky;
+    top: 0;
+    
+    background-color: #242424;
+}
+
+header a {
+	text-decoration: none;
+	font-size: 25px;
+}
+
+.logo {
+	display: flex;
+	justify-content: center;
+    font-family: 'Pattaya';
+    font-size: 25px;
+    color: #0BF3BC;
+	align-items: center;
+}
+
+.menuBtn{
+    width: 32px;
+    height: 32px;
+    background-color: transparent;
+    border: none;
+}
+
+header {
+    height: 70px;
+    width: 100%;
+    padding-top: 2px;
+    /* background-color: #242424; */
+    position: fixed;
 }
 
 body {
@@ -33,14 +85,9 @@ body {
     text-align: center;
     font-size: 15px;
 }
-.hi_alcohol{
-    /* margin-top: -40px; */
-    margin-bottom: 100px;
-}
 
-.hi_alcohol a{
-	text-decoration: none;
-	font-size: 35px;
+.recipe{
+    padding-top: 100px;;
 }
 
 .recipe div{
