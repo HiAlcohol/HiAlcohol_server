@@ -86,7 +86,7 @@ router.get('/', function(request, response) {
 
 			list += board.HOME(id, postId, title, userId, createdate, likes);
 		};
-		var body = board.HTML(list);
+		var body = board.HTML(undefined ,list);
 		response.send(body);
 	});
 });

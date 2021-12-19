@@ -59,7 +59,7 @@ module.exports = {
         crossorigin="anonymous"
         />
         <title>Hi Alcohol</title>
-        <link rel="stylesheet" href="public/css/board.css" />
+        <link rel="stylesheet" href="/public/css/board.css" />
         </head>
 
         <style>
