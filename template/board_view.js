@@ -1,5 +1,5 @@
 module.exports = {
-	HTML: function(title, user_id, date, like_num, content, id) {
+	HTML: function(title, user_id, date, like_num, content, id, user) {
 		
 		return `
 
