@@ -1,3 +1,5 @@
+const db = require("../config/db");
+
 module.exports = {
     HTML: function(body) {
         const head = this.HEAD();
@@ -8,19 +10,32 @@ module.exports = {
         ${tail}
         `
     },
-    HOME: function(title, userId, createdate) {
+    HOME: function(id, postId, title, userId, createdate, likes) {
+        // function didTapButton(inputId, inputPostId) {
+        //     var on = "/public/img/heart_fill.png";  
+        //     var off = "/public/img/heart_outline.png";
+
+        //     console.log("이게 실행이 되는거신가?");
+
+        //     });
+        // };
         return `
         <div class="content">
             <div class="subject">
                 <p>${title}</p>
                 <div class="info"><span>${userId}  </span> | <span>  ${createdate}</span></div>
-
             </div>
             <div class="like">
-            <button type="button" class="likebtn" id="img_btn"><img src="/public/img/heart_outline.png"></button>
-                <div>조아요 개수</div>
+            <button type="button" class="likebtn" id="img_btn" onclick="didTapButton();"><img src="/public/img/heart_outline.png"></button>
+                <div>${likes}</div>
             </div>
         </div>
+
+        <script>
+            function didTapButton() {
+                console.log("눌림")  
+            };
+        </script>
         `;
     },
     HEAD: function() {
@@ -29,6 +44,8 @@ module.exports = {
         <html lang="en">
         <head>
             <meta charset="UTF-8">
+
+            
             <meta http-equiv="X-UA-Compatible" content="IE=edge">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <title>Document</title>
@@ -57,13 +74,14 @@ module.exports = {
                     height: 100%;
                     padding: 0;
                     margin: 0;
+                    background-color: #242424;
                 }
                 /*개별 적용*/
                 .wrapper {
                     width: 500px;
                     height: 100%;
                     min-height: 100vh;
-                    background-color: rgb(51, 51, 51);
+                    background-color: #242424;
                     margin: auto;
                 }
                 .menuBar {
@@ -82,15 +100,15 @@ module.exports = {
                     position: sticky;
                     top: 0;
                     
-                    background-color: rgb(51, 51, 51);
+                    background-color: #242424;
+                }
+
+                .logo {
+                    font-family: 'Pattaya';
+                    font-size: 25px;
+                    color: #0BF3BC;
                 }
                 
-                /* menu */
-                .menuIcon {
-                    width: 30px;
-                    height: 30px;
-                    background-color: teal;
-                }
                 .writeIcon {
                     width: 30px;
                     height: 30px;
@@ -101,12 +119,12 @@ module.exports = {
                 .contentList{
                     padding: 20px;
                     box-sizing: border-box;
-                    margin-bottom: 30px;
                 }
                 .content {
                     display: flex;
                     justify-content: space-between;
                     align-items: center;
+                    margin-bottom: 30px;
                 }
                 .content p {
                     margin: 0;
@@ -118,7 +136,11 @@ module.exports = {
                 .info, .info span {
                     color: gray;
                     font-size: 13px;
-                    margin-top: 14px;
+                    margin-top: 10px;
+                }
+
+                .like {
+                    algin-items: center;
                 }
                 
                 .likebtn {
@@ -136,7 +158,7 @@ module.exports = {
         <!-- 메뉴바 -->
         <div class="menuBar">
             <div class="menuIcon"></div>
-            <div class="logo">logo</div>
+            <div class="logo">Hi Alcohol</div>
             <div class="writeIcon"></div>
             </div>
             <div class="contentList">
