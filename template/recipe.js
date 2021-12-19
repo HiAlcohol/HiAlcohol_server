@@ -1,6 +1,8 @@
+const menu = require('./menu.js');
+
 module.exports = {
-	HTML: function(name, rate, content) {
-		
+	HTML: function(name, rate, content, user) {
+		var menu_list = menu.MENU(user);
 		return `
 
         <!DOCTYPE html>
@@ -39,41 +41,40 @@ module.exports = {
 <div class="board_wrap">
         <div class="main_title">
             <!-- hamburger menu -->
-    <div class="menu_btn">
-        <a href="#">
-            <div class="container">
-                <div class="bar1"></div>
-                <div class="bar2"></div>
-                <div class="bar3"></div>
-            </div>
-        </a>
+            <div class="menu_btn">
+            <a href="#">
+                <div class="container">
+                    <div class="bar1"></div>
+                    <div class="bar2"></div>
+                    <div class="bar3"></div>
+                </div>
+            </a>
+        </div>
+        <div class = "hi_alcohol">
+            <a href="/" style="font-family: 'Pattaya', sans-serif; color: #0bf3bc">Hi Alcohol</a>
+        </div>
+        <div class="blank"></div>
     </div>
+    </header>
     <div class="menu_bg"></div>
     <div class="sidebar_menu">
         <div class="close_btn">
             <a href="#">
-				<div class="container">
-					<img src="/public/img/back.png" height="18px" style="text-align: right; display: flexbox;"/>
-				</div>
+                <div class="container">
+                    <img src="/public/img/back.png" height="18px" style="text-align: right; display: flexbox;"/>
+                </div>
+
             </a>
         </div>
-        <div class="menu_wrap">
-            <div><a href="#">꿀조합 게시판</a></div>
-            <div><a href="#">우리동네 주류매장</a></div>
-            <div><a href="#">내가 쓴 꿀조합</a></div>
-            <div><a href="#">좋아요 리스트</a></div>
-            <div><a href="#">로그아웃</a></div>
-        </div>
+        ${menu_list}
     </div>
-        <div class="hi_alcohol">
-            <a href="/" style="font-family: 'Pattaya', sans-serif; color: #0bf3bc">Hi Alcohol</a>
-        </div>
+        
 
         <div class="recipe">
             <div>&nbsp${name}&nbsp</div>
             <br><br><br>
             <p>- 비율 -</p>
-            <h2 style="color: white">${rate}</h2>
+            <h2>${rate}</h2>
             <br><br>
             <h2>${content}</h2>
         </div>

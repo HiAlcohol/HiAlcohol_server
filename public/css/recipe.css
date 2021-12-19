@@ -1,7 +1,7 @@
 @charset "utf-8";
 /*폰트*/
 @import url('https://fonts.googleapis.com/css2?family=Pattaya&display=swap');
-
+*{margin: 0; padding: 0;}
 p {
     font-family: 'Pattaya', sans-serif;
     color: white;
@@ -22,6 +22,10 @@ h2 {
     font-family: GmarketSansMedium;
 }
 
+.header {
+	margin:10px;
+}
+
 body {
 	padding: 20px;
     margin: 0;
@@ -30,7 +34,7 @@ body {
     font-size: 15px;
 }
 .hi_alcohol{
-    margin-top: -40px;
+    /* margin-top: -40px; */
     margin-bottom: 100px;
 }
 
