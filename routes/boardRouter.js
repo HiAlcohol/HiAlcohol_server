@@ -32,14 +32,49 @@ router.get('/write', function(request, response) {
 	}
 });
 
+router.post('/', function(request, response) {
+	var sql = '';
+	console.log(request)
+	if (request.body.order === 'likes') {
+		var selected = `
+			<option value="date">최신순</option>
+			<option value="likes" selected>좋아요순</option>`;
+		sql = `SELECT post.*, (SELECT count(*) FROM liked WHERE liked.postId = post.id ) AS likes FROM post order by likes desc`;
+	} else if (request.body.order === 'date') {
+		var selected = `
+			<option value="date" selected>최신순</option>
+			<option value="likes" >좋아요순</option>`;
+		sql = `SELECT post.*, (SELECT count(*) FROM liked WHERE liked.postId = post.id ) AS likes FROM post order by createdate desc`;
+	}
+	db.query(sql, function(err, result){
+		if (err) throw err;
+		var list = '';
+
+		for (var i = 0; i < result.length; i++) {
+			var id = request.userID?.id;
+			var postId = result[i].id;
+			var title = result[i].title;
+			var userId = result[i].userId;
+			var createdate = dateFormat(result[i].createdate);
+			var likes = result[i].likes;
+
+			list += board.HOME(id, postId, title, userId, createdate, likes);
+		};
+		var head = board.HEAD(selected);
+		var body = board.HTML(head, list);
+		response.send(body);
+	});
+})
+
 router.get('/', function(request, response) {
 	var sql = '';
-	if (request.query.order === 'date') {
-		sql = `SELECT post.*, (SELECT count(*) FROM liked WHERE liked.postId = post.id ) AS likes FROM post order by createdate desc`;
-	} else if (request.query.order === 'likes') {
+	console.log(request.query)
+	if (request.query.order === 'likes') {
 		sql = `SELECT post.*, (SELECT count(*) FROM liked WHERE liked.postId = post.id ) AS likes FROM post order by likes desc`;
+	} else if (request.query.order === 'date') {
+		sql = `SELECT post.*, (SELECT count(*) FROM liked WHERE liked.postId = post.id ) AS likes FROM post order by createdate desc`;
 	} else {
-		sql = `SELECT post.*, (SELECT count(*) FROM liked WHERE liked.postId = post.id ) AS likes FROM post`; 
+		sql = `SELECT post.*, (SELECT count(*) FROM liked WHERE liked.postId = post.id ) AS likes FROM post order by createdate desc`;
 	}
 	db.query(sql, function(err, result){
 		if (err) throw err;

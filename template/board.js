@@ -1,8 +1,10 @@
 const db = require("../config/db");
 
 module.exports = {
-    HTML: function(body) {
-        const head = this.HEAD();
+    HTML: function(head, body) {
+		if (head === undefined) {
+			head = this.HEAD();
+		}
         const tail = this.TAIL();
         return `
         ${head}
@@ -38,11 +40,15 @@ module.exports = {
         </script>
         `;
     },
-    HEAD: function() {
+    HEAD: function(selected) {
+		if (selected === undefined) {
+			selected = `<option value="date">최신순</option>
+			<option value="likes">좋아요순</option>`;
+		}
         return `
         <head>
-        <link rel="stylesheet" href="public/css/menu.css" />
-        <link rel="stylesheet" href="public/css/home.css" />
+        <link rel="stylesheet" href="/public/css/menu.css" />
+        <link rel="stylesheet" href="/public/css/home.css" />
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
         <script src="public/js/menu.js" type="text/javascript"></script>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -111,13 +117,11 @@ module.exports = {
 					<a href="/board/write"><img class="writeBtn" src="/public/img/writeButton.png"></a>
 				</div>
             </div>
-
             <div class="dropdown">
-            <form action="" method="GET" class="sort">
+            <form action="/board" method="post" class="sort">
             <label for="singer">정렬</label>
-            <select id="singer" name="singer" required>
-                <option value="new" selected>최신순</option>
-                <option value="likes">좋아요순</option>
+            <select id="singer" name="order" required onChange="this.form.submit()">
+                ${selected}
             </select>
         </form>
         </div>
