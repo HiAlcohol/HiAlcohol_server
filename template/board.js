@@ -1,4 +1,3 @@
-const db = require("../config/db");
 
 module.exports = {
     HTML: function(head, body) {
@@ -12,30 +11,39 @@ module.exports = {
         ${tail}
         `
     },
-    HOME: function(id, postId, title, userId, createdate, likes) {
-        // function didTapButton(inputId, inputPostId) {
-        //     var on = "/public/img/heart_fill.png";  
-        //     var off = "/public/img/heart_outline.png";
-
-        //     console.log("이게 실행이 되는거신가?");
-
-        //     });
-        // };
+    HOME: function(id, postId, title, createdate, likes, check, likeImg) {
         return `
         <div class="content">
-            <div class="subject">
-                <p>${title}</p>
-                <div class="info"><span>${userId} </span> | <span> ${createdate}</span></div>
-            </div>
+            <a href='/board/view?id=${postId}'>
+                <div class="subject">
+                    <p>${title}</p>
+                    <div class="info"><span>${id} </span> | <span> ${createdate}</span></div>
+                </div>
+            </a>
+            <a href='/likes/${check}?postId=${postId}'>
             <div class="like">
-            <button type="button" class="likebtn" id="img_btn" onclick="didTapButton();"><img src="/public/img/heart_outline.png"></button>
-                <div>${likes}</div>
+            <button type="button" class="likebtn" id="img_btn" onclick="didTapButton(${postId});"><img id="likeImg${postId}" src=${likeImg}></button>
+                <div id="likes${postId}">${likes}</div>
             </div>
+            </a>
         </div>
-
         <script>
-            function didTapButton() {
-                console.log("눌림")  
+            function didTapButton(postId) {
+                var on = "http://localhost:3000/public/img/heart_fill.png";  
+                var off = "http://localhost:3000/public/img/heart_outline.png";
+                const image = document.getElementById("likeImg" + postId);
+                const likes = document.getElementById("likes" + postId);
+                console.log(image.src);
+
+                if (image.src == off) {
+                    console.log("off -> on");
+                    image.src = on;
+                    likes.innerText = String(parseInt(likes.innerText) + 1);
+                } else {
+                    console.log("on -> off");
+                    image.src = off;
+                    likes.innerText = String(parseInt(likes.innerText) - 1);
+                }
             };
         </script>
         `;

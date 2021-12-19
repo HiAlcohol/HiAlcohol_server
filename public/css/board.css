@@ -115,6 +115,7 @@ a {
 
 .like {
 	display: flexbox;
+    font-size: 13px;
 	justify-content: center;
 	align-items: center;
 }
