@@ -50,8 +50,9 @@ module.exports = {
                 </div>
             </a>
         </div>
-        
-        <a href="/" style="font-family: 'Pattaya', sans-serif; color: #0bf3bc">Hi Alcohol</a>
+        <div class="hi_alcohol">
+            <a href="/" style="font-family: 'Pattaya', sans-serif; color: #0bf3bc">Hi Alcohol</a>
+        </div>
         <div class="blank"></div>
     </div>
     </header>
@@ -66,9 +67,7 @@ module.exports = {
         </div>
         ${menu_list}
     </div>
-        <div class="hi_alcohol">
-            <a href="/" style="font-family: 'Pattaya', sans-serif; color: #0bf3bc">Hi Alcohol</a>
-        </div>
+        
 
         <div class="recipe">
             <div>&nbsp${name}&nbsp</div>
