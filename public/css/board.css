@@ -2,10 +2,10 @@
     color: white;
 }
 body {
-    width: 100%;
+    width: 40%;
     height: 100%;
     padding: 0;
-    margin: 0;
+    margin: 0 auto;
 }
 a {
 	text-decoration: none;
@@ -94,7 +94,8 @@ a {
     display: flex;
     justify-content: space-between;
     align-items: center;
-	margin-bottom: 20px;
+	margin-bottom: 30px;
+	
 	text-decoration: none;
 }
 .content p {
@@ -103,6 +104,7 @@ a {
 
 .subject {
     font-size: 16px;
+    text-align: left;
 }
 
 .info, .info span {
