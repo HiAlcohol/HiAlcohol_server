@@ -88,7 +88,11 @@ module.exports = {
 			<div></div>
                 <a href="/board/edit?id=${id}">수정</a>
                 <p>  |  </p>
-                <a href="/board_delete_process?id=${id}">삭제</a>
+                <form action="/board_delete_process?id=${id}" method="post" >
+                <div class="delete">
+                    <input type="submit" value="삭제">
+                </div>
+                </form>
 				<div></div>
             </div>
         </div>
