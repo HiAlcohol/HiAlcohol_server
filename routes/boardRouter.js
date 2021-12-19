@@ -1,14 +1,10 @@
-const { request } = require('express');
 const express = require('express');
 const router = express.Router();
 const board = require('../template/board.js');
 const board_write = require('../template/board_write.js');
 const board_view = require('../template/board_view.js');
 const board_edit = require('../template/board_edit.js');
-const mysql = require('mysql');
-const { post } = require('./indexRouter.js');
 const db = require('../config/db.js');
-const res = require('express/lib/response');
 
 function dateFormat(date) {
 	var newdate = new Date(date);
