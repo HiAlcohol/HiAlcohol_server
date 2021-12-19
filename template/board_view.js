@@ -1,5 +1,5 @@
 module.exports = {
-	HTML: function(title, user_id, date, like_num, content,post_id ) {
+	HTML: function(title, user_id, date, like_num, content, id) {
 		
 		return `
 
@@ -91,9 +91,9 @@ module.exports = {
             </div>
             <div class="content">${content}</div>
             <div class="option">
-                <a href="/board/edit?id=${post_id}">수정</a>
+                <a href="/board/edit?id=${id}">수정</a>
                 <p>  |  </p>
-                <a href="#">삭제</a>
+                <a href="/board_delete_process?id=${id}">삭제</a>
             </div>
         </div>
         

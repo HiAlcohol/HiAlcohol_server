@@ -119,15 +119,11 @@ router.get('/edit', function(request, response){
 					}
 				}
 				
-				
 			})	
-			
 		});
-
-
 	});
-
-
 });
+
+
 
 module.exports = router; 

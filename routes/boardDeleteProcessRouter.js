@@ -7,17 +7,13 @@ const mysql = require('mysql');
 const db = require('../config/db.js');
 
 
-router.post('/', function(request, response) {
+router.get('/', function(request, response) {
 
-        const body = request.body;
         queryData = request.query;
-
-        let title = body.title;
-        let content = body.content;
     
-        db.query(`UPDATE post SET title=?, content=?, updatedate=? WHERE id=?`, [title, content, null, queryData.id], function(err, result){
+        db.query(`DELETE FROM post WHERE id=?`, [queryData.id], function(err, result){
             if (err) console.error("err : " + err);
-            response.redirect('/board/view?id=' + queryData.id);
+            response.redirect('/board');
         })
     
     
