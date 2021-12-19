@@ -59,6 +59,7 @@ router.get('/add', function(req, res) {
 					where post.id=liked.postId`, function(err1, result1) {
 						if (err1) throw err1;
 						res.json(result1[0]);
+						// res.redirect(req.query.redirect_uri);
 					});
 				}
 				db.query(`INSERT INTO liked VALUES (NULL, ${req.query.postId}, ${req.user.id})`, function(err, result) {
