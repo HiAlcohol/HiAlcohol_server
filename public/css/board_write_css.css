@@ -1,12 +1,14 @@
 body {
     padding: 20px;
-    margin: 0 auto;
-    width: 40%;
     background-color: #242424;
     font-size: 15px;
 
 }
-
+.board_wrap{
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+}
 
 .main_title{
     display: flex;
@@ -44,7 +46,7 @@ a {
 
 .Contents textarea{
     background-color:#242424; 
-    height:550px; 
+    height: 600px; 
     width: 90%;
     color: white;
     border-radius: 0.5em;

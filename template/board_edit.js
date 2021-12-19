@@ -1,5 +1,5 @@
 module.exports = {
-	HTML: function(body) {
+	HTML: function(title, content, id) {
 		
 		return `
         <!DOCTYPE html>
@@ -36,7 +36,7 @@ module.exports = {
 </head>
 <body>
 		<div class="board_wrap">
-        <form action="/board_process" method="post" >
+        <form action="/board_update_process?id=${id}" method="post" >
         <div class="main_title">
             <div class="exit">
                 <a href="/board"><img class="x_icon" src="/public/img/x_icon.png"></a>
@@ -52,11 +52,11 @@ module.exports = {
         </div>
         <div class ="container" >
             <div class="title">
-                <input type="text" name="title" placeholder=" 제목" >
+                <input type="text" name="title" placeholder=" 제목" value ="${title}">
             </div>
             <div class="Contents">
                 <textarea name="content" placeholder="    
- 내용 입력"></textarea>
+ 내용 입력">${content}</textarea>
             </div>
         
         </div>

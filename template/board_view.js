@@ -1,6 +1,8 @@
+const menu = require('./menu')
+
 module.exports = {
-	HTML: function(title, user_id, date, like_num, content ) {
-		
+	HTML: function(title, user_id, date, like_num, content, id, user) {
+		const menu_list = menu.MENU(user);
 		return `
 
         <!DOCTYPE html>
@@ -23,7 +25,7 @@ module.exports = {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>공지사항</title>
+    <title>게시글 상세보기 페이지</title>
     <link rel="stylesheet" href="/public/css/board_view_css.css">
     <link rel="stylesheet" href="/public/css/menu.css">
     <link
@@ -33,7 +35,6 @@ module.exports = {
     />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <script src="/public/js/menu.js" type="text/javascript"></script>
-    <!-- <link rel="stylesheet" href="menu.css"> -->
 </head>
 <body>
 <div class="board_wrap">
@@ -48,23 +49,17 @@ module.exports = {
             </div>
         </a>
     </div>
-    <div class="menu_bg"></div>
-    <div class="sidebar_menu">
-		<div class="close_btn">
-			<a href="#">
-				<div class="container">
-					<img src="public/img/back.png" height="18px" style="text-align: right; display: flexbox;"/>
+				<div class="menu_bg"></div>
+				<div class="sidebar_menu">
+					<div class="close_btn">
+						<a href="#">
+							<div class="container">
+								<img src="/public/img/back.png" height="18px" style="text-align: right; display: flexbox;"/>
+							</div>
+						</a>
+					</div>
+					${menu_list}
 				</div>
-			</a>
-		</div>
-		<div class="menu_wrap">
-			<div><a href="/board">꿀조합 게시판</a></div>
-			<div><a href="#">우리동네 주류매장</a></div>
-			<div><a href="/myboard">내가 쓴 꿀조합</a></div>
-			<div><a href="/likes">좋아요 리스트</a></div>
-			<div><a href="/logout">로그아웃</a></div>
-		</div>
-	</div>
             <div class="hi_alcohol">
                 <a href="/" style="font-family: 'Pattaya', sans-serif; color: #0bf3bc">Hi Alcohol</a>
             </div>
@@ -73,7 +68,7 @@ module.exports = {
             </div>
             
         </div>
-        <div class ="container" >
+        <div class ="container post" >
             <div class="heading">
                 <div class="title">
                     <h2>${title}</h2>
@@ -88,11 +83,13 @@ module.exports = {
                     <p>${like_num}</p> 
                 </div>
             </div>
-            <div class="content">${content}</div>
+            <pre class="content">${content}</pre>
             <div class="option">
-                <a href="#">수정</a>
+			<div></div>
+                <a href="/board/edit?id=${id}">수정</a>
                 <p>  |  </p>
-                <a href="#">삭제</a>
+                <a href="/board_delete_process?id=${id}">삭제</a>
+				<div></div>
             </div>
         </div>
         
@@ -102,20 +99,6 @@ module.exports = {
 		
 		`
 	}
-    // ,
-    // list:function(topics){
-    //     // 인자 topics에 main.js template.list(topics)의 topics이 들어옴
-        
-    //         var list = '<ul>';
-    //           var i = 0;
-      
-    //           while(i < topics.length){
-    //             list = list + `<li><a href="/?id=${topics[i].id}">${topics[i].title}</a></li>`;
-    //             // topics 각 id와 title 값이 링크 주소와 이름이 됨
-    //             i = i + 1;
-    //           }
-    //           list = list+'</ul>';
-    //          return list;
-    //     }
+ 
 };
     
