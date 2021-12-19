@@ -33,19 +33,26 @@ router.get('/write', function(request, response) {
 });
 
 router.get('/', function(request, response) {
-	db.query(`SELECT * from post`, function(err, result){
+	db.query(`SELECT post.*, (SELECT count(*) FROM liked WHERE liked.postId = post.id ) AS likes FROM post`, function(err, result){
 		if (err) throw err;
 		var list = '';
+
 		for (var i = 0; i < result.length; i++) {
+			var id = request.userID?.id;
+			var postId = result[i].id;
 			var title = result[i].title;
 			var userId = result[i].userId;
 			var createdate = dateFormat(result[i].createdate);
-			list += board.HOME(title, userId, createdate);
-		};
+			var likes = result[i].likes;
 
+			list += board.HOME(id, postId, title, userId, createdate, likes);
+		};
 		var body = board.HTML(list);
 		response.send(body);
-	});
+});
+
+
+
 });
 
 
