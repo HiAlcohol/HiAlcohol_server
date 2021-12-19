@@ -33,7 +33,15 @@ router.get('/write', function(request, response) {
 });
 
 router.get('/', function(request, response) {
-	db.query(`SELECT post.*, (SELECT count(*) FROM liked WHERE liked.postId = post.id ) AS likes FROM post`, function(err, result){
+	var sql = '';
+	if (request.query.order === 'date') {
+		sql = `SELECT post.*, (SELECT count(*) FROM liked WHERE liked.postId = post.id ) AS likes FROM post order by createdate desc`;
+	} else if (request.query.order === 'likes') {
+		sql = `SELECT post.*, (SELECT count(*) FROM liked WHERE liked.postId = post.id ) AS likes FROM post order by likes desc`;
+	} else {
+		sql = `SELECT post.*, (SELECT count(*) FROM liked WHERE liked.postId = post.id ) AS likes FROM post`; 
+	}
+	db.query(sql, function(err, result){
 		if (err) throw err;
 		var list = '';
 
