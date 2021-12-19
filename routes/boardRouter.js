@@ -108,7 +108,7 @@ router.get('/edit', function(request, response){
 					response.send('<script>alert("로그인이 필요한 서비스입니다.");\
 					location.href="/oauth/kakao";</script>');
 				}else{
-					if( userId !== request.user.kakaoid){
+					if( userId != request.user.id){
 						response.send('<script>alert("접근 권한이 없습니다.");\
 						location.href="/board";</script>');
 					}else{
