@@ -102,7 +102,7 @@ router.get('/edit', function(request, response){
 			var content = result2[0].content;
 
 
-			db.query(`SELECT nickname FROM user WHERE kakaoid = ?;`, [userId], function(err3, result3){
+			db.query(`SELECT nickname FROM user WHERE id = ?;`, [userId], function(err3, result3){
 				
 				if(!request.isAuthenticated()){
 					response.send('<script>alert("로그인이 필요한 서비스입니다.");\
