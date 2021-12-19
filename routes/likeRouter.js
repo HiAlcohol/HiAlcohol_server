@@ -7,14 +7,15 @@ const template = require('../template/likes_list');
 // prefix: /likes
 
 router.get('/', function(request, response) {
-	if (request.user === undefined) {
-		response.redirect('/');
-	}
-	if (request.query.id === undefined) {
+	console.log(request.user);
+	if(!request.isAuthenticated()){
+		response.send('<script>alert("로그인이 필요한 서비스입니다.");\
+		location.href="/oauth/kakao";</script>');
+	} else {
 		db.query(`SELECT post.id, post.title, post.createdate, count(*) 'count' 
 			FROM post, liked 
 			WHERE post.id = liked.postId group by post.id`, 
-		function(err, result) {
+			function(err, result) {
 			console.log(result);
 			var list ='';
 			console.log(result[0].createdate)
@@ -40,10 +41,7 @@ router.get('/', function(request, response) {
 			var html = template.HTML(body);
 			response.send(html);
 		})
-	} else {
-		response.redirect('/');
 	}
-	
 });
 
 module.exports = router;
