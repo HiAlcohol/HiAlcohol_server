@@ -50,6 +50,7 @@ router.get('/add', function(req, res) {
 	} else {
 		console.log(req.query);
 		if (req.query.postId !== undefined) {
+
 			db.query(`SELECT * FROM liked WHERE postId=? and userId=${req.user.id}`, [req.query.postId], function(err0, result0) {
 				if (err0) throw err0;
 				if (result.length === 0) {
@@ -88,6 +89,7 @@ router.get('/del', function(req, res) {
 				(select * from post where post.id=${req.query.postId}) post, liked 
 				where post.id=liked.postId`, function(err2, result2) {
 					if (err2) throw err2;
+					console.log(result2);
 					res.json(result2[0]);
 				})
 			})

@@ -22,6 +22,11 @@ const env = require('./config/env.js');
 
 const port = env.port;
 
+// var jsdom = require('jsdom');
+// const { JSDOM } = jsdom;
+// const { document } = (new JSDOM('')).window;
+// global.document = document;
+
 app.use(cookieParser('ras'));
 passportConfig();
 // parse application/x-www-form-urlencoded
