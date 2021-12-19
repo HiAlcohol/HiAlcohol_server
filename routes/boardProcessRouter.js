@@ -13,7 +13,7 @@ router.post('/', function(request, response) {
         const body = request.body;
         let title = body.title;
         let content = body.content;
-        var userID = request.user.kakaoid;
+        var userID = request.user.id;
     
     
         db.query(`INSERT INTO post (id, userID, title, content, createdate, updatedate) VALUES (?,?,?,?,now(),now())`, [null, userID, title, content, null, null], function(err, result){

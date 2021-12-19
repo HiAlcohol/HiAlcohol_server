@@ -45,16 +45,18 @@
 }
 
 .login_btn {
-	text-align: right;
+	text-align: center;
 	padding: 10px;
-	display: inline-flexbox;
+	display: flex;
+	justify-content: center;
 /* white-space: nowrap; */
 }
 .login {
 	font-size: 15px;
 	color: #8b8b8b;
 	display: inline;
-	align-items: baseline;
+	align-items: center;
+	text-align: center;
 }
 .menu_bg {
 	width: 100%;

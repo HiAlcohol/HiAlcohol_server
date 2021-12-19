@@ -67,7 +67,7 @@ router.get('/view', function(request, response){
 			var like_num = 10000; // 좋아요 연결 후 반영하기
 			var content = result2[0].content;
 
-			db.query(`SELECT nickname FROM user WHERE kakaoid = ?;`, [userId], function(err3, result3){
+			db.query(`SELECT nickname FROM user WHERE id = ?;`, [userId], function(err3, result3){
 
 				var user_id = result3[0].nickname;
 
