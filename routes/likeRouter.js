@@ -53,7 +53,7 @@ router.get('/add', function(req, res) {
 
 			db.query(`SELECT * FROM liked WHERE postId=? and userId=${req.user.id}`, [req.query.postId], function(err0, result0) {
 				if (err0) throw err0;
-				if (result.length === 0) {
+				if (result0.length === 0) {
 					db.query(`SELECT count(*) 'count' FROM 
 					(select * from post where post.id=${req.query.postId}) post, liked 
 					where post.id=liked.postId`, function(err1, result1) {
@@ -62,7 +62,10 @@ router.get('/add', function(req, res) {
 					});
 				}
 				db.query(`INSERT INTO liked VALUES (NULL, ${req.query.postId}, ${req.user.id})`, function(err, result) {
-					if (err) throw err;
+					if (err) {
+						db.rollback();
+						throw err;
+					}
 					db.query(`SELECT count(*) 'count' FROM 
 					(select * from post where post.id=${req.query.postId}) post, liked 
 					where post.id=liked.postId`, function(err2, result2) {

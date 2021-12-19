@@ -32,12 +32,12 @@ router.post('/', function(request, response) {
 		var selected = `
 			<option value="date">최신순</option>
 			<option value="likes" selected>좋아요순</option>`;
-		sql = `SELECT post.*, (SELECT count(*) FROM liked WHERE liked.postId = post.id ) AS likes FROM post order by likes desc`;
+		sql = `select post.*, count(liked.id) 'count' from (select post.id 'postId', post.title, post.createdate, user.nickname from post, user where post.userId=user.id) post left join liked on post.postId=liked.postId group by post.postId order by count desc;`;
 	} else if (request.body.order === 'date') {
 		var selected = `
 			<option value="date" selected>최신순</option>
 			<option value="likes" >좋아요순</option>`;
-		sql = `SELECT post.*, (SELECT count(*) FROM liked WHERE liked.postId = post.id ) AS likes FROM post order by createdate desc`;
+			sql = `select post.*, count(liked.id) 'count' from (select post.id 'postId', post.title, post.createdate, user.nickname from post, user where post.userId=user.id) post left join liked on post.postId=liked.postId group by post.postId order by post.createdate desc;`;
 	}
   
 	db.query(sql, function(err, result){
@@ -65,38 +65,49 @@ router.post('/', function(request, response) {
 				list += board.HOME(id, postId, title, createdate, likes, likeMode, likeImg);
 			};
     
-		var head = board.HEAD(selected);
-		var body = board.HTML(head, list);
-		response.send(body);
+			var head = board.HEAD(selected);
+			var body = board.HTML(head, list);
+			response.send(body);
+		});
 	});
-})
+});
 
 router.get('/', function(request, response) {
 	var sql = '';
-	console.log(request.query)
-	if (request.query.order === 'likes') {
-		sql = `SELECT post.*, (SELECT count(*) FROM liked WHERE liked.postId = post.id ) AS likes FROM post order by likes desc`;
-	} else if (request.query.order === 'date') {
-		sql = `SELECT post.*, (SELECT count(*) FROM liked WHERE liked.postId = post.id ) AS likes FROM post order by createdate desc`;
-	} else {
-		sql = `SELECT post.*, (SELECT count(*) FROM liked WHERE liked.postId = post.id ) AS likes FROM post order by createdate desc`;
-	}
+	console.log(request.query);
+	var selected = `
+			<option value="date" selected>최신순</option>
+			<option value="likes" >좋아요순</option>`;
+	sql = `select post.*, count(liked.id) 'count' from (select post.id 'postId', post.title, post.createdate, user.nickname from post, user where post.userId=user.id) post left join liked on post.postId=liked.postId group by post.postId;`;
 	db.query(sql, function(err, result){
 		if (err) throw err;
 		var list = '';
+		console.log('result:', result)
+		db.query(`SELECT * from liked WHERE liked.userId=${request.user.id}`,function(err2, result2){
+			if (err2) throw err2;
+			console.log('result2:', result2)
+			for (var i = 0; i < result.length; i++) {
+				var id = result[i].nickname;
+				var postId = result[i].postId;
+				var title = result[i].title;
+				var createdate = dateFormat(result[i].createdate);
+				var likes = result[i].count;
+				var check = false;
 
-		for (var i = 0; i < result.length; i++) {
-			var id = request.userID?.id;
-			var postId = result[i].id;
-			var title = result[i].title;
-			var userId = result[i].userId;
-			var createdate = dateFormat(result[i].createdate);
-			var likes = result[i].likes;
+				for (var j = 0; j < result2.length; j++) {
+					check = (result[i].postId == result2[j].postId);
+				};
 
-			list += board.HOME(id, postId, title, userId, createdate, likes);
-		};
-		var body = board.HTML(undefined ,list);
-		response.send(body);
+				likeMode = check ? "del" : "add";
+				likeImg = check ? "/public/img/heart_fill.png" : "/public/img/heart_outline.png";
+				
+				list += board.HOME(id, postId, title, createdate, likes, likeMode, likeImg);
+			};
+
+			var head = board.HEAD(selected);
+			var body = board.HTML(head, list);
+			response.send(body);
+		});
 	});
 });
 
@@ -168,4 +179,4 @@ router.get('/edit', function(request, response){
 });
 
 
-module.exports = router; 
+module.exports = router;
