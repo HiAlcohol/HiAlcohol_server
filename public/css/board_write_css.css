@@ -39,7 +39,7 @@ a {
     color: white;
     margin-bottom: 20px;
     margin-top: 20px;
-    border-color: none ;
+    border: none;
     border-bottom: white 1px solid;
 }
 
