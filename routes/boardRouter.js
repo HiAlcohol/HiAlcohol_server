@@ -63,7 +63,7 @@ router.get('/view', function(request, response){
 
 			var title = result2[0].title;
 			var userId = result2[0].userId;
-			var date = result2[0].createdate;
+			var date = result2[0].updatedate;
 			var like_num = 10000; // 좋아요 연결 후 반영하기
 			var content = result2[0].content;
 
