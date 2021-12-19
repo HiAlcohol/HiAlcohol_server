@@ -39,9 +39,7 @@ router.get('/', function(request, response) {
 			response.send(html);
 		})
 	} else {
-		// db.query(`SELECT * FROM post WHERE id=?`, [request.query.id], function(err, result) {
-
-		// })
+		response.redirect('/');
 	}
 	
 });
