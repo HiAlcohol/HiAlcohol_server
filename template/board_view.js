@@ -69,7 +69,7 @@ module.exports = {
             </div>
             
         </div>
-        <div class ="container" >
+        <div class ="container post" >
             <div class="heading">
                 <div class="title">
                     <h2>${title}</h2>
@@ -84,7 +84,7 @@ module.exports = {
                     <p>${like_num}</p> 
                 </div>
             </div>
-            <div class="content">${content}</div>
+            <pre class="content">${content}</pre>
             <div class="option">
 			<div></div>
                 <a href="/board/edit?id=${id}">수정</a>
