@@ -54,7 +54,7 @@ router.get('/', async function(request, response){
 				}
 
 				var list = search_list.LIST(recipe_list)
-				var html = search_list.HTML( list)
+				var html = search_list.HTML( list, request.user)
 			} else{
 				for (var i = 0;i < result.length - 1;i++) {
 					var item = new Item();
@@ -74,7 +74,7 @@ router.get('/', async function(request, response){
 				}
 
 				var list = search_list.LIST(recipe_list)
-				var html = search_list.HTML( list)
+				var html = search_list.HTML(list, request.user)
 			}
 			
 			// console.log(recipe_list)
@@ -102,7 +102,7 @@ router.get('/recipe', function(request, response){
 			var rate = result2[0].rate;
 			var content = result2[0].content;
 
-			var html = recipe.HTML(name, rate, content);
+			var html = recipe.HTML(name, rate, content, request.user);
 
 			response.send(html);
 			// response.send(result2);

@@ -1,42 +1,46 @@
+const menu = require('./menu.js');
+
 module.exports = {
-	HTML: function(list) {
+	HTML: function(list, user) {
 		const head = this.HEAD();
 		const tail = this.TAIL();
+        var menu_list = menu.MENU(user);
         
 		return `
 		${head}
         <header>
         <!-- hamburger menu -->
         <div class="menu_btn">
-            <a href="#">
-                <div class="container">
-                    <div class="bar1"></div>
-                    <div class="bar2"></div>
-                    <div class="bar3"></div>
-                </div>
-            </a>
-        </div>
-        <div class="menu_bg"></div>
-        <div class="sidebar_menu">
-            <div class="close_btn">
-                <a href="#">
-				<div class="container">
-				<img src="/public/img/back.png" height="18px" style="text-align: right; display: flexbox;"/>
-			</div>
-                </a>
+
+        <a href="#">
+            <div class="container">
+                <div class="bar1"></div>
+                <div class="bar2"></div>
+                <div class="bar3"></div>
+
             </div>
-            <div class="menu_wrap">
-                <div><a href="#">꿀조합 게시판</a></div>
-                <div><a href="#">우리동네 주류매장</a></div>
-                <div><a href="#">내가 쓴 꿀조합</a></div>
-                <div><a href="#">좋아요 리스트</a></div>
-                <div><a href="#">로그아웃</a></div>
-            </div>
+        </a>
         </div>
     
         <div class="hi_alcohol">
         <a href="/" style="font-family: 'Pattaya', sans-serif; color: #0bf3bc">Hi Alcohol</a>
         </div>
+
+        <div class="blank"></div>
+        </div>
+    </header>
+    <div class="menu_bg"></div>
+    <div class="sidebar_menu">
+        <div class="close_btn">
+        <a href="#">
+            <div class="container">
+                <img src="/public/img/back.png" height="18px" style="text-align: right; display: flexbox;"/>
+            </div>
+        </a>
+    </div>
+    ${menu_list}
+</div>
+    
     
     </header>
     <main>
@@ -71,7 +75,7 @@ module.exports = {
     <link rel="stylesheet" href="public/css/search_list.css">
     <link rel="stylesheet" href="public/css/menu.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-	<script src="public/js/modal.js" type="text/javascript"></script>
+    <script src="/public/js/menu.js" type="text/javascript"></script>
 
     <title>Hi Alcohol List</title>
 

@@ -2,6 +2,8 @@
 /*폰트*/
 @import url('https://fonts.googleapis.com/css2?family=Pattaya&display=swap');
 
+*{margin: 0; padding: 0;}
+
 p {
     font-family: 'Pattaya', sans-serif;
     color: white;
@@ -21,8 +23,8 @@ p {
 body {
     margin: 0;
     background-color: #242424;
-    display: flex;
-    justify-content: center;
+    /* display: flex;
+    justify-content: center; */
     text-align: center;
 }
 
@@ -30,7 +32,7 @@ header {
     height: 70px;
     width: 100%;
     padding-top: 2px;
-    background-color: #242424;
+    /* background-color: #242424; */
     position: fixed;
 }
 
@@ -45,7 +47,9 @@ header {
 }
 
 main {
-    min-width: 500px;
+    /* display: flex;
+    justify-content: center; */
+    min-width: 700px;
     padding-top: 100px;
 }
 
