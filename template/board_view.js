@@ -86,9 +86,11 @@ module.exports = {
             </div>
             <div class="content">${content}</div>
             <div class="option">
+			<div></div>
                 <a href="/board/edit?id=${id}">수정</a>
                 <p>  |  </p>
                 <a href="/board_delete_process?id=${id}">삭제</a>
+				<div></div>
             </div>
         </div>
         
