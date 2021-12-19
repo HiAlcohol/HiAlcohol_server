@@ -1,7 +1,6 @@
 const express = require('express');
 const db = require('../config/db.js');
 const router = express.Router();
-// const home = require('../template/home.js');
 const template = require('../template/likes_list');
 
 // prefix: /likes
