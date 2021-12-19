@@ -30,7 +30,7 @@ module.exports = {
 					<div class="close_btn">
 						<a href="#">
 							<div class="container">
-								<img src="public/img/back.png" height="18px" style="text-align: right; display: flexbox;"/>
+								<img src="/public/img/back.png" height="18px" style="text-align: right; display: flexbox;"/>
 							</div>
 						</a>
 					</div>
