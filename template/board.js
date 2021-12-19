@@ -113,7 +113,7 @@ module.exports = {
             </div>
 
             <div class="dropdown">
-            <form action="" method="GET" class="jung">
+            <form action="" method="GET" class="sort">
             <label for="singer">정렬</label>
             <select id="singer" name="singer" required>
                 <option value="new" selected>최신순</option>
