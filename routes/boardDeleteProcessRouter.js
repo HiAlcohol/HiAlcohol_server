@@ -1,11 +1,6 @@
-const { request } = require('express');
 const express = require('express');
-const res = require('express/lib/response');
-const { fstat } = require('fs');
 const router = express.Router();
-const mysql = require('mysql');
 const db = require('../config/db.js');
-
 
 router.get('/', function(request, response) {
 

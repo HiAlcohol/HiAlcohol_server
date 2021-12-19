@@ -49,10 +49,7 @@ router.get('/', function(request, response) {
 		};
 		var body = board.HTML(list);
 		response.send(body);
-});
-
-
-
+	});
 });
 
 
