@@ -71,7 +71,7 @@ router.get('/view', function(request, response){
 
 				var user_id = result3[0].nickname;
 
-				var html = board_view.HTML(title, user_id, date, like_num, content, result2[0].id);
+				var html = board_view.HTML(title, user_id, date, like_num, content, result2[0].id, request.user);
 				response.send(html);
 			})	
 			
