@@ -33,6 +33,12 @@ a {
     background-color: #505050;
 }
 
+.homebar__recommend a{
+	text-decoration: none;
+	color: white;
+	font-size: 15px;
+}
+
 .homebar__search{
     height: 45px;
     width: 300px;
