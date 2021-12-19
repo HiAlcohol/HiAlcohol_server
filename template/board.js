@@ -22,9 +22,14 @@ module.exports = {
         return `
         <div class="content">
             <div class="subject">
+<<<<<<< HEAD
                 <p>${title}
                 <div class="info"><span>${userId}  </span> | <span>  ${createdate}</span></div>
                 </p>
+=======
+                <p>${title}</p>
+                <div class="info"><span>${userId} </span> | <span> ${createdate}</span></div>
+>>>>>>> 570eaf0eee1267972a9ad9d81c1d429fe4e5c452
             </div>
             <div class="like">
             <button type="button" class="likebtn" id="img_btn" onclick="didTapButton();"><img src="/public/img/heart_outline.png"></button>

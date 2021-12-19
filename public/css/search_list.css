@@ -2,6 +2,8 @@
 /*폰트*/
 @import url('https://fonts.googleapis.com/css2?family=Pattaya&display=swap');
 
+*{margin: 0; padding: 0;}
+
 p {
     font-family: 'Pattaya', sans-serif;
     color: white;
@@ -21,8 +23,8 @@ p {
 body {
     margin: 0;
     background-color: #242424;
-    display: flex;
-    justify-content: center;
+    /* display: flex;
+    justify-content: center; */
     text-align: center;
 }
 
@@ -30,16 +32,24 @@ header {
     height: 70px;
     width: 100%;
     padding-top: 2px;
-    background-color: #242424;
+    /* background-color: #242424; */
     position: fixed;
 }
 
-header h2 {
-    margin-top: -20px;
+.hi_alcohol{
+    margin-top: -30px;
+    margin-bottom: 100px;
+}
+
+.hi_alcohol a{
+	text-decoration: none;
+	font-size: 35px;
 }
 
 main {
-    min-width: 500px;
+    /* display: flex;
+    justify-content: center; */
+    min-width: 700px;
     padding-top: 100px;
 }
 
@@ -124,71 +134,3 @@ main {
     display: inline-block;
 }
 
-/* 모달창 */
-#modal-overlay {
-    top: 0; left: 0;   right: 0; bottom: 0;
-    position: absolute;
-    display: none;
-    align-items: center;
-    justify-content: center;
-    background: rgba(255, 255, 255, 0.25);
-}
-#modal {
-    display: none;
-    position: fixed;
-    top: 50%; left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 10;
-}
-
-#modal .modal-window {
-    background: #242424;
-    border-radius: 10px;
-    width: 400px;
-    height: 500px;
-    position: relative;
-    padding: 15px;
-}
-
-#modal .title {
-    margin-top: 10px;
-    margin-bottom: 30px;
-}
-
-#modal .title h2 {
-    display: inline;
-}
-
-#modal .modal_close {
-    display: inline;
-    float: right;
-    padding-right: 10px;
-    cursor: pointer;
-    color: white;
-}
-
-#modal .input {
-    display : flex;
-    justify-content: center;
-    margin-bottom: 40px;
-}
-
-#modal .input div {
-    height: 35px;
-    line-height: 35px;
-    min-width: 70px;
-    margin-top: 15px;
-    margin-right: 12px;
-    border: 1px solid #0BF3BC;
-    border-radius: 15px;
-    font-size: 15px;
-    color: #0BF3BC;
-    display: inline-block;
-}
-
-li {
-    color: white;
-    text-align: left;
-    padding-bottom: 20px;
-    font-size: 16px;
-}

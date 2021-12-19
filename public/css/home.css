@@ -8,7 +8,6 @@ header{
 }
 
 body {
-	padding: 20px;
     margin: 0;
     background-color: #242424;
     text-align: center;
@@ -31,6 +30,12 @@ a {
     text-align: center;
     height: 1px;
     background-color: #505050;
+}
+
+.homebar__recommend a{
+	text-decoration: none;
+	color: white;
+	font-size: 15px;
 }
 
 .homebar__search{

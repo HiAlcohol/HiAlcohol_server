@@ -7,6 +7,10 @@ p {
     color: white;
 }
 
+h2 {
+    color: white;
+}
+
 @font-face {
     font-family: 'GmarketSansMedium';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
@@ -22,39 +26,31 @@ p {
 	margin:10px;
 }
 
-
 body {
+	padding: 20px;
     margin: 0;
     background-color: #242424;
-    /* display: flex; */
-    /* justify-content: center; */
     text-align: center;
+    font-size: 15px;
+}
+.hi_alcohol{
+    /* margin-top: -40px; */
+    margin-bottom: 100px;
 }
 
-header {
-    /* height: 70px; */
-    width: 100%;
-    padding-top: 2px;
-    /* background-color: #242424; */
-    position: fixed;
-}
-
-header a {
-    /* margin-top: -50px; */
+.hi_alcohol a{
 	text-decoration: none;
-	font-size: 25px;
+	font-size: 35px;
 }
 
-main {
-	display: flex;
-    justify-content: center;
-    min-width: 700px;
-    padding-top: 100px;
-}
-
-#map{
+.recipe div{
+    height: 70px;
+    line-height: 70px;
+    max-width: 600px;
     margin: auto;
-    width:600px;
-    height:700px;
+    border:  2px solid white;
+    border-radius: 15px;
+    font-size: 30px;
+    color: white;
+    display: inline-block;
 }
-

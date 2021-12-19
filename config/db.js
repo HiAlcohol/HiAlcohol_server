@@ -1,10 +1,11 @@
 var mysql = require('mysql');
+const env = require('./env');
 
 const db = mysql.createConnection({
-	host: 'localhost',
-	user: 'root',
-	password: 'qwerty123',
-	database: 'hialcohol',
+	host: env.host,
+	user: env.user,
+	password: env.password,
+	database: env.database,
 	dateStrings: 'date'
 });
 

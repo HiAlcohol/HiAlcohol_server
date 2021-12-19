@@ -5,7 +5,7 @@ var db = require('../config/db'); // db.js 폴더 경로
 
 
 router.get('/', function(request, response){
-    const body = map.HOME();
+    const body = map.HOME(request.user);
 	response.send(map.HTML(body));
 });
 

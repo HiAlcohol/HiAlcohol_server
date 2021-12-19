@@ -11,6 +11,8 @@ module.exports = {
 			<div><a href="/likes">좋아요 리스트</a></div>
 			<div><a href="/logout">로그아웃</a></div>
 			`
+		} else {
+			menu_list += `<div><a href="/oauth/kakao">로그인</a></div>`
 		}
 		menu_list += `</div>`
 		return menu_list;
