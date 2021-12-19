@@ -46,4 +46,44 @@ router.get('/', function(request, response) {
 	
 });
 
+router.get('/add', function(req, res) {
+	if(!req.isAuthenticated()){
+		res.send('<script>alert("로그인이 필요한 서비스입니다.");\
+		location.href="/oauth/kakao";</script>');
+	} else {
+		console.log(req.query);
+		if (req.query.postId !== undefined) {
+			db.query(`INSERT INTO liked VALUES (NULL, ${req.query.postId}, ${req.user.id})`, function(err, result) {
+				if (err) throw err;
+				db.query(`SELECT count(*) 'count' FROM 
+				(select * from post where post.id=${req.query.postId}) post, liked 
+				where post.id=liked.postId`, function(err2, result2) {
+					if (err2) throw err2;
+					console.log(result2);
+				})
+			})
+		}
+	}
+})
+
+router.get('/del', function(req, res) {
+	if(!req.isAuthenticated()){
+		res.send('<script>alert("로그인이 필요한 서비스입니다.");\
+		location.href="/oauth/kakao";</script>');
+	} else {
+		console.log(req.query);
+		if (req.query.postId !== undefined) {
+			db.query(`DELETE FROM liked WHERE liked.postId=? and liked.userId=${req.user.id}`, [req.query.postId], function(err, result) {
+				if (err) throw err;
+				db.query(`SELECT count(*) 'count' FROM 
+				(select * from post where post.id=${req.query.postId}) post, liked 
+				where post.id=liked.postId`, function(err2, result2) {
+					if (err2) throw err2;
+					console.log(result2);
+				})
+			})
+		}
+	}
+})
+
 module.exports = router;
