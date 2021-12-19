@@ -9,35 +9,33 @@ module.exports = {
 		return `
 		${head}
         <header>
-        <!-- hamburger menu -->
+        <div class="header">
+		 
         <div class="menu_btn">
-        <a href="#">
-            <div class="container">
-                <div class="bar1"></div>
-                <div class="bar2"></div>
-                <div class="bar3"></div>
-            </div>
-        </a>
+            <a href="#">
+                <div class="container">
+                    <div class="bar1"></div>
+                    <div class="bar2"></div>
+                    <div class="bar3"></div>
+                </div>
+            </a>
         </div>
-    
-        <div class="hi_alcohol">
+        
         <a href="/" style="font-family: 'Pattaya', sans-serif; color: #0bf3bc">Hi Alcohol</a>
-        </div>
-
         <div class="blank"></div>
-        </div>
+    </div>
     </header>
     <div class="menu_bg"></div>
     <div class="sidebar_menu">
         <div class="close_btn">
-        <a href="#">
-            <div class="container">
-                <img src="/public/img/back.png" height="18px" style="text-align: right; display: flexbox;"/>
-            </div>
-        </a>
+            <a href="#">
+                <div class="container">
+                    <img src="/public/img/back.png" height="18px" style="text-align: right; display: flexbox;"/>
+                </div>
+            </a>
+        </div>
+        ${menu_list}
     </div>
-    ${menu_list}
-</div>
     
     
     </header>
