@@ -10,8 +10,10 @@ module.exports = {
 		${tail}
 		`
 	},
-	HOME: function(user) {
-		console.log('HOME: ', user);
+	HOME: function(user, result) {
+		// console.log('HOME: ', user);
+		var cockName = result[0].cocktail;
+		var cockId = result[0].id;
 		var nickname = '';
 		var profile_image = '';
 		var menu_list = menu.MENU(user);
@@ -92,8 +94,7 @@ module.exports = {
 	</div>
 	<nav class="homebar">
 	<header>
-		<a
-		href="/"
+		<a href="/"
 		style="font-family: 'Pattaya', sans-serif; color: #0bf3bc"
 		>Hi Alcohol
 		</a>
@@ -108,8 +109,9 @@ module.exports = {
       </button>
    </form>
 	<div class="homebar__recommend">
-		<p style="color: white">이달의 술 추천</p>
-		<p style="color: white">소다주</p>
+		<p style="color: white">오늘의 술 추천</p>
+		<br>
+		<a href="/search_list/recipe?id=${cockId}">${cockName} ></a>
 		<br />
 		<img src="/public/img/cocktail.png" alt="cocktailImg" width="100" height="100" />
 	</div>
