@@ -7,6 +7,9 @@ body {
     margin: 0 auto;
     background-color:#242424;
 }
+a {
+	text-decoration: none;
+}
 /*개별 적용*/
 .wrapper {
     /* width: 500px; */
@@ -89,8 +92,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-	margin-bottom: 15px;
-	
+	margin-bottom: 20px;
 	text-decoration: none;
 }
 .content p {
