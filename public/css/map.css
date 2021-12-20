@@ -53,13 +53,13 @@ main {
 }
 
 #map{
-    margin: auto;
+    margin: 20px 0 0 0;
     width:600px;
     height:700px;
 }
 
 .mymap{
-    margin: 20px;
+    margin: auto;
     height: 45px;
     width: 90%;
     border: 1px solid #8BFEE2;
@@ -90,4 +90,3 @@ main {
     border: 0;
     background-color: #242424;
 }
-

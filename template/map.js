@@ -47,13 +47,13 @@ module.exports = {
          <main>
          <!-- 우리동네 주류매장 -->
          <div>
-         <div id="map"></div>
          <form class="mymap" method="get" action=map>
          <input type="text" name="location" placeholder="궁금한 장소를 입력해주세요">
          <button type="submit">
                 보러가기
             </button>
      </form>
+     <div id="map"></div>
      </div>
  
          <script>
