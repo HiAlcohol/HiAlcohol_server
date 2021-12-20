@@ -134,7 +134,8 @@ a {
     text-align: right;
     margin-right: 20px;
 }
-
 .sort select{
-    color: black ;
+    color: white ;
+    background-color: #242424;
+    border: none;
 }

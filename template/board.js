@@ -127,7 +127,6 @@ module.exports = {
             </div>
             <div class="dropdown">
             <form action="/board" method="post" class="sort">
-            <label for="singer">정렬</label>
             <select id="singer" name="order" required onChange="this.form.submit()">
                 ${selected}
             </select>

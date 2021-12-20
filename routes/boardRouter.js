@@ -131,13 +131,23 @@ router.get('/view', function(request, response){
 		var like_num = 10000; // 좋아요 연결 후 반영하기
 		var content = result2[0].content;
 
-		db.query(`SELECT nickname FROM user WHERE id = ?;`, [userId], function(err3, result3){
+		db.query(`select post.*, count(liked.id) 'count' from (select post.id 'postId', post.title, post.createdate, user.nickname from post, user where post.userId=user.id) post left join liked on post.postId=liked.postId group by post.postId`, function(err4, result4){
+			
+			if (err4) throw err4;
 
-			var user_id = result3[0].nickname;
+			var like_num = result4[0].count;
+			
+			db.query(`SELECT nickname FROM user WHERE id = ?;`, [userId], function(err3, result3){
+				
+				if (err3) throw err3;
+				var user_id = result3[0].nickname;
+	
+				var html = board_view.HTML(title, user_id, date, like_num, content, result2[0].id, request.user);
+				response.send(html);
+			})	
+		});
 
-			var html = board_view.HTML(title, user_id, date, like_num, content, result2[0].id, request.user);
-			response.send(html);
-		})	
+		
 		
 	});
 
