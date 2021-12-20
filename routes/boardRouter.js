@@ -197,10 +197,11 @@ router.get('/view', function(request, response){
 
 			var like_num = result1[0].count;
 			var user_id = result1[0].nickname;
+			console.log('result1: ', result1);
 			if (!request.isAuthenticated()) {
 				likeMode = 'add';
 				likeImg = '/public/img/heart_outline.png';
-				var html = board_view.HTML(title, user_id, date, like_num, content, result1[0].id, request.user, likeMode, likeImg, postId);
+				var html = board_view.HTML(title, user_id, date, like_num, content, result1[0].postId, request.user, likeMode, likeImg, postId);
 				response.send(html);
 			} else {
 				db.query(`SELECT * FROM liked WHERE postId=? and userId=?;`, [result1[0].postId, request.user.id], function(err2, result2){
@@ -211,7 +212,7 @@ router.get('/view', function(request, response){
 					likeMode = check ? "del" : "add";
 					likeImg = check ? "/public/img/heart_fill.png" : "/public/img/heart_outline.png";
 		
-					var html = board_view.HTML(title, user_id, date, like_num, content, result1[0].id, request.user, likeMode, likeImg, postId);
+					var html = board_view.HTML(title, user_id, date, like_num, content, result1[0].postId, request.user, likeMode, likeImg, postId);
 					response.send(html);
 				});
 			}
