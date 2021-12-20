@@ -29,6 +29,11 @@ router.get('/', function(request, response) {
             WHERE post.id = liked.postId and liked.userId=${request.user.id} group by post.id`, 
             function(err, result) {
             
+            if(result.length == 0){
+                response.send('<script>alert("좋아요 기록이 없습니다.");\
+			location.href="/";</script>');
+            }else{
+                
             var list ='';
             var date = dateFormat(result[0].createdate);
             
@@ -53,6 +58,8 @@ router.get('/', function(request, response) {
             var body = template.HOME(list, request.user);
             var html = template.HTML(body);
             response.send(html);
+            }
+
         })
     }
 });
