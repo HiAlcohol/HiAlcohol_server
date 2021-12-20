@@ -5,6 +5,7 @@ html{
 header{
     margin-top: 120px;
     margin-bottom: 30px;
+	background-color: #242424;
 }
 
 body {
@@ -35,7 +36,7 @@ a {
 .homebar__recommend a{
 	text-decoration: none;
 	color: white;
-	font-size: 15px;
+	font-size: 20px;
 }
 
 .homebar__search{

@@ -11,16 +11,15 @@ class Item
 	materials= []
 }
 
-router.get('/', async function(request, response){
+router.get('/', function(request, response){
 	
 	sql = `select recipe.id, recipe.cocktail, material.material from recipe, material  where
 	material.id =any(select inclusion.materialId from inclusion where inclusion.recipeId= recipe.id )
 	order by recipe.cocktail asc`
 	
 	db.query(sql, function(err0, result0){
-		var _url = request.url;
-		var queryData = url.parse(_url, true).query;
-		// console.log(queryData.query)
+		
+		var queryData = request.query;
 
 		sql2 = `select recipe.id, recipe.cocktail, material.material from recipe, material  where recipe.id=any(select recipeId from inclusion 
 			where  materialId = any(select id from material 
@@ -76,9 +75,7 @@ router.get('/', async function(request, response){
 				var list = search_list.LIST(recipe_list)
 				var html = search_list.HTML(list, request.user)
 			}
-			
-			// console.log(recipe_list)
-			
+
 			response.send(html);
 		});
 	})
@@ -86,7 +83,6 @@ router.get('/', async function(request, response){
 });
 
 router.get('/recipe', function(request, response){
-
 
 	db.query(`select * from recipe`, function(err, result){
 
@@ -105,13 +101,8 @@ router.get('/recipe', function(request, response){
 			var html = recipe.HTML(name, rate, content, request.user);
 
 			response.send(html);
-			// response.send(result2);
 		});
-
-
 	});
-
-
 });
 
 module.exports = router;

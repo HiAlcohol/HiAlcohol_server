@@ -28,6 +28,7 @@ module.exports = {
             </a>
                 <div id="likes${postId}">${likes}</div>
             </div>
+            </a>
         </div>
         <script>
             function didTapButton(postId) {
@@ -40,12 +41,10 @@ module.exports = {
                 if (image.src == off) {
                     console.log("off -> on");
                     image.src = on;
-
                     likes.innerText = String(parseInt(likes.innerText) + 1);
                 } else {
                     console.log("on -> off");
                     image.src = off;
-
                     likes.innerText = String(parseInt(likes.innerText) - 1);
                 }
             };
@@ -125,7 +124,6 @@ module.exports = {
             </div>
             <div class="dropdown">
             <form action="/board" method="post" class="sort">
-            <label for="singer">정렬</label>
             <select id="singer" name="order" required onChange="this.form.submit()">
                 ${selected}
             </select>

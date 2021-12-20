@@ -1,21 +1,20 @@
-const { request } = require('express');
 const express = require('express');
-const res = require('express/lib/response');
-const { fstat } = require('fs');
 const router = express.Router();
-const mysql = require('mysql');
 const db = require('../config/db.js');
 
-
-router.get('/', function(request, response) {
+router.post('/', function(request, response) {
 
         queryData = request.query;
+
+        db.query(`SELECT * from post WHERE id=?`, [queryData.id], function(err2, result2){
+
+        var userId = result2[0].userId;
 
         if(!request.isAuthenticated()){
             response.send('<script>alert("로그인이 필요한 서비스입니다.");\
             location.href="/oauth/kakao";</script>');
         }else{
-            if( userId !== request.user.kakaoid){
+            if( userId !== request.user.id){
                 response.send('<script>alert("작성자만 삭제 가능합니다.");\
                 location.href="/board";</script>');
             }else{
@@ -24,8 +23,9 @@ router.get('/', function(request, response) {
                     response.redirect('/board');
                 })
         }
-    
-    }
+        
+        }
+    });
 });
 
 

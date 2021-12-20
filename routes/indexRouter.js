@@ -4,7 +4,6 @@ const router = express.Router();
 const home = require('../template/home.js');
 
 router.get('/', function(request, response) {
-	// console.log('path: /');
 	sql = `select * from recipe order by rand() limit 1`
 	db.query(sql, function(err, result){
 		if(err) throw err;
