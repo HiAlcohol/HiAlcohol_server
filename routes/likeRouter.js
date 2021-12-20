@@ -14,7 +14,7 @@ router.get('/', function(request, response) {
     } else {
         db.query(`SELECT post.id, post.title, post.createdate, count(*) 'count' 
             FROM post, liked 
-            WHERE post.id = liked.postId group by post.id`, 
+            WHERE post.id = liked.postId and post.userId=${request.user.id} group by post.id`, 
             function(err, result) {
             console.log(result);
             var list ='';
