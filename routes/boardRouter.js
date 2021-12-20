@@ -205,19 +205,21 @@ router.get('/view', function(request, response){
 			console.log('result1: ', result1);
 			if (!request.isAuthenticated()) {
 				likeMode = 'add';
-				likeImg = '/public/img/heart_outline.png';
-				var html = board_view.HTML(title, user_id, date, like_num, content, result1[0].postId, request.user, likeMode, likeImg, postId);
+				likeImg = "/public/img/heart_empty.png";
+				buttonMode = "disabled='disabled'";
+
+				var html = board_view.HTML(title, user_id, date, like_num, content, result1[0].postId, request.user, likeMode, likeImg, postId, buttonMode);
 				response.send(html);
 			} else {
 				db.query(`SELECT * FROM liked WHERE postId=? and userId=?;`, [result1[0].postId, request.user.id], function(err2, result2){
 				
 					if (err2) throw err2;
 					var check = (result2.length !== 0);
-					console.log("check!!!!!!!!!!!",check,"result2:",result2,"result1:",result1);
 					likeMode = check ? "del" : "add";
 					likeImg = check ? "/public/img/heart_fill.png" : "/public/img/heart_outline.png";
-		
-					var html = board_view.HTML(title, user_id, date, like_num, content, result1[0].postId, request.user, likeMode, likeImg, postId);
+					buttonMode = "";
+
+					var html = board_view.HTML(title, user_id, date, like_num, content, result1[0].postId, request.user, likeMode, likeImg, postId, buttonMode);
 					response.send(html);
 				});
 			}
