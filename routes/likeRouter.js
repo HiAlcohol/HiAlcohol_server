@@ -6,6 +6,18 @@ const template = require('../template/likes_list');
 
 // prefix: /likes
 
+function dateFormat(date) {
+    var newdate = new Date(date);
+    let month = newdate.getMonth() + 1;
+    let day = newdate.getDate();
+
+    month = month >= 10 ? month : '0' + month;
+    day = day >= 10 ? day : '0' + day;
+
+    return newdate.getFullYear() + '.' + month + '.' + day + ' ';
+}; 
+
+
 router.get('/', function(request, response) {
     console.log(request.user);
     if(!request.isAuthenticated()){
@@ -16,9 +28,15 @@ router.get('/', function(request, response) {
             FROM post, liked 
             WHERE post.id = liked.postId and liked.userId=${request.user.id} group by post.id`, 
             function(err, result) {
-            console.log(result);
+            
+            if(result.length == 0){
+                response.send('<script>alert("좋아요 기록이 없습니다.");\
+			location.href="/";</script>');
+            }else{
+                
             var list ='';
-            console.log(result[0].createdate)
+            var date = dateFormat(result[0].createdate);
+            
             for (var i = 0;i < result.length; i++) {
                 list += `
                 
@@ -26,11 +44,11 @@ router.get('/', function(request, response) {
                     <a href='/board/view?id=${result[i].id}'>
                         <div class="subject">
                             <p>${result[i].title}</p>
-                            <div class="info"><span>${request.user.nickname}</span> | <span>${result[i].createdate}</span></div>
+                            <div class="info"><span>${request.user.nickname}</span> | <span>${date}</span></div>
                         </div>
                         </a>
                         <div class="like">
-                            <button type="button" class="likebtn" id="img_btn"><img src="/public/img/heart_outline.png"></button>
+                            <input type="image" id="likeImg" src="/public/img/heart_fill.png" disabled='disabled'>
                             <div class="cnt">${result[i].count}</div>
                         </div>
                     </div>
@@ -40,6 +58,8 @@ router.get('/', function(request, response) {
             var body = template.HOME(list, request.user);
             var html = template.HTML(body);
             response.send(html);
+            }
+
         })
     }
 });

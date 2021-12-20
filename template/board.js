@@ -136,7 +136,7 @@ module.exports = {
             </select>
         </form>
         </div>
-            <div class="contentList">
+            <div class="contentList" >
             
            
             
