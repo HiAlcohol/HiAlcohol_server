@@ -1,9 +1,11 @@
+const menu = require('./menu')
+
 
 module.exports = {
     HTML: function(head, body) {
-		if (head === undefined) {
-			head = this.HEAD();
-		}
+        if (head === undefined) {
+            head = this.HEAD();
+        }
         const tail = this.TAIL();
         return `
         ${head}
@@ -17,12 +19,13 @@ module.exports = {
             <a href='/board/view?id=${postId}'>
                 <div class="subject">
                     <p>${title}</p>
-                    <div class="info"><span>${id} </span> | <span> ${createdate}</span></div>
+                    <div class="info"><span>${id}</span> | <span> ${createdate}</span></div>
                 </div>
             </a>
-            <a href='/likes/${check}?postId=${postId}'>
             <div class="like">
-            <button type="button" class="likebtn" id="img_btn" onclick="didTapButton(${postId});"><img id="likeImg${postId}" src=${likeImg}></button>
+            <a href="/likes/${check}?postId=${postId}">
+            <button id="img_btn" class="likebtn" onclick="didTapButton('${postId}');"><img id="likeImg${postId}" src=${likeImg}></button>
+            </a>
                 <div id="likes${postId}">${likes}</div>
             </div>
             </a>
@@ -48,11 +51,12 @@ module.exports = {
         </script>
         `;
     },
-    HEAD: function(selected) {
-		if (selected === undefined) {
-			selected = `<option value="date">최신순</option>
-			<option value="likes">좋아요순</option>`;
-		}
+    HEAD: function(user, selected) {
+        if (selected === undefined) {
+            selected = `<option value="date">최신순</option>
+            <option value="likes">좋아요순</option>`;
+        }
+        const menu_list = menu.MENU(user);
         return `
         <head>
         <link rel="stylesheet" href="/public/css/menu.css" />
@@ -93,37 +97,30 @@ module.exports = {
         <div class="contentWrapper">
             <!-- 메뉴바 -->
             <div class="header">
-				<div class="menu_btn">
-					<a href="#">
-					<div class="container">
-						<div class="bar1"></div>
-						<div class="bar2"></div>
-						<div class="bar3"></div>
-					</div>
-					</a>
-				</div>
-				<div class="menu_bg"></div>
-				<div class="sidebar_menu">
-					<div class="close_btn">
-						<a href="#">
-							<div class="container">
-								<img src="/public/img/back.png" height="18px" style="text-align: right; display: flexbox;"/>
-							</div>
-						</a>
-					</div>
-					<div class="menu_wrap">
-						<div><a href="/board">꿀조합 게시판</a></div>
-						<div><a href="/map">우리동네 주류매장</a></div>
-						<div><a href="/myboard">내가 쓴 꿀조합</a></div>
-						<div><a href="/likes">좋아요 리스트</a></div>
-						<div><a href="/logout">로그아웃</a></div>
-						// login 시에만 보이게 할 예정
-					</div>
-				</div>
+                <div class="menu_btn">
+                    <a href="#">
+                    <div class="container">
+                        <div class="bar1"></div>
+                        <div class="bar2"></div>
+                        <div class="bar3"></div>
+                    </div>
+                    </a>
+                </div>
+                <div class="menu_bg"></div>
+                <div class="sidebar_menu">
+                    <div class="close_btn">
+                        <a href="#">
+                            <div class="container">
+                                <img src="/public/img/back.png" height="18px" style="text-align: right; display: flexbox;"/>
+                            </div>
+                        </a>
+                    </div>
+                    ${menu_list}
+                </div>
                 <a href="/"><div class="logo">Hi Alcohol</div></a>
-				<div class = "writeBtn">
-					<a href="/board/write"><img class="writeBtn" src="/public/img/writeButton.png"></a>
-				</div>
+                <div class = "writeBtn">
+                    <a href="/board/write"><img class="writeBtn" src="/public/img/writeButton.png"></a>
+                </div>
             </div>
             <div class="dropdown">
             <form action="/board" method="post" class="sort">
