@@ -58,3 +58,36 @@ main {
     height:700px;
 }
 
+.mymap{
+    margin: 20px;
+    height: 45px;
+    width: 90%;
+    border: 1px solid #8BFEE2;
+    border-radius: 33px;
+    box-shadow: 0 0 10px 0.5px rgba(11, 243, 188, 0.5);
+}
+
+.mymap input {
+    height: 42px;
+    width: 80%;
+    margin-left: 15px;
+    border: 0;
+    border-radius: 33px;
+    color: #dddddd;
+    background-color: #242424;
+    float: left;
+}
+
+.mymap input:focus {
+    outline: none;
+}
+
+.mymap button {
+    height: 25px;
+    margin-top: 10px;
+    margin-right: 10px;
+    color: #0BF3BC;
+    border: 0;
+    background-color: #242424;
+}
+

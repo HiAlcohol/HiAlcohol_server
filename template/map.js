@@ -10,7 +10,7 @@ module.exports = {
        ${tail}
        `
     },
-    HOME: function(user) {
+    HOME: function(user, location) {
 		var menu_list = menu.MENU(user);
        return `
 	   <header>
@@ -39,86 +39,60 @@ module.exports = {
 					</div>
 				</a>
 			</div>
+            
 			${menu_list}
+
 		</div>
          
          <main>
          <!-- 우리동네 주류매장 -->
+         <div>
          <div id="map"></div>
+         <form class="mymap" method="get" action=map>
+         <input type="text" name="location" placeholder="궁금한 장소를 입력해주세요">
+         <button type="submit">
+                보러가기
+            </button>
+     </form>
+     </div>
  
          <script>
-         var infowindow = new kakao.maps.InfoWindow({zIndex:0});
-  
-         if (navigator.geolocation) {
-          
-         navigator.geolocation.getCurrentPosition(function(position) {
-          
-             var geocoder = new kakao.maps.services.Geocoder();
-          
-             var lat = position.coords.latitude,
-             lon = position.coords.longitude; 
-          
-             var coord = new kakao.maps.LatLng(lat, lon);
-             var callback = function(result, status) {
-                 if (status === kakao.maps.services.Status.OK) {
-                     console.log(result[0].address.address_name);
-                 }
-             };
-          
-             geocoder.coord2Address(coord.getLng(), coord.getLat(), callback);
+         var infowindow = new kakao.maps.InfoWindow({zIndex:1});
+        var mapContainer = document.getElementById('map'), 
+            mapOption = {
+                center: new kakao.maps.LatLng(37.566826, 126.9786567), 
+                level: 3 
+            };  
         
-             var locPosition = new kakao.maps.LatLng(lat, lon), 
-             mapContainer = document.getElementById('map'), 
-             mapOption = {
-                 center: locPosition,
-                 level: 5
-             };
-          
-             var map = new kakao.maps.Map(mapContainer, mapOption);
-             var center = map.getCenter();
-     
-             // new kakao.maps.InfoWindow({ position: center, map: map, content: '현재 위치'});
-             var ps = new kakao.maps.services.Places(); 
-             
-             ps.keywordSearch('주류유통', placesSearchCB, {
-                 location: center, 
-                 sort: kakao.maps.services.SortBy.DISTANCE
-             }); 
-          
-             function placesSearchCB (data, status, pagination) {
-                 if (status === kakao.maps.services.Status.OK) {
-                     for (var i=0; i<data.length; i++) {
-                         displayMarker(data[i]);
-                     }
-                 }
-             }
-         
-         function displayMarker(place) {
-         
-             var placeText = place.place_name;
-          
-             if (placeText.indexOf("주류유통") != -1) {
-                 var marker = new kakao.maps.Marker({
-                     map: map,
-                     position: new kakao.maps.LatLng(place.y, place.x),
-                 })
-             } else {
-                 var marker = new kakao.maps.Marker({
-                     map: map,
-                     position: new kakao.maps.LatLng(place.y, place.x),
-                 });
-             }
-   
-         kakao.maps.event.addListener(marker, 'click', function() {
-          
-             infowindow.setContent('<div style="padding:5px;font-size:12px;">' + place.place_name + '</div>');
-             infowindow.open(map, marker);
-             console.log(place.place_name);
-             });
-         }
-          
-         });
-         }
+        var map = new kakao.maps.Map(mapContainer, mapOption); 
+        var ps = new kakao.maps.services.Places(); 
+        ps.keywordSearch('${location}주류유통', placesSearchCB); 
+        
+        function placesSearchCB (data, status, pagination) {
+            if (status === kakao.maps.services.Status.OK) {
+        
+                var bounds = new kakao.maps.LatLngBounds();
+        
+                for (var i=0; i<data.length; i++) {
+                    displayMarker(data[i]);    
+                    bounds.extend(new kakao.maps.LatLng(data[i].y, data[i].x));
+                }       
+        
+                map.setBounds(bounds);
+            } 
+        }
+        
+        function displayMarker(place) {
+            var marker = new kakao.maps.Marker({
+                map: map,
+                position: new kakao.maps.LatLng(place.y, place.x) 
+            });
+        
+            kakao.maps.event.addListener(marker, 'click', function() {
+                infowindow.setContent('<div style="padding:5px;font-size:12px;">' + place.place_name + '</div>');
+                infowindow.open(map, marker);
+            });
+        }
          </script>
          </main>
     `
