@@ -51,9 +51,10 @@ router.post('/', function(request, response) {
                     var check = false;
 
                     likeMode = undefined;
-                    likeImg = undefined;
+                    likeImg = "/public/img/heart_empty.png";
+					buttonMode= "disabled='disabled'"
                     
-                    list += board.HOME(id, postId, title, createdate, likes, likeMode, likeImg);
+                    list += board.HOME(id, postId, title, createdate, likes, likeMode, likeImg, buttonMode);
                 };
     
                 var head = board.HEAD(request.user, selected);
@@ -81,8 +82,9 @@ router.post('/', function(request, response) {
 
                     likeMode = check ? "del" : "add";
                     likeImg = check ? "/public/img/heart_fill.png" : "/public/img/heart_outline.png";
+					buttonMode= ""
                     
-                    list += board.HOME(id, postId, title, createdate, likes, likeMode, likeImg);
+                    list += board.HOME(id, postId, title, createdate, likes, likeMode, likeImg, buttonMode);
 
 					console.log("check", check, likeImg);
                 };
@@ -121,9 +123,10 @@ router.get('/', function(request, response) {
                     var check = false;
 
                     likeMode = undefined;
-                    likeImg = undefined;
+                    likeImg = "/public/img/heart_empty.png";
+					buttonMode= "disabled='disabled'";
                     
-                    list += board.HOME(id, postId, title, createdate, likes, likeMode, likeImg);
+                    list += board.HOME(id, postId, title, createdate, likes, likeMode, likeImg, buttonMode);
                 };
     
                 var head = board.HEAD(request.user, selected);
@@ -151,8 +154,9 @@ router.get('/', function(request, response) {
 
                     likeMode = check ? "del" : "add";
                     likeImg = check ? "/public/img/heart_fill.png" : "/public/img/heart_outline.png";
+					buttonMode = "";
                     
-                    list += board.HOME(id, postId, title, createdate, likes, likeMode, likeImg);
+                    list += board.HOME(id, postId, title, createdate, likes, likeMode, likeImg, buttonMode);
 
 					console.log("check", check, likeImg);
                 };
@@ -197,6 +201,7 @@ router.get('/view', function(request, response){
 
 			var like_num = result1[0].count;
 			var user_id = result1[0].nickname;
+
 			console.log('result1: ', result1);
 			if (!request.isAuthenticated()) {
 				likeMode = 'add';

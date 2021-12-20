@@ -13,7 +13,7 @@ module.exports = {
         ${tail}
         `
     },
-    HOME: function(id, postId, title, createdate, likes, check, likeImg) {
+    HOME: function(id, postId, title, createdate, likes, check, likeImg, buttonMode) {
         return `
         <div class="content">
             <a href='/board/view?id=${postId}'>
@@ -24,29 +24,30 @@ module.exports = {
             </a>
             <div class="like">
             <a href="/likes/${check}?postId=${postId}">
-            <button id="img_btn" class="likebtn" onclick="didTapButton('${postId}');"><img id="likeImg${postId}" src=${likeImg}></button>
+            <button id="img_btn" class="likebtn" onclick="didTapButton(${postId}, ${likeImg}); " ${buttonMode}><input type="image" id="likeImg${postId}" src=${likeImg} ${buttonMode}></button>
             </a>
                 <div id="likes${postId}">${likes}</div>
             </div>
             </a>
         </div>
         <script>
-            function didTapButton(postId) {
-                var on = "http://localhost:3000/public/img/heart_fill.png";  
-                var off = "http://localhost:3000/public/img/heart_outline.png";
+            function didTapButton(postId, likeImg) {
+                var on = "/public/img/heart_fill.png";  
+                var off = "/public/img/heart_outline.png";
                 const image = document.getElementById("likeImg" + postId);
                 const likes = document.getElementById("likes" + postId);
-                console.log(image.src);
+                const btn = document.getElementById("imgbtn");
 
-                if (image.src == off) {
-                    console.log("off -> on");
-                    image.src = on;
-                    likes.innerText = String(parseInt(likes.innerText) + 1);
-                } else {
-                    console.log("on -> off");
-                    image.src = off;
-                    likes.innerText = String(parseInt(likes.innerText) - 1);
-                }
+                    if (image.src == off) {
+                        console.log("off -> on");
+                        image.src = on;
+                        likes.innerText = String(parseInt(likes.innerText) + 1);
+                    } else {
+                        console.log("on -> off");
+                        image.src = off;
+                        likes.innerText = String(parseInt(likes.innerText) - 1);
+                    }
+                
             };
         </script>
         `;
