@@ -71,10 +71,13 @@ a {
 padding: 0 30px;
 font-size: 20px;
 }
-.like img{
+.likebtn{
    width: 30px;
    height: 30px;
+   background-color: #242424;
+   border: none;
 }
+
 .like p{
    font-size: 12px;
 }

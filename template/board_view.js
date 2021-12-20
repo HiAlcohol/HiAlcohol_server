@@ -1,7 +1,7 @@
 const menu = require('./menu')
 
 module.exports = {
-	HTML: function(title, user_id, date, like_num, content, id, user) {
+	HTML: function(title, user_id, date, like_num, content, id, user, check, likeImg, postId) {
 		const menu_list = menu.MENU(user);
 		return `
 
@@ -79,9 +79,33 @@ module.exports = {
                     </div>
                 </div>
                 <div class="like">
-                    <img src="/public/img/heart.png" alt="heart">
-                    <p>${like_num}</p> 
+                    <a href="/likes/${check}?postId=${postId}&redirect_uri=/board/view?id=${postId}">
+                    <button id="img_btn" class="likebtn" onclick="didTapButton();"><img id="likeImg" src=${likeImg}></button>
+                    </a>
+                    <div id=likes>${like_num}</div> 
                 </div>
+                <script>
+                function didTapButton() {
+                    var on = "http://localhost:3000/public/img/heart_fill.png";  
+                    var off = "http://localhost:3000/public/img/heart_outline.png";
+                    const image = document.getElementById("likeImg");
+                    const likes = document.getElementById("likes");
+                    console.log(image.src);
+    
+                    if (image.src == off) {
+                        console.log("off -> on");
+                        image.src = on;
+    
+                        likes.innerText = String(parseInt(likes.innerText) + 1);
+                    } else {
+                        console.log("on -> off");
+                        image.src = off;
+    
+                        likes.innerText = String(parseInt(likes.innerText) - 1);
+                    }
+                };
+            </script>
+
             </div>
             <pre class="content">${content}</pre>
             <div class="option">
