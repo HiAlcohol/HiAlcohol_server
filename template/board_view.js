@@ -1,7 +1,7 @@
 const menu = require('./menu')
 
 module.exports = {
-	HTML: function(title, user_id, date, like_num, content, id, user, check, likeImg, postId) {
+	HTML: function(title, user_id, date, like_num, content, id, user, check, likeImg, postId, buttonMode) {
 		const menu_list = menu.MENU(user);
 		return `
 
@@ -80,7 +80,7 @@ module.exports = {
                 </div>
                 <div class="like">
                     <a href="/likes/${check}?postId=${postId}&redirect_uri=/board/view?id=${postId}">
-                    <button id="img_btn" class="likebtn" onclick="didTapButton();"><img id="likeImg" src=${likeImg}></button>
+                    <button id="img_btn" class="likebtn" onclick="didTapButton(); " ${buttonMode}><input type="image" id="likeImg${postId}" src=${likeImg} ${buttonMode}></button>
                     </a>
                     <div id=likes>${like_num}</div> 
                 </div>
