@@ -48,7 +48,7 @@ router.get('/', function(request, response) {
                         </div>
                         </a>
                         <div class="like">
-                            <button type="button" class="likebtn" id="img_btn"><img src="/public/img/heart_outline.png"></button>
+                            <input type="image" id="likeImg" src="/public/img/heart_fill.png" disabled='disabled'>
                             <div class="cnt">${result[i].count}</div>
                         </div>
                     </div>
