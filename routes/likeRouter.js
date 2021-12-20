@@ -6,6 +6,18 @@ const template = require('../template/likes_list');
 
 // prefix: /likes
 
+function dateFormat(date) {
+    var newdate = new Date(date);
+    let month = newdate.getMonth() + 1;
+    let day = newdate.getDate();
+
+    month = month >= 10 ? month : '0' + month;
+    day = day >= 10 ? day : '0' + day;
+
+    return newdate.getFullYear() + '.' + month + '.' + day + ' ';
+}; 
+
+
 router.get('/', function(request, response) {
     console.log(request.user);
     if(!request.isAuthenticated()){
@@ -16,9 +28,10 @@ router.get('/', function(request, response) {
             FROM post, liked 
             WHERE post.id = liked.postId and liked.userId=${request.user.id} group by post.id`, 
             function(err, result) {
-            console.log(result);
+            
             var list ='';
-            console.log(result[0].createdate)
+            var date = dateFormat(result[0].createdate);
+            
             for (var i = 0;i < result.length; i++) {
                 list += `
                 
@@ -26,7 +39,7 @@ router.get('/', function(request, response) {
                     <a href='/board/view?id=${result[i].id}'>
                         <div class="subject">
                             <p>${result[i].title}</p>
-                            <div class="info"><span>${request.user.nickname}</span> | <span>${result[i].createdate}</span></div>
+                            <div class="info"><span>${request.user.nickname}</span> | <span>${date}</span></div>
                         </div>
                         </a>
                         <div class="like">
