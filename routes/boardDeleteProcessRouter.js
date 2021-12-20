@@ -20,8 +20,12 @@ router.post('/', function(request, response) {
             }else{
                 db.query(`DELETE FROM post WHERE id=?`, [queryData.id], function(err, result){
                     if (err) console.error("err : " + err);
-                    response.redirect('/board');
+                    db.query(`DELETE FROM liked WHERE postId=?`, [queryData.id], function(err2, result2){
+                        if (err) console.error("err : " + err2);
+                        response.redirect('/board');
+                    })
                 })
+                
         }
         
         }
