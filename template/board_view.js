@@ -3,6 +3,11 @@ const menu = require('./menu')
 module.exports = {
 	HTML: function(title, user_id, date, like_num, content, id, user, check, likeImg, postId, buttonMode) {
 		const menu_list = menu.MENU(user);
+        if (buttonMode == "" ){
+            var link = `/likes/${check}?postId=${postId}&redirect_uri=/board/view?id=${postId}`;
+        } else {
+            link = "#";
+        }
 		return `
 
         <!DOCTYPE html>
@@ -79,10 +84,10 @@ module.exports = {
                     </div>
                 </div>
                 <div class="like">
-                    <a href="/likes/${check}?postId=${postId}&redirect_uri=/board/view?id=${postId}">
+                    <a href="${link}">
                     <button id="img_btn" class="likebtn" onclick="didTapButton(); " ${buttonMode}><input type="image" id="likeImg${postId}" src=${likeImg} ${buttonMode}></button>
                     </a>
-                    <div id=likes>${like_num}</div> 
+                    <div id=likes disabled='disabled'>${like_num}</div> 
                 </div>
                 <script>
                 function didTapButton() {
