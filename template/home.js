@@ -1,3 +1,4 @@
+const { NULL } = require('mysql/lib/protocol/constants/types');
 const menu = require('./menu.js');
 
 module.exports = {
@@ -22,7 +23,10 @@ module.exports = {
 			profile_image = '/public/img/loginIcon.png';
 		} else {
 			nickname = user.nickname;
-			profile_image = user.profile_image;
+			if(user.profile_image === null )
+				profile_image = '/public/img/loginIcon.png';
+			else
+				profile_image = user.profile_image;
 		}
 		return `
 		

@@ -134,7 +134,7 @@ module.exports = {
      <link rel="stylesheet" href="/public/css/menu.css" />
      <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
      <script src="/public/js/menu.js" type="text/javascript"></script>
-    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=3a0965c75cdc0b99976416f11247b105&libraries=services"></script>
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=b305a1173710e4ff765e09b5a62e314c&libraries=services"></script>
     <script>
              
      </script>
