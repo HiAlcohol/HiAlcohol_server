@@ -14,6 +14,13 @@ module.exports = {
         `
     },
     HOME: function(id, postId, title, createdate, likes, check, likeImg, buttonMode) {
+        
+        if (buttonMode == "" ){
+            var link = `/likes/${check}?postId=${postId}`;
+        } else {
+            link = "#";
+        }
+        
         return `
         <div class="content">
             <a href='/board/view?id=${postId}'>
@@ -23,10 +30,10 @@ module.exports = {
                 </div>
             </a>
             <div class="like">
-            <a href="/likes/${check}?postId=${postId}">
+            <a href="${link}">
             <button id="img_btn" class="likebtn" onclick="didTapButton(${postId}, ${likeImg}); " ${buttonMode}><input type="image" id="likeImg${postId}" src=${likeImg} ${buttonMode}></button>
             </a>
-                <div id="likes${postId}">${likes}</div>
+                <div id="likes${postId}" disabled='disabled'>${likes}</div>
             </div>
             </a>
         </div>
@@ -36,7 +43,6 @@ module.exports = {
                 var off = "/public/img/heart_outline.png";
                 const image = document.getElementById("likeImg" + postId);
                 const likes = document.getElementById("likes" + postId);
-                const btn = document.getElementById("imgbtn");
 
                     if (image.src == off) {
                         console.log("off -> on");
