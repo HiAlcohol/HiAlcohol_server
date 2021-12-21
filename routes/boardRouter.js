@@ -105,7 +105,9 @@ router.get('/', function(request, response) {
     var selected = `
             <option value="date" selected>최신순</option>
             <option value="likes" >좋아요순</option>`;
-    sql = `select post.*, count(liked.id) 'count' from (select post.id 'postId', post.title, post.createdate, user.nickname from post, user where post.userId=user.id) post left join liked on post.postId=liked.postId group by post.postId;`;
+    sql = `select post.*, count(liked.id) 'count' from 
+	(select post.id 'postId', post.title, post.createdate, user.nickname from post, user where post.userId=user.id) post left join liked 
+	on post.postId=liked.postId group by post.postId order by post.createdate desc;`;
     db.query(sql, function(err, result){
         if (err) throw err;
         var list = '';
