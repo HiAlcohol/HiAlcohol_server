@@ -7,7 +7,7 @@ module.exports = {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>글 작성 페이지</title>
+    <title>글 수정 페이지</title>
     <link rel="stylesheet" href="/public/css/board_write_css.css">
 </head>
 <style>
