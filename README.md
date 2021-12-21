@@ -41,3 +41,5 @@ source config/inclusion.sql;
 - 로그인 한 후 글 작성하여 확인 
 
 
+<img width="80%" src="!https://user-images.githubusercontent.com/35442832/146862564-c5e6acd0-b092-443c-9b72-08f041dbc512.png"/>
+
