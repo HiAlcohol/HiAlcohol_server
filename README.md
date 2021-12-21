@@ -45,7 +45,7 @@ source config/inclusion.sql;
 ## HiAlcohol 데모 영상
 
 https://youtu.be/k2yI1_-XQVw
-{% include movie.html id="https://youtu.be/k2yI1_-XQVw" %}
+{%include movie.html id="https://youtu.be/k2yI1_-XQVw"%}
 
 - - - 
 
