@@ -46,7 +46,7 @@ source config/inclusion.sql;
 
 https://youtu.be/k2yI1_-XQVw
 
-[![HiAlcohol 데모 영상]()](https://youtu.be/k2yI1_-XQVw)
+[![HiAlcohol 데모 영상](https://user-images.githubusercontent.com/46748334/146902760-7242f6ea-2f87-4a5f-87f5-ca87ef1ee148.png)](https://youtu.be/k2yI1_-XQVw)
 
 - - - 
 
