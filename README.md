@@ -46,7 +46,7 @@ source config/inclusion.sql;
 
 https://youtu.be/k2yI1_-XQVw
 
-{% include movie.html id="https://youtu.be/k2yI1_-XQVw" %}
+{% include movie.html id="k2yI1_-XQVw" %}
 
 - - - 
 
