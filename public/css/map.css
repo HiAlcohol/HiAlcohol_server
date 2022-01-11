@@ -46,15 +46,16 @@ header a {
 }
 
 main {
-	display: flex;
-    justify-content: center;
+	/* display: flex;
+    justify-content: center; */
     min-width: 700px;
     padding-top: 100px;
 }
 
 #map{
-    margin: 20px 0 0 0;
-    width:600px;
+    margin: auto;
+    margin-top: 20px;
+    width: 90%;
     height:700px;
 }
 
