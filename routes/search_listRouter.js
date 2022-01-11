@@ -20,10 +20,10 @@ router.get('/', function(request, response){
 	db.query(sql, function(err0, result0){
 		
 		var queryData = request.query;
-
+		db.escape
 		sql2 = `select recipe.id, recipe.cocktail, material.material from recipe, material  where recipe.id=any(select recipeId from inclusion 
 			where  materialId = any(select id from material 
-				where material= '${queryData.keyword}' or material = any(select alcolType from product where name='${queryData.keyword}'))) 
+				where material= ` + db.escape(queryData.keyword) + ` or material = any(select alcolType from product where name=` + db.escape(queryData.keyword) + `))) 
 				and material.id =any(select inclusion.materialId from inclusion where inclusion.recipeId= recipe.id ) order by recipe.cocktail asc`
 		
 		if(err0) throw err0;
