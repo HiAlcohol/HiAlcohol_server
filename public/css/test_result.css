@@ -1,0 +1,84 @@
+@charset "utf-8";
+/*폰트*/
+@import url('https://fonts.googleapis.com/css2?family=Pattaya&display=swap');
+*{margin: 0; padding: 0;}
+
+@font-face {
+    font-family: 'GmarketSansMedium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+*:not(i) {
+    font-family: GmarketSansMedium;
+}
+
+.result {
+    width: 100%;
+    padding-top: 130px;
+}
+
+.result a {
+    text-decoration: none;
+    font-size: 20px;
+    color: white;
+}
+
+.result img {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    width: 100px;
+}
+
+body {
+    margin: auto;
+    background-color: #242424;
+    text-align: center;
+}
+
+main {
+    margin-top: 150px;
+}
+.exp {
+    margin-top: 50px;
+    margin-bottom: 30px;
+}
+.exp li{
+    margin-top: 10px;
+}
+.match {
+    margin: auto;
+    width: 424px;
+    color: white;
+}
+.match div {
+    float: left;
+    margin-right: 5px;
+    margin-left: 5px;
+    width: 200px;
+    height: 70px;
+    padding-top: 20px;
+    border: 1px solid #0BF3BC;
+    border-radius: 10px;
+}
+
+.return {
+    color: white;
+    font-size: 17px;
+    padding-top: 15px;
+    margin: auto;
+    width: 260px;
+    height: 35px;
+    background: #0BF3BC;
+    border-radius: 10px;
+}
+
+.share {
+    margin-top: 30px;
+    font-size: 15px;
+    color: white;
+}
+.share img {
+    width: 50px;
+}
