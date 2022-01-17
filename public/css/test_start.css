@@ -18,6 +18,11 @@ p {
     font-family: GmarketSansMedium;
 }
 
+a {
+    text-decoration: none;
+    color: white;
+}
+
 header {
     width: 100%;
     padding-top: 240px;

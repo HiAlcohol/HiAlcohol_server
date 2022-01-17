@@ -14,6 +14,11 @@
     font-family: GmarketSansMedium;
 }
 
+a {
+    text-decoration: none;
+    color: white;
+}
+
 .result {
     width: 100%;
     padding-top: 130px;
@@ -76,6 +81,7 @@ main {
 
 .share {
     margin-top: 30px;
+    margin-bottom: 30px;
     font-size: 15px;
     color: white;
 }
