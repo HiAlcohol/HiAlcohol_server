@@ -1,10 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
+  <style>
+    @charset "utf-8";
+/*폰트*/
+@import url('https://fonts.googleapis.com/css2?family=Pattaya&display=swap');
+*{margin: 0; padding: 0;}
+p {
+    font-family: 'Pattaya', sans-serif;
+    color: white;
+}
+
+@font-face {
+    font-family: 'GmarketSansMedium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+*:not(i) {
+    font-family: GmarketSansMedium;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+header {
+    width: 100%;
+    padding-top: 240px;
+    position: fixed;
+}
+
+header a {
+    text-decoration: none;
+    font-size: 20px;
+    color: white;
+}
+
+body {
+    margin: auto;
+    background-color: #242424;
+    text-align: center;
+}
+
+main {
+    padding-top: 540px;
+}
+
+.start {
+    color: white;
+    font-size: 17px;
+    padding-top: 11px;
+    margin: auto;
+    width: 185px;
+    height: 40px;
+    background: #0BF3BC;
+    border-radius: 50px;
+}
+  </style>
+
 <head>
     <meta charset="UTF-8">
-    <title>>Hi MBTI Start</title>
+    <title>Hi MBTI Start</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/public/css/test_start.css" />
+    <!-- <link rel="stylesheet" href="/public/css/test_start.css"/> -->
 </head>
 
 <body>
@@ -12,7 +72,7 @@
     <a>당신에게 어울리는 <span style="color:#0BF3BC ">술</span>테스트</a>
   </header>
   <main>
-    <div class="start">테스트 시작</div>
+    <div class="start"><a href = "test.html">테스트 시작</a></div>
   </main>
 
 </body>
