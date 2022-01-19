@@ -1,90 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-<style>
-    @charset "utf-8";
-/*폰트*/
-@import url('https://fonts.googleapis.com/css2?family=Pattaya&display=swap');
-*{margin: 0; padding: 0;}
 
-@font-face {
-    font-family: 'GmarketSansMedium';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
-
-*:not(i) {
-    font-family: GmarketSansMedium;
-}
-
-a {
-    text-decoration: none;
-    color: white;
-}
-
-p {
-    color: white;
-}
-
-body {
-    margin: auto;
-    background-color: #242424;
-    text-align: center;
-}
-
-main {
-    margin-top: 150px;
-}
-
-.qna {
-    margin: auto;
-    padding: 20px;
-    background-color: #202020;
-    border-radius: 10px;
-    width: 350px;
-}
-
-.qna div {
-    margin: auto;
-    width: 250px;
-    height: 90px;
-    color: white;
-    border: 1px solid #8BFEE2;
-    box-shadow: 0px 0px 10px 0.5px rgba(11, 243, 188, 0.5);
-    border-radius: 20px;
-    padding-top: 60px;
-}
-
-.move {
-    margin: auto;
-    width: 320px;
-    color: white;
-}
-
-.move div{
-    color: white;
-    float: left;
-    margin-right: 5px;
-    margin-left: 5px;
-    padding-top: 10px;
-    width: 150px;
-    height: 30px;
-    border-radius: 10px;
-}
-
-.prev {
-    background-color: #BDBDBD;
-}
-
-.next {
-    background-color: #0BF3BC;
-}
-</style>
 <head>
     <meta charset="UTF-8">
     <title>Hi MBTI</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <link rel="stylesheet" href="/public/css/test.css" /> -->
+    <link rel="stylesheet"  type="text/css" href="../css/test.css" >
 </head>
 
 <body>
@@ -95,9 +16,9 @@ main {
     <div><a>1/12</a></div><br>
 
     <div class="qna">
-        <p>Q1. 술집에서 멍하니 있는 당신의 머리속은?</p><br><br>
-        <div class="btn_1">무한한 상상의 나래 속으로</div><br><br>
-        <div class="btn_1">집.. 어떻게 가지?</div><br>
+        <p id="q">Q1. 술집에서 멍하니 있는 당신의 머리속은?</p><br><br>
+        <div class="btn_1" id="btn_1"><a href="#">무한한 상상의 나래 속으로</a></div><br><br>
+        <div class="btn_2">집.. 어떻게 가지?</div><br>
     </div>
     <br><br>
     <div class="move">
@@ -107,4 +28,32 @@ main {
 </main>
 
 </body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+<script>
+    $(".btn_1").click(function(){
+        $.getJSON("./question.json", function(data){
+            var txt ='';
+            $.each(data, function(key, value){
+                txt += "q : "+ value.question;
+                txt += "a1 : "+ value.answer1;
+                txt += "a2 : "+ value.answer2;
+            });
+            console.log("hello1");
+            console.log(txt);
+        });
+        console.log("hello2");
+        console.log(txt);
+        return false;
+    });
+</script>
+
+<!-- <script>
+  
+    $('.btn_1').click(function(){
+        console.log("hello");
+    })
+</script> -->
+
+
 </html>
