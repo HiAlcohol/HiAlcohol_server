@@ -38,7 +38,6 @@ router.post('/', function(request, response) {
     db.query(sql, function(err, result){
         if (err) throw err;
         var list = '';
-        console.log('result:', result)
 		
         if(!request.isAuthenticated()){
 
@@ -86,7 +85,7 @@ router.post('/', function(request, response) {
                     
                     list += board.HOME(id, postId, title, createdate, likes, likeMode, likeImg, buttonMode);
 
-					console.log("check", check, likeImg);
+					// console.log("check", check, likeImg);
                 };
     
                 var head = board.HEAD(request.user, selected);
@@ -159,7 +158,7 @@ router.get('/', function(request, response) {
                     
                     list += board.HOME(id, postId, title, createdate, likes, likeMode, likeImg, buttonMode);
 
-					console.log("check", check, likeImg);
+					// console.log("check", check, likeImg);
                 };
     
                 var head = board.HEAD(request.user, selected);
@@ -203,7 +202,6 @@ router.get('/view', function(request, response){
 			var like_num = result1[0].count;
 			var user_id = result1[0].nickname;
 
-			console.log('result1: ', result1);
 			if (!request.isAuthenticated()) {
 				likeMode = 'add';
 				likeImg = "/public/img/heart_empty.png";
@@ -264,6 +262,4 @@ router.get('/edit', function(request, response){
 	});
 });
 
-
 module.exports = router;
-
