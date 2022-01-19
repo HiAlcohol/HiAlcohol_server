@@ -4,6 +4,16 @@ const db = require('../config/db.js');
 
 // prefix: /comment
 
+router.get('/', function(req, res) {
+	const query = req.query;
+	db.query(`SELECT * FROM comment WHERE postId=?`, [query.postId],
+	function(err, result) {
+		if (err) throw err
+		res.status(200).json(result);
+	})
+});
+
+// 댓글 추가
 // { postId: , comment: }
 router.post('/', function(req, res) {
 	const body = req.body;
@@ -17,11 +27,12 @@ router.post('/', function(req, res) {
 			if (err)
 				throw err
 			console.log(result);
-			res.status(201).json('댓글 추가 성공');
+			res.status(201).json({message: '댓글 추가 성공'});
 		})
 	}
 });
 
+// 댓글 삭제
 // {userId: , postId: , commentId: }
 router.post('/del', async function(req, res) {
 	const body = req.body;
@@ -52,7 +63,7 @@ router.post('/del', async function(req, res) {
 		db.query("DELETE FROM comment WHERE id=?", [parseInt(body.commentId)],
 		function(err, result) {
 			console.log(result);
-			res.status(200).send('댓글 삭제 성공');
+			res.status(200).send({message: '댓글 삭제 성공'});
 		})
 	}
 });
