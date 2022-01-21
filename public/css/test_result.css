@@ -68,14 +68,14 @@ main {
     border-radius: 10px;
 }
 
-.return {
+.inner button{
     color: white;
     font-size: 17px;
-    padding-top: 15px;
     margin: auto;
     width: 260px;
-    height: 35px;
-    background: #0BF3BC;
+    height: 50px;
+    background-color: #0BF3BC;
+    border: #0BF3BC;
     border-radius: 10px;
 }
 

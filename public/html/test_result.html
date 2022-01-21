@@ -5,6 +5,8 @@
     <title>Hi MBTI Result</title>
     <link rel="stylesheet"  type="text/css" href="../css/test_result.css" >
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
 </head>
 <body>
   <div class="result">
@@ -34,9 +36,14 @@
   </div>
 
   <main>
-    <div class="return"><a href="test_start.html">처음으로</a></div>
+    <div class="inner"><button id="restart" class="btn"> 처음으로</button></div>
     <div class="share"> <img src="../img/bt_kakao.png"><br>공유하기</div>
   </main>
 
 </body>
+<script>
+    $("#restart").click(function() {
+    location.href = "test_start.html";
+});
+</script>
 </html>

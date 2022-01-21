@@ -35,21 +35,22 @@ main {
 
 .qna {
     margin: auto;
-    padding: 20px;
+    padding: 30px;
     background-color: #202020;
     border-radius: 10px;
     width: 350px;
 }
 
-.qna div {
+.inner button {
     margin: auto;
     width: 250px;
-    height: 90px;
+    height: 150px;
+    font-size: 15px;
     color: white;
+    background-color: #202020;
     border: 1px solid #8BFEE2;
     box-shadow: 0px 0px 10px 0.5px rgba(11, 243, 188, 0.5);
     border-radius: 20px;
-    padding-top: 60px;
 }
 
 .move {

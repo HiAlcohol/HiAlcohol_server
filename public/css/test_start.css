@@ -45,13 +45,13 @@ main {
     padding-top: 540px;
 }
 
-.start {
+.inner button{
     color: white;
     font-size: 17px;
-    padding-top: 11px;
     margin: auto;
     width: 185px;
-    height: 40px;
-    background: #0BF3BC;
+    height: 50px;
+    background-color: #0BF3BC;
+    border: #0BF3BC;
     border-radius: 50px;
 }
