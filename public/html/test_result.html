@@ -36,8 +36,13 @@
   </div>
 
   <main>
-    <div class="inner"><button id="restart" class="btn"> 처음으로</button></div>
-    <div class="share"> <img src="../img/bt_kakao.png"><br>공유하기</div>
+    <div class="button"><button id="restart" class="btn"> 처음으로</button></div><br>
+    
+    <div class="copy"><button id="copy" class="btn">링크 복사</button></div>
+    <div class="share"><img src="../img/bt_kakao.png"><br>공유하기</div>
+   
+    
+    <input type="text" value="복사될 URL c경로" id="link" style="display:none;">
   </main>
 
 </body>
@@ -45,5 +50,16 @@
     $("#restart").click(function() {
     location.href = "test_start.html";
 });
+
+$('.copy').click(function(){	
+var link= $('#link');
+link.css('display','block').select();
+document.execCommand("Copy");
+alert('결과 링크가 복사되었습니다.');	
+return false;
+});
+
+</script>
+
 </script>
 </html>

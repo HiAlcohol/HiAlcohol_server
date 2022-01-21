@@ -68,7 +68,7 @@ main {
     border-radius: 10px;
 }
 
-.inner button{
+.button button{
     color: white;
     font-size: 17px;
     margin: auto;
@@ -87,4 +87,15 @@ main {
 }
 .share img {
     width: 50px;
+}
+
+.copy button{
+    color: white;
+    font-size: 17px;
+    margin: auto;
+    width: 260px;
+    height: 50px;
+    background-color: #BDBDBD;
+    border: #BDBDBD;
+    border-radius: 10px;
 }
