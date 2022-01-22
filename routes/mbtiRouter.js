@@ -5,6 +5,18 @@ const mbti_test = require('../template/mbti_test.js');
 const mbti_result = require('../template/mbti_result.js');
 // var db = require('../config/db'); // db.js 폴더 경로
 
+const fs = require('fs');
+
+const qfile = fs.readFileSync('./config/question.json', 'utf8');
+const rfile = fs.readFileSync('./config/result.json', 'utf8');
+
+const qData = JSON.parse(qfile);
+const rData = JSON.parse(rfile);
+
+console.log(qData);
+console.log(rData);
+
+
 
 router.get('/', function(request, response){
   
