@@ -8,21 +8,21 @@ module.exports = {
        ${tail}
        `
     },
-    HOME: function( ) {
+    HOME: function(n, q, a1, a2) {
        return `
        <body>
        <header>
        
        </header>
        <main>
-           <div><a>1/12</a></div><br>
+           <div><a>${n}/12</a></div><br>
        
            <div class="qna">
-               <p id="q">Q1. 술집에서 멍하니 있는 당신의 머리속은?</p><br><br>
+               <p id="q">Q${n}. ${q}</p><br><br>
              
-               <div class="button"><button id="brn_1" class="btn" onClick="location.href='test'"> 무한한 상상의 나래 속으로</button></div>
+               <div class="button"><button id="brn_1" class="btn" onClick="location.href='test'">${a1}</button></div>
                <br>
-               <div class="button"><button id="btn_2" class="btn" onClick="location.href='test'"> 집.. 어떻게 가지?</button></div>
+               <div class="button"><button id="btn_2" class="btn" onClick="location.href='test'">${a2}</button></div>
            </div>
            <br><br>
            <div class="move">

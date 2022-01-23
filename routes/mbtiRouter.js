@@ -10,7 +10,6 @@ const fs = require('fs');
 const qfile = fs.readFileSync('./config/question.json', 'utf8');
 const rfile = fs.readFileSync('./config/result.json', 'utf8');
 
-
 const qData = JSON.parse(qfile);
 const rData = JSON.parse(rfile);
 
@@ -24,7 +23,12 @@ router.get('/', function(request, response){
 });
 
 router.get('/test', function(request, response){
-    const body = mbti_test.HOME();
+    var num = String(3);
+    var q = qData[num].question;
+    var a1 = qData[num].answer1;
+    var a2 = qData[num].answer2;
+    
+    const body = mbti_test.HOME(num, q, a1, a2);
 	response.send(mbti_test.HTML(body));
 });
 
