@@ -10,11 +10,12 @@ const fs = require('fs');
 const qfile = fs.readFileSync('./config/question.json', 'utf8');
 const rfile = fs.readFileSync('./config/result.json', 'utf8');
 
+
 const qData = JSON.parse(qfile);
 const rData = JSON.parse(rfile);
 
-console.log(qData);
-console.log(rData);
+// console.log(qData);
+// console.log(rData);
 
 
 
@@ -30,9 +31,11 @@ router.get('/test', function(request, response){
 });
 
 router.get('/result', function(request, response){
-    const body = mbti_result.HOME();
+    var mbti = 'isfj';
+    data = rData[mbti];
+    const des = mbti_result.DES(data);
+    const body = mbti_result.HOME(data, des);
 	response.send(mbti_result.HTML(body));
 });
-
 
 module.exports = router;

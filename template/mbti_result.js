@@ -8,7 +8,7 @@ module.exports = {
        ${tail}
        `
     },
-    HOME: function( ) {
+    HOME: function(data, des) {
        return `
        <script>
        $("#restart").click(function() {
@@ -47,14 +47,10 @@ module.exports = {
          <div class="result">
            <a>당신에게 어울리는 술은</a><br>
            <img src="/public/img/cocktail.png"><br>
-           <a><span style="font-size: 30px">모히또</span></a>
+           <a><span style="font-size: 30px">${data.cocktail}</span></a>
            <div class="exp" style="color: white">
              <ul>
-               <li>낯가림이 심해서 예고없는 갑작스러운 변화는 싫어하는 편이에요.</li>
-               <li>특별한 것보다는 일반적이고 대중적인 것을 선호하는 편이에요.</li>
-               <li>겉보기에는 차가워 보이지만 친구들이 기억 못하는 추억들도 기억하고 있어요.</li>
-               <li>실수는 참지 못해요! 바로 수정해야 마음이 편해져요.</li>
-               <li>모든 일에서 정리정돈은 필수예요.</li>
+               ${des}
              </ul>
            </div>
          </div>
@@ -62,11 +58,11 @@ module.exports = {
          <div class="match">
              <div class="best">
                최고의 궁합<br>
-               <a>데킬라 선라이즈 ></a>
+               <a>< ${data.best} ></a>
              </div>
              <div class="worst">
                최악의 궁합<br>
-               <a>미도리샤워 ></a>
+               <a>< ${data.worst} ></a>
              </div>
          </div>
        
@@ -100,10 +96,20 @@ module.exports = {
     
        `;
     },
-    TAIL: function() {
+    TAIL: function(data) {
        return `
        </body>
  </html>
        `
+    },
+    DES: function() {
+      var i = 0;
+      var description = '';
+
+      while(i<5)  {
+        description += ` <li>${data.description[i]}</li>`
+        i = i+1;
+      }
+      return description;
     }
  };
