@@ -17,8 +17,6 @@ const rData = JSON.parse(rfile);
 // console.log(qData);
 // console.log(rData);
 
-
-
 router.get('/', function(request, response){
   
     const body = mbti_start.HOME();

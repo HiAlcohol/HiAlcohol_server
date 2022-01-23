@@ -10,14 +10,6 @@ module.exports = {
     },
     HOME: function( ) {
        return `
-       <script>
-       
-       
-       $(".btn").click(function() {
-       location.href = "test.html";
-     });
-     
-     </script>
        <body>
        <header>
        
@@ -28,9 +20,9 @@ module.exports = {
            <div class="qna">
                <p id="q">Q1. 술집에서 멍하니 있는 당신의 머리속은?</p><br><br>
              
-               <div class="button"><button id="brn_1" class="btn"> 무한한 상상의 나래 속으로</button></div>
+               <div class="button"><button id="brn_1" class="btn" onClick="location.href='test'"> 무한한 상상의 나래 속으로</button></div>
                <br>
-               <div class="button"><button id="btn_2" class="btn"> 집.. 어떻게 가지?</button></div>
+               <div class="button"><button id="btn_2" class="btn" onClick="location.href='test'"> 집.. 어떻게 가지?</button></div>
            </div>
            <br><br>
            <div class="move">
@@ -53,14 +45,8 @@ module.exports = {
            <title>Hi MBTI</title>
            <meta name="viewport" content="width=device-width, initial-scale=1.0">
            <link rel="stylesheet" href="/public/css/test.css" />
-       
-           <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-       
        </head>
-      
    
-       
-    
        `;
     },
     TAIL: function() {
