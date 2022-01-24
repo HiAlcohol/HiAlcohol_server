@@ -79,14 +79,17 @@ main {
     border-radius: 10px;
 }
 
-.share {
-    margin-top: 30px;
-    margin-bottom: 30px;
-    font-size: 15px;
-    color: white;
-}
 .share img {
     width: 50px;
+}
+
+.share button{
+    background-color: #242424;
+    border: #242424;
+    color: white;
+    font-size: 15px;
+    margin-top: 30px;
+    margin-bottom: 30px;
 }
 
 .copy button{
