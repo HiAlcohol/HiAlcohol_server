@@ -11,31 +11,23 @@ module.exports = {
     HOME: function(data, des) {
        return `
        <script>
-   
-   $('.copy').click(function(){	
-   var link= $('#link');
-   link.css('display','block').select();
-   document.execCommand("Copy");
-   alert('결과 링크가 복사되었습니다.');	
-   return false;
-   });
 
-      // // 카카오 공유를 위한 임시코드
-    // Kakao.init('b305a1173710e4ff765e09b5a62e314c'); 
-    // function link_kakao() {
-    //   var sh_title = "나와 어울리는 칵테일은?";
-    //   var sh_desc = "당신에게 어울리는 칵테일을 찾아보세요.\nHi Alcohol"; 
-    //   Kakao.Link.sendDefault({ 
-    //     objectType: 'feed', 
-    //     content: {
-    //      title: sh_title, description: sh_desc, 
-    //      imageUrl: "../img/cocktail.png", 
-    //      link: { mobileWebUrl: "모바일 링크 url", 
-    //      webUrl: "PC 링크 url" 
-    //     } 
-    //   }, 
-    // }); 
-    // }
+      // 카카오 공유를 위한 임시코드
+    Kakao.init('b305a1173710e4ff765e09b5a62e314c'); 
+    function link_kakao() {
+      var sh_title = "나와 어울리는 칵테일은?";
+      var sh_desc = "당신에게 어울리는 칵테일을 찾아보세요.\nHi Alcohol"; 
+      Kakao.Link.sendDefault({ 
+        objectType: 'feed', 
+        content: {
+         title: sh_title, description: sh_desc, 
+         imageUrl: "../img/cocktail.png", 
+         link: { mobileWebUrl: "모바일 링크 url", 
+         webUrl: "PC 링크 url" 
+        } 
+      }, 
+    }); 
+    }
    
    </script>
    
@@ -67,9 +59,8 @@ module.exports = {
            
            <div class="copy"><button id="copy" class="btn">링크 복사</button></div>
            <div class="share"><img src="/public/img/bt_kakao.png"><br>공유하기</div>
-          
            
-           <input type="text" value="복사될 URL c경로" id="link" style="display:none;">
+           <input type="text" value="복사될 URL 경로" id="link" style="display:none;">
          </main>
 
      
@@ -85,6 +76,7 @@ module.exports = {
 	      <link rel="stylesheet" href="/public/css/test_result.css" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        <script src="/public/js/share.js" type="text/javascript"></script>
        
        </head>
    
