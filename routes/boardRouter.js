@@ -38,28 +38,27 @@ router.post('/', function(request, response) {
     db.query(sql, function(err, result){
         if (err) throw err;
         var list = '';
-        console.log('result:', result)
 		
         if(!request.isAuthenticated()){
 
-                for (var i = 0; i < result.length; i++) {
-                    var id = result[i].nickname;
-                    var postId = result[i].postId;
-                    var title = result[i].title;
-                    var createdate = dateFormat(result[i].createdate);
-                    var likes = result[i].count;
-                    var check = false;
+			for (var i = 0; i < result.length; i++) {
+				var id = result[i].nickname;
+				var postId = result[i].postId;
+				var title = result[i].title;
+				var createdate = dateFormat(result[i].createdate);
+				var likes = result[i].count;
+				var check = false;
 
-                    likeMode = undefined;
-                    likeImg = "/public/img/heart_empty.png";
-					buttonMode= "disabled='disabled'"
-                    
-                    list += board.HOME(id, postId, title, createdate, likes, likeMode, likeImg, buttonMode);
-                };
-    
-                var head = board.HEAD(request.user, selected);
-                var body = board.HTML(head, list);
-                response.send(body);
+				likeMode = undefined;
+				likeImg = "/public/img/heart_empty.png";
+				buttonMode= "disabled='disabled'"
+				
+				list += board.HOME(id, postId, title, createdate, likes, likeMode, likeImg, buttonMode);
+			};
+
+			var head = board.HEAD(request.user, selected);
+			var body = board.HTML(head, list);
+			response.send(body);
 
         }else{
             db.query(`SELECT * from liked WHERE liked.userId=${request.user.id}`,function(err2, result2){
@@ -86,7 +85,7 @@ router.post('/', function(request, response) {
                     
                     list += board.HOME(id, postId, title, createdate, likes, likeMode, likeImg, buttonMode);
 
-					console.log("check", check, likeImg);
+					// console.log("check", check, likeImg);
                 };
     
                 var head = board.HEAD(request.user, selected);
@@ -94,8 +93,6 @@ router.post('/', function(request, response) {
                 response.send(body);
             });
         }
-
-
     });
 });
 
@@ -117,24 +114,24 @@ router.get('/', function(request, response) {
 
         if(!request.isAuthenticated()){
 
-                for (var i = 0; i < result.length; i++) {
-                    var id = result[i].nickname;
-                    var postId = result[i].postId;
-                    var title = result[i].title;
-                    var createdate = dateFormat(result[i].createdate);
-                    var likes = result[i].count;
-                    var check = false;
+			for (var i = 0; i < result.length; i++) {
+				var id = result[i].nickname;
+				var postId = result[i].postId;
+				var title = result[i].title;
+				var createdate = dateFormat(result[i].createdate);
+				var likes = result[i].count;
+				var check = false;
 
-                    likeMode = undefined;
-                    likeImg = "/public/img/heart_empty.png";
-					buttonMode= "disabled='disabled'";
-                    
-                    list += board.HOME(id, postId, title, createdate, likes, likeMode, likeImg, buttonMode);
-                };
-    
-                var head = board.HEAD(request.user, selected);
-                var body = board.HTML(head, list);
-                response.send(body);
+				likeMode = undefined;
+				likeImg = "/public/img/heart_empty.png";
+				buttonMode= "disabled='disabled'";
+				
+				list += board.HOME(id, postId, title, createdate, likes, likeMode, likeImg, buttonMode);
+			};
+
+			var head = board.HEAD(request.user, selected);
+			var body = board.HTML(head, list);
+			response.send(body);
 
         }else{
             db.query(`SELECT * from liked WHERE liked.userId=${request.user.id}`,function(err2, result2){
@@ -161,7 +158,7 @@ router.get('/', function(request, response) {
                     
                     list += board.HOME(id, postId, title, createdate, likes, likeMode, likeImg, buttonMode);
 
-					console.log("check", check, likeImg);
+					// console.log("check", check, likeImg);
                 };
     
                 var head = board.HEAD(request.user, selected);
@@ -205,7 +202,6 @@ router.get('/view', function(request, response){
 			var like_num = result1[0].count;
 			var user_id = result1[0].nickname;
 
-			console.log('result1: ', result1);
 			if (!request.isAuthenticated()) {
 				likeMode = 'add';
 				likeImg = "/public/img/heart_empty.png";
@@ -235,38 +231,35 @@ router.get('/view', function(request, response){
 
 router.get('/edit', function(request, response){
 
+	queryData = request.query;
 
-        queryData = request.query;
+	db.query(`SELECT * from post WHERE id=?`, [queryData.id], function(err2, result2){
 
-        db.query(`SELECT * from post WHERE id=?`, [queryData.id], function(err2, result2){
+		if (err2) throw err2;
 
-            if (err2) throw err2;
-
-            var title = result2[0].title;
-            var userId = result2[0].userId;
-            var content = result2[0].content;
+		var title = result2[0].title;
+		var userId = result2[0].userId;
+		var content = result2[0].content;
 
 
-            db.query(`SELECT nickname FROM user WHERE id = ?;`, [userId], function(err3, result3){
-                
-                if(!request.isAuthenticated()){
-                    response.send('<script>alert("로그인이 필요한 서비스입니다.");\
-                    location.href="/oauth/kakao";</script>');
-                }else{
-                    if( userId != request.user.id){
-                        response.send('<script>alert("접근 권한이 없습니다.");\
-                        location.href="/board";</script>');
-                    }else{
+		db.query(`SELECT nickname FROM user WHERE id = ?;`, [userId], function(err3, result3){
+			
+			if(!request.isAuthenticated()){
+				response.send('<script>alert("로그인이 필요한 서비스입니다.");\
+				location.href="/oauth/kakao";</script>');
+			}else{
+				if( userId != request.user.id){
+					response.send('<script>alert("접근 권한이 없습니다.");\
+					location.href="/board";</script>');
+				}else{
 
-                        var html = board_edit.HTML(title, content, queryData.id)
-                        response.send(html);
-                    }
-                }
-                
-            })  
-        });
+					var html = board_edit.HTML(title, content, queryData.id)
+					response.send(html);
+				}
+			}
+			
+		})  
+	});
 });
 
-
 module.exports = router;
-

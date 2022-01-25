@@ -53,3 +53,12 @@ create table `product` (
 	`name` varchar(40) NOT NULL UNIQUE,
 	PRIMARY KEY (`id`)
 );
+
+create table `comment` (
+	`id` bigint NOT NULL AUTO_INCREMENT,
+	`userId` bigint NOT NULL,
+	`postId` bigint NOT NULL,
+	`content` varchar(500) NOT NULL,
+	`createdate` datetime NOT NULL,
+	PRIMARY KEY (`id`)
+);
