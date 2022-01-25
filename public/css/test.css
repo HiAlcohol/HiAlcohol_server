@@ -54,6 +54,10 @@ main {
     height: 20px;
 }
 
+.number {
+	font-weight: bolder;
+}
+
 .qna {
     margin: auto;
     padding: 30px;
