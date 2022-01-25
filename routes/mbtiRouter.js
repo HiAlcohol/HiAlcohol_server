@@ -18,6 +18,9 @@ const rData = JSON.parse(rfile);
 // console.log(rData);
 
 router.get('/', function(request, response){
+	response.cookie('answers', '', {
+		maxAge: 0
+	})
   
     const body = mbti_start.HOME();
 	response.send(mbti_start.HTML(body));
