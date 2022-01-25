@@ -16,11 +16,7 @@ module.exports = {
        
        </header>
        <main>
-       <div class="progress_bar">
-       <div class="progress" style="width:7%;"></div>
-      </div>
-      <div class="blank"></div>
-
+      
            ${qna}
            
        
@@ -51,6 +47,11 @@ module.exports = {
        `
     }, QNA: function(qid, q, a1, a2){
        return `
+       <div class="progress_bar">
+       <div class="progress" style="width:${Number(qid)*8.3}%;"></div>
+      </div>
+      <div class="blank"></div>
+
        <div class="number"><a>${qid}/12</a></div><br>
        <div class="qna">
        <p id="q">Q${qid}. ${q}</p><br><br>
