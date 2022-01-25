@@ -61,8 +61,9 @@ router.get('/test', function(request, response){
 		httpOnly: true,
 		signed: true
 	})
-
-    const body = mbti_test.HOME(num, q, a1, a2);
+    num = 1;
+    const qna = mbti_test.QNA(num, q, a1, a2);
+    const body = mbti_test.HOME(qna);
 	response.send(mbti_test.HTML(body));
 });
 
