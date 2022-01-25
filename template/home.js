@@ -116,7 +116,7 @@ module.exports = {
 		<p style="color: white">오늘의 술 추천</p>
 		<br>
 		<a href="/search_list/recipe?id=${cockId}">${cockName} ></a>
-		<br />
+		<br>
 		<img src="/public/img/cocktail.png" alt="cocktailImg" width="100" height="100" style="padding: 20px;" />
 	</div>
 	</nav>

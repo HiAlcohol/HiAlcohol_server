@@ -51,7 +51,7 @@ module.exports = {
        <p id="q">Q${qid}. ${q}</p><br><br>
        <form class="my" method="get" action=test>
 
-          <input type="hidden" name="q" value="1">
+          <input type="hidden" name="q" value="${qid}">
           <div class="button"><button type="submit" name="a" value="1"  id="btn_1" class="btn">${a1}</button></div>
           <br>
           <div class="button"><button type="submit" name="a" value="2" id="btn_2" class="btn">${a2}</button></div>
