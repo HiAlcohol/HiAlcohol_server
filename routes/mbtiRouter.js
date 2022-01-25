@@ -26,7 +26,8 @@ router.get('/', function(request, response){
 router.get('/test', function(request, response){
 
 	console.log('cookies:', request.cookies)
-	var answers = request.cookies.answers || ''
+	console.log('signedCookies:', request.signedCookies)
+	var answers = request.signedCookies.answers || ''
 	if (request.query.q >= 1 && request.query.q < 13 && request.query.a) {
 		answers += String(request.query.a)
 		
@@ -38,7 +39,8 @@ router.get('/test', function(request, response){
 		} else {
 			response.cookie('answers', answers, {
 				path: '/',
-				httpOnly: true
+				httpOnly: true,
+				signed: true
 			})
 			console.log('redirect');
 			response.redirect("/mbti/result");
@@ -53,7 +55,8 @@ router.get('/test', function(request, response){
 	}
     response.cookie('answers', answers, {
 		path: '/',
-		httpOnly: true
+		httpOnly: true,
+		signed: true
 	})
     num = 1;
     const qna = mbti_test.QNA(num, q, a1, a2);
@@ -63,8 +66,9 @@ router.get('/test', function(request, response){
 
 router.get('/result', function(request, response){
 	console.log('/result', request.cookies)
-	if (request.cookies.answers && request.cookies.answers.length === 12) {
-		var cookie = request.cookies.answers;
+	console.log('/result', request.signedCookies)
+	if (request.signedCookies.answers && request.signedCookies.answers.length === 12) {
+		var cookie = request.signedCookies.answers;
 		var ei = parseInt(cookie[0]) + parseInt(cookie[4]) + parseInt(cookie[8])
 		var ns = parseInt(cookie[1]) + parseInt(cookie[5]) + parseInt(cookie[9])
 		var tf = parseInt(cookie[2]) + parseInt(cookie[6]) + parseInt(cookie[10])
