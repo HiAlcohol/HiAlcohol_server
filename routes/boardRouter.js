@@ -3,10 +3,9 @@ const router = express.Router();
 const board = require('../template/board.js');
 const board_write = require('../template/board_write.js');
 const board_view = require('../template/board_view.js');
-const mysql = require('mysql');
-const { post } = require('./indexRouter.js');
 const board_edit = require('../template/board_edit.js');
 const db = require('../config/db.js');
+const sanitizeHtml = require('sanitize-html');
 
 function dateFormat(date) {
     var newdate = new Date(date);
@@ -42,9 +41,9 @@ router.post('/', function(request, response) {
         if(!request.isAuthenticated()){
 
 			for (var i = 0; i < result.length; i++) {
-				var id = result[i].nickname;
+				var id = sanitizeHtml(result[i].nickname);
 				var postId = result[i].postId;
-				var title = result[i].title;
+				var title = sanitizeHtml(result[i].title);
 				var createdate = dateFormat(result[i].createdate);
 				var likes = result[i].count;
 				var check = false;
@@ -65,9 +64,9 @@ router.post('/', function(request, response) {
                 if (err2) throw err2;
     
                 for (var i = 0; i < result.length; i++) {
-                    var id = result[i].nickname;
+                    var id = sanitizeHtml(result[i].nickname);
                     var postId = result[i].postId;
-                    var title = result[i].title;
+                    var title = sanitizeHtml(result[i].title);
                     var createdate = dateFormat(result[i].createdate);
                     var likes = result[i].count;
                     var check = false;
@@ -115,9 +114,9 @@ router.get('/', function(request, response) {
         if(!request.isAuthenticated()){
 
 			for (var i = 0; i < result.length; i++) {
-				var id = result[i].nickname;
+				var id = sanitizeHtml(result[i].nickname);
 				var postId = result[i].postId;
-				var title = result[i].title;
+				var title = sanitizeHtml(result[i].title);
 				var createdate = dateFormat(result[i].createdate);
 				var likes = result[i].count;
 				var check = false;
@@ -140,7 +139,7 @@ router.get('/', function(request, response) {
                 for (var i = 0; i < result.length; i++) {
                     var id = result[i].nickname;
                     var postId = result[i].postId;
-                    var title = result[i].title;
+                    var title = sanitizeHtml(result[i].title);
                     var createdate = dateFormat(result[i].createdate);
                     var likes = result[i].count;
                     var check = false;
@@ -189,10 +188,10 @@ router.get('/view', function(request, response){
 
 		if (err) throw err;
 
-		var title = result[0].title;
+		var title = sanitizeHtml(result[0].title);
 		var userId = result[0].userId;
 		var date = result[0].updatedate;
-		var content = result[0].content;
+		var content = sanitizeHtml(result[0].content);
 		var postId = result[0].id;
 
 		db.query(`select post.*, count(liked.id) 'count' from (select post.id 'postId', post.title, post.createdate, user.nickname from post, user where post.userId=user.id and post.id=${queryData.id}) post left join liked on post.postId=liked.postId group by post.postId`, function(err1, result1){
