@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const db = require('../config/db.js');
+const sanitizeHtml = require('sanitize-html');
 
 // prefix: /comment
 
@@ -20,9 +21,11 @@ router.post('/', function(req, res) {
 	console.log(req.body);
 	if (!req.isAuthenticated()) {
 		res.status(401).send({error: '로그인이 필요한 서비스입니다.'});
+	} else if (sanitizeHtml(body.content).length === 0) {
+		res.status(4001).statusMessage('스크립트를 제외한 길이가 0이므로 요청을 처리할 수 없습니다.');
 	} else {
 		db.query(`INSERT INTO comment(id, userId, postId, content, createdate) VALUES(?, ?, ?, ?, now())`,
-			[null, req.user.id, parseInt(body.postId), body.content],
+			[null, req.user.id, parseInt(body.postId), sanitizeHtml(body.content)],
 		function(err, result) {
 			if (err)
 				throw err
