@@ -5,11 +5,12 @@ const db = require('../config/db.js');
 
 router.post('/', function(request, response) {
 	const body = request.body;
+	console.log(body);
 	let title = body.title;
 	let content = body.content;
 	var userID = request.user.id;
 
-	db.query(`INSERT INTO post (id, userID, title, content, createdate, updatedate) VALUES (?,?,?,?,now(),now())`, [null, userID, title, content, null, null], function(err, result){
+	db.query(`INSERT INTO post (id, userID, title, content, createdate, updatedate) VALUES (?,?,?,?,now(),now())`, [null, userID, title, content], function(err, result){
 		if (err) console.error("err : " + err);
 		response.redirect('/board');
 	})

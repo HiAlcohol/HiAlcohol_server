@@ -19,6 +19,7 @@ const boardUpdateProcessRouter = require('./routes/boardUpdateProcessRouter.js')
 const boardDeleteProcessRouter = require('./routes/boardDeleteProcessRouter.js');
 const myboardRouter = require('./routes/myboardRouter.js');
 const env = require('./config/env.js');
+const commentRouter = require('./routes/commentRouter');
 
 const port = env.port;
 
@@ -72,6 +73,8 @@ app.use('/board_delete_process', boardDeleteProcessRouter);
 app.use('/likes', likeRouter);
 
 app.use('/myboard', myboardRouter);
+
+app.use('/comment', commentRouter);
 
 app.get('/logout', function(req, res) {
 	req.logout();
