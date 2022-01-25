@@ -10,7 +10,7 @@ router.post('/', function(request, response) {
         var userId = result2[0].userId;
 
         if(!request.isAuthenticated()){
-            response.send('<script>alert("로그인이 필요한 서비스입니다.");\
+            response.status(401).send('<script>alert("로그인이 필요한 서비스입니다.");\
             location.href="/oauth/kakao";</script>');
         }else{
             if( userId !== request.user.id){
