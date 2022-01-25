@@ -23,17 +23,66 @@ router.get('/', function(request, response){
 });
 
 router.get('/test', function(request, response){
-    var num = String(3);
-    var q = qData[num].question;
-    var a1 = qData[num].answer1;
-    var a2 = qData[num].answer2;
-    
+	console.log('cookies:', request.cookies)
+	var answers = request.cookies.answers || ''
+	if (request.query.q >= 1 && request.query.q < 13 && request.query.a) {
+		answers += String(request.query.a)
+		
+		if (request.query.q < 12) {
+			var num = String(++request.query.q)
+			var q = qData[num].question;
+			var a1 = qData[num].answer1;
+			var a2 = qData[num].answer2;
+		} else {
+			response.cookie('answers', answers, {
+				path: '/',
+				httpOnly: true
+			})
+			console.log('redirect');
+			response.redirect("/mbti/result");
+			return ;
+		}
+	} else {
+		answers = ''
+		var num = String(1);
+		var q = qData[num].question;
+		var a1 = qData[num].answer1;
+		var a2 = qData[num].answer2;
+	}
+    response.cookie('answers', answers, {
+		path: '/',
+		httpOnly: true
+	})
     const body = mbti_test.HOME(num, q, a1, a2);
 	response.send(mbti_test.HTML(body));
 });
 
 router.get('/result', function(request, response){
-    var mbti = 'isfj';
+	console.log('/result', request.cookies)
+	if (request.cookies.answers && request.cookies.answers.length === 12) {
+		var cookie = request.cookies.answers;
+		var ei = parseInt(cookie[0]) + parseInt(cookie[4]) + parseInt(cookie[8])
+		var ns = parseInt(cookie[1]) + parseInt(cookie[5]) + parseInt(cookie[9])
+		var tf = parseInt(cookie[2]) + parseInt(cookie[6]) + parseInt(cookie[10])
+		var pj = parseInt(cookie[3]) + parseInt(cookie[7]) + parseInt(cookie[11])
+		var result = ''
+		if (ei <= 4)
+			result += 'e'
+		else result += 'i'
+		if (ns <= 4)
+			result += 'n'
+		else result += 's'
+		if (tf <= 4)
+			result += 't'
+		else result += 'f'
+		if (pj <= 4)
+			result += 'p'
+		else result += 'j'
+	}
+	response.cookie('answers', '', {
+		maxAge: 0
+	})
+    var mbti = result;
     data = rData[mbti];
     const des = mbti_result.DES(data);
     const body = mbti_result.HOME(data, des);
