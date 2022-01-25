@@ -6,6 +6,7 @@ const mbti_result = require('../template/mbti_result.js');
 // var db = require('../config/db'); // db.js 폴더 경로
 
 const fs = require('fs');
+const { query } = require('../config/db.js');
 
 const qfile = fs.readFileSync('./config/question.json', 'utf8');
 const rfile = fs.readFileSync('./config/result.json', 'utf8');
@@ -23,12 +24,21 @@ router.get('/', function(request, response){
 });
 
 router.get('/test', function(request, response){
-    var num = String(3);
-    var q = qData[num].question;
-    var a1 = qData[num].answer1;
-    var a2 = qData[num].answer2;
+    qid = request.query.q;
+    // qid = Number(qid)
+    // var num = String(3);
     
-    const body = mbti_test.HOME(num, q, a1, a2);
+    var q = qData[qid].question;
+    var a1 = qData[qid].answer1;
+    var a2 = qData[qid].answer2;
+
+    qid = request.query.q;
+    qid = Number(qid)
+    console.log(qid);
+    console.log(request.query);
+
+    const qna = mbti_test.QNA(qid, q, a1, a2);
+    const body = mbti_test.HOME(qna);
 	response.send(mbti_test.HTML(body));
 });
 
