@@ -47,16 +47,8 @@ module.exports = {
            
            <a href="/" style="font-family: 'Pattaya', sans-serif; font-size:30px;color: #0bf3bc">Hi Alcohol</a><br><br>
            </div>
-
-          
-
-
-
-
          </main>
-
-     
-     
+   
     `
     },
     HEAD: function() {
