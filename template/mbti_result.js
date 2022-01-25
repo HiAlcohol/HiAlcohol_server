@@ -35,11 +35,10 @@ module.exports = {
        
          <main>
          
-         <input type="text" value="테스트시작 페이지 URL" id="myInput" style="display:none">
-          <div class="copy"><button id="copy" class="btn" onclick="copyToClipboard()">링크복사</button></div><br>
+         <div class="button"><button id="restart" class="btn" onClick="location.href='../mbti' "> 처음으로</button></div><br>
          
-           <div class="button"><button id="restart" class="btn" onClick="location.href='../mbti' "> 처음으로</button></div><br>
-           
+         <button onclick="copy()" id = "link">링크복사</button><br>
+        
            <div class="share"><button id = "share" class="btn"><img src="/public/img/bt_kakao.png"><br>공유하기</button></div>
            
            <div class="site">
@@ -48,7 +47,7 @@ module.exports = {
            <a href="/" style="font-family: 'Pattaya', sans-serif; font-size:30px;color: #0bf3bc">Hi Alcohol</a><br><br>
            </div>
          </main>
-   
+        
     `
     },
     HEAD: function() {
@@ -61,19 +60,8 @@ module.exports = {
 	      <link rel="stylesheet" href="/public/css/test_result.css" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-       
-       </head>
-   
-       <script>
-       function copyToClipboard() {
-         var copyText = document.getElementById("myInput");
-         copyText.select();
-         copyText.setSelectionRange(0, 99999)
-         document.execCommand("copy");
-         alert("테스트 링크가 복사되었습니다.");
-       }
-       </script>
-    
+        <script src="/public/js/share.js" type="text/javascript"></script>
+       </head>    
        `;
     },
     TAIL: function(data) {
