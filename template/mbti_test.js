@@ -16,6 +16,11 @@ module.exports = {
        
        </header>
        <main>
+       <div class="progress_bar">
+       <div class="progress" style="width:7%;"></div>
+      </div>
+      <div class="blank"></div>
+
            ${qna}
            
        
