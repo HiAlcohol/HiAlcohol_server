@@ -93,6 +93,7 @@ router.get('/result', function(request, response){
 		maxAge: 0
 	})
     var mbti = result;
+    mbti = 'isfj';
     data = rData[mbti];
     const des = mbti_result.DES(data);
     const body = mbti_result.HOME(data, des);
