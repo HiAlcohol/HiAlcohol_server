@@ -119,6 +119,9 @@ module.exports = {
 		<br>
 		<img src="/public/img/cocktail.png" alt="cocktailImg" width="100" height="100" style="padding: 20px;" />
 	</div>
+	<div class="blank"></div>
+	<p style="color:white"><font size="4">당신에게 어울리는 술 테스트</font></p><br>
+	<div class="button"><button id="start" class="btn"  onClick="location.href='mbti/test'">테스트 시작</button></div>
 	</nav>
 	`
 	},
