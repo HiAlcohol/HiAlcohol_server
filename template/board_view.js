@@ -125,6 +125,19 @@ module.exports = {
 				<div></div>
             </div>
         </div>
+        <br><br>
+        <div class = "coment">
+                <div class = "comview">
+                    <div>작성된 댓글이 보일곳</div><br>
+                    <div>작성된 댓글이 보일곳</div><br>
+                    <div>작성된 댓글이 보일곳</div>
+                </div>
+                <br><br>
+                <div class = "comwrite">
+                    <input type="text" placeholder = " 댓글을 입력해주세요">
+                    <button>등록</button>
+                </div>
+        </div>
         
     </div>
     </body>
