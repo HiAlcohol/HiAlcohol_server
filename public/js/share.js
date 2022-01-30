@@ -18,8 +18,7 @@ function sendLink() {
      content: {
        title: '나에게 어울리는 술은?',
        description: '나에게 어울리는 술 추천받으러 가기',
-       imageUrl:
-         'http://k.kakaocdn.net/dn/Q2iNx/btqgeRgV54P/VLdBs9cvyn8BJXB3o7N8UK/kakaolink40_original.png',
+       imageUrl: '/public/img/cocktail.png',
        link: {
         mobileWebUrl: 'https://developers.kakao.com',
         webUrl: 'https://developers.kakao.com',
