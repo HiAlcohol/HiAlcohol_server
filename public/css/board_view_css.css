@@ -98,12 +98,32 @@ input#del{
     color: white;
 }
 
-.comview div{
+.comment{
     margin: auto;
-    height: 100px;
-    width: 83%;
-    border: 1px solid white;    
+    padding: 10px;
+    /* height: 100px; */
+    width: 80.7%;
+    border: 1px solid #ffffff;    
     border-radius: 10px;
+}
+
+.comview div{
+    float: left;
+}
+
+#conick{
+    font-size: 13px;
+}
+
+#codate{
+    font-size: 13px;
+}
+
+#codel input{
+    margin-left: 5px;
+    background-color: #242424;
+    color: white;
+    border: none;   
 }
 
 #write{

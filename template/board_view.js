@@ -126,18 +126,38 @@ module.exports = {
             </div>
         </div>
         <br><br>
-        <div class = "coment">
+        <div class = "comment">
                 <div class = "comview">
-                    <div>작성된 댓글이 보일곳</div><br>
-                    <div>작성된 댓글이 보일곳</div><br>
-                    <div>작성된 댓글이 보일곳</div>
+                    <div id = "conick">작성자</div><br>
+                    <div id = "coview">작성된 댓글이 보일곳</div><br><br>
+                    <div id = "codate">2022-02-02. 01:20</div>
+                    <form action="/comment/del" method="post">
+                     <div id = "codel"><input type="submit" name="codel" value="X"></div><br>
+                    </form>
+                    <hr>
+                    <div id = "conick">작성자</div><br>
+                    <div id = "coview">작성된 댓글이 보일곳</div><br><br>
+                    <div id = "codate">2022-02-02. 01:20</div>
+                    <form action="/comment/del" method="post">
+                     <div id = "codel"><input type="submit" name="codel" value="X"></div><br>
+                    </form>
+                    <hr>
+                    <div id = "conick">작성자</div><br>
+                    <div id = "coview">작성된 댓글이 보일곳</div><br><br>
+                    <div id = "codate">2022-02-02. 01:20</div>
+                    <form action="/comment/del" method="post">
+                     <div id = "codel"><input type="submit" name="codel" value="X"></div><br>
+                    </form>
+                    <hr>
+                    
                 </div>
-                <br><br>
-                <form method="post" action="/comment" class = "comwrite">
-                    <input type="text" placeholder = " 댓글을 입력해주세요" id="write">
-                    <input type="submit" value="등록" id="ok">
-                </form>
+             
         </div>
+        <br>
+        <form method="post" action="/comment" class = "comwrite">
+            <input type="text" placeholder = " 댓글을 입력해주세요" id="write">
+            <input type="submit" value="등록" id="ok">
+        </form>
         
     </div>
     </body>
