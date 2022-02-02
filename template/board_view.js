@@ -133,10 +133,10 @@ module.exports = {
                     <div>작성된 댓글이 보일곳</div>
                 </div>
                 <br><br>
-                <div class = "comwrite">
-                    <input type="text" placeholder = " 댓글을 입력해주세요">
-                    <button>등록</button>
-                </div>
+                <form method="post" action="/comment" class = "comwrite">
+                    <input type="text" placeholder = " 댓글을 입력해주세요" id="write">
+                    <input type="submit" value="등록" id="ok">
+                </form>
         </div>
         
     </div>

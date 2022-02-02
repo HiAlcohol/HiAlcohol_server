@@ -106,7 +106,7 @@ input#del{
     border-radius: 10px;
 }
 
-.comwrite input{
+#write{
     height: 45px;
     width: 70%;
     margin: 0 auto;
@@ -116,11 +116,11 @@ input#del{
     border-radius: 10px;
 }
 
-.comwrite input:focus {
+#write:focus {
     outline: none;
 }
 
-.comwrite button{
+#ok {
     height: 45px;
     margin-left: 2%;
     width: 10%;
