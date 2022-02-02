@@ -195,33 +195,39 @@ router.get('/view', function(request, response){
 		var postId = result[0].id;
 
 		db.query(`select post.*, count(liked.id) 'count' from (select post.id 'postId', post.title, post.createdate, user.nickname from post, user where post.userId=user.id and post.id=${queryData.id}) post left join liked on post.postId=liked.postId group by post.postId`, function(err1, result1){
-			
 			if (err1) throw err1;
+	
+			db.query(`SELECT *, user.nickname FROM comment, user WHERE (user.id=comment.userId) and postId=?`, [queryData.id],function(err3, result3) {
+				if (err3) throw err;
+				console.log(result3);
 
-			var like_num = result1[0].count;
-			var user_id = result1[0].nickname;
-
-			if (!request.isAuthenticated()) {
-				likeMode = 'add';
-				likeImg = "/public/img/heart_empty.png";
-				buttonMode = "disabled='disabled'";
-
-				var html = board_view.HTML(title, user_id, date, like_num, content, result1[0].postId, request.user, likeMode, likeImg, postId, buttonMode);
-				response.send(html);
-			} else {
-				db.query(`SELECT * FROM liked WHERE postId=? and userId=?;`, [result1[0].postId, request.user.id], function(err2, result2){
-				
-					if (err2) throw err2;
-					var check = (result2.length !== 0);
-					likeMode = check ? "del" : "add";
-					likeImg = check ? "/public/img/heart_fill.png" : "/public/img/heart_outline.png";
-					buttonMode = "";
-
-					var html = board_view.HTML(title, user_id, date, like_num, content, result1[0].postId, request.user, likeMode, likeImg, postId, buttonMode);
+				var like_num = result1[0].count;
+				var user_id = result1[0].nickname;
+				var comment = board_view.COM(result3);
+	
+				if (!request.isAuthenticated()) {
+					likeMode = 'add';
+					likeImg = "/public/img/heart_empty.png";
+					buttonMode = "disabled='disabled'";
+	
+					var html = board_view.HTML(title, user_id, date, like_num, content, result1[0].postId, request.user, likeMode, likeImg, postId, buttonMode, comment);
 					response.send(html);
-				});
-			}
-		});
+				} else {
+					db.query(`SELECT * FROM liked WHERE postId=? and userId=?;`, [result1[0].postId, request.user.id], function(err2, result2){
+					
+						if (err2) throw err2;
+						var check = (result2.length !== 0);
+						likeMode = check ? "del" : "add";
+						likeImg = check ? "/public/img/heart_fill.png" : "/public/img/heart_outline.png";
+						buttonMode = "";
+	
+						var html = board_view.HTML(title, user_id, date, like_num, content, result1[0].postId, request.user, likeMode, likeImg, postId, buttonMode, comment);
+						response.send(html);
+					});
+				}
+			});
+		})
+		
 	});
 
 

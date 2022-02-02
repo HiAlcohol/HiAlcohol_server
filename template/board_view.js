@@ -1,7 +1,7 @@
 const menu = require('./menu')
 
 module.exports = {
-	HTML: function(title, user_id, date, like_num, content, id, user, check, likeImg, postId, buttonMode) {
+	HTML: function(title, user_id, date, like_num, content, id, user, check, likeImg, postId, buttonMode, comment) {
 		const menu_list = menu.MENU(user);
         if (buttonMode == "" ){
             var link = `/likes/${check}?postId=${postId}&redirect_uri=/board/view?id=${postId}`;
@@ -128,27 +128,8 @@ module.exports = {
         <br><br>
         <div class = "comment">
                 <div class = "comview">
-                    <div id = "conick">작성자</div><br>
-                    <div id = "coview">작성된 댓글이 보일곳</div><br><br>
-                    <div id = "codate">2022-02-02. 01:20</div>
-                    <form action="/comment/del" method="post">
-                     <div id = "codel"><input type="submit" name="codel" value="X"></div><br>
-                    </form>
-                    <hr>
-                    <div id = "conick">작성자</div><br>
-                    <div id = "coview">작성된 댓글이 보일곳</div><br><br>
-                    <div id = "codate">2022-02-02. 01:20</div>
-                    <form action="/comment/del" method="post">
-                     <div id = "codel"><input type="submit" name="codel" value="X"></div><br>
-                    </form>
-                    <hr>
-                    <div id = "conick">작성자</div><br>
-                    <div id = "coview">작성된 댓글이 보일곳</div><br><br>
-                    <div id = "codate">2022-02-02. 01:20</div>
-                    <form action="/comment/del" method="post">
-                     <div id = "codel"><input type="submit" name="codel" value="X"></div><br>
-                    </form>
-                    <hr>
+                   ${comment}
+                    
                     
                 </div>
              
@@ -164,7 +145,26 @@ module.exports = {
 </html>
 		
 		`
-	}
+	}, 
+    COM:function(result){
+        var i=0;
+        var comment='';
+        // var result = ['a', 'b'];
+
+        for(i; i<result.length; i++){
+            comment = comment+
+            `
+            <div id = "conick">${result[i].nickname}</div><br>
+                    <div id = "coview">${result[i].content}</div><br><br>
+                    <div id = "codate">${result[i].createdate}</div>
+                    <form action="/comment/del" method="post">
+                     <div id = "codel"><input type="submit" name="codel" value="X"></div><br>
+                    </form>
+                    <hr>
+            `
+        }
+        return comment;
+    }
  
 };
     
