@@ -112,11 +112,13 @@ input#del{
 }
 
 #conick{
-    font-size: 13px;
+    font-size: 12px;
+    color: #adb5bd;
 }
 
 #codate{
-    font-size: 13px;
+    font-size: 12px;
+    color: #adb5bd;
 }
 
 #codel input{
@@ -124,6 +126,7 @@ input#del{
     background-color: #242424;
     color: white;
     border: none;   
+    color: #adb5bd;
 }
 
 #write{
