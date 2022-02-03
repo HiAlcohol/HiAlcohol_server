@@ -197,7 +197,7 @@ router.get('/view', function(request, response){
 		db.query(`select post.*, count(liked.id) 'count' from (select post.id 'postId', post.title, post.createdate, user.nickname from post, user where post.userId=user.id and post.id=${queryData.id}) post left join liked on post.postId=liked.postId group by post.postId`, function(err1, result1){
 			if (err1) throw err1;
 	
-			db.query(`SELECT *, user.nickname FROM comment, user WHERE (user.id=comment.userId) and postId=?`, [queryData.id],function(err3, result3) {
+			db.query(`SELECT comment.*, user.nickname FROM comment, user WHERE (user.id=comment.userId) and postId=?`, [queryData.id],function(err3, result3) {
 				if (err3) throw err;
 				console.log(result3);
 

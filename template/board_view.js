@@ -149,7 +149,6 @@ module.exports = {
     COM:function(result){
         var i=0;
         var comment='';
-        // var result = ['a', 'b'];
 
         for(i; i<result.length; i++){
             comment = comment+
@@ -157,7 +156,7 @@ module.exports = {
             <div id = "conick">${result[i].nickname}</div><br>
                     <div id = "coview">${result[i].content}</div><br><br>
                     <div id = "codate">${result[i].createdate}</div>
-                    <form action="/comment/del" method="post">
+                    <form action="/comment/del?userId=${result[i].userId}&postId=${result[i].postId}&commentId=${result[i].id}" method="post">
                      <div id = "codel"><input type="submit" name="codel" value="X"></div><br>
                     </form>
                     <hr>
