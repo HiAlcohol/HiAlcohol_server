@@ -149,28 +149,34 @@ module.exports = {
     COM:function(result){
         var i=1;
         var comment='';
-
-        comment = comment+
-        `
-        <div id = "conick">${result[0].nickname}</div><br>
-        <div id = "coview">${result[0].content}</div><br><br>
-        <div id = "codate">${result[0].createdate}</div>
-        <form action="/comment/del?userId=${result[i].userId}&postId=${result[0].postId}&commentId=${result[i].id}" method="post">
-         <div id = "codel"><input type="submit" name="codel" value="X"></div><br>
-        </form>
-        `;
-        for(i; i<result.length; i++){
+        if(result.length==0){
+            comment = comment+'첫 댓글을 작성해주세요';
+        }
+        else{
             comment = comment+
             `
-            <hr>
-            <div id = "conick">${result[i].nickname}</div><br>
-                    <div id = "coview">${result[i].content}</div><br><br>
-                    <div id = "codate">${result[i].createdate}</div>
-                    <form action="/comment/del?userId=${result[i].userId}&postId=${result[i].postId}&commentId=${result[i].id}" method="post">
-                     <div id = "codel"><input type="submit" name="codel" value="X"></div><br>
-                    </form>
-            `
+            <div id = "conick">${result[0].nickname}</div><br>
+            <div id = "coview">${result[0].content}</div><br><br>
+            <div id = "codate">${result[0].createdate}</div>
+            <form action="/comment/del?userId=${result[i].userId}&postId=${result[0].postId}&commentId=${result[i].id}" method="post">
+             <div id = "codel"><input type="submit" name="codel" value="X"></div><br>
+            </form>
+            `;
+            for(i; i<result.length; i++){
+                comment = comment+
+                `
+                <hr>
+                <div id = "conick">${result[i].nickname}</div><br>
+                        <div id = "coview">${result[i].content}</div><br><br>
+                        <div id = "codate">${result[i].createdate}</div>
+                        <form action="/comment/del?userId=${result[i].userId}&postId=${result[i].postId}&commentId=${result[i].id}" method="post">
+                         <div id = "codel"><input type="submit" name="codel" value="X"></div><br>
+                        </form>
+                `
+            }
         }
+
+       
         return comment;
     }
  
