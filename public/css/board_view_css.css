@@ -42,7 +42,7 @@ a {
 
 }
 .user_data p{
-   color: gray;
+   color: #adb5bd;
    font-size: 12px;
 }
 .user_data p:nth-child(2){
