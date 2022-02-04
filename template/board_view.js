@@ -135,8 +135,8 @@ module.exports = {
              
         </div>
         <br>
-        <form method="post" action="/comment" class = "comwrite">
-            <input type="text" placeholder = " 댓글을 입력해주세요" id="write">
+        <form method="post" action="/comment?postId=${id}" class = "comwrite">
+            <input type="text" name="comment" placeholder = " 댓글을 입력해주세요" id="write">
             <input type="submit" value="등록" id="ok">
         </form>
         
@@ -149,6 +149,7 @@ module.exports = {
     COM:function(result){
         var i=1;
         var comment='';
+        console.log('resu;t',result);
         if(result.length==0){
             comment = comment+'첫 댓글을 작성해주세요';
         }
