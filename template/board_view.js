@@ -164,8 +164,11 @@ module.exports = {
                         <form action="/comment/del?userId=${result[i].userId}&postId=${result[i].postId}&commentId=${result[i].id}" method="post">
                          <div id = "codel"><input type="submit" name="codel" value="X"></div><br>
                         </form>
-                        <hr>
-                `
+                ` ;
+                if(i!=result.length-1){
+                    comment = comment+`<hr>`;
+                }
+                
             }
         }
 
