@@ -199,7 +199,7 @@ router.get('/view', function(request, response){
 	
 			db.query(`SELECT comment.*, user.nickname FROM comment, user WHERE (user.id=comment.userId) and postId=?`, [queryData.id],function(err3, result3) {
 				if (err3) throw err;
-				console.log(result3);
+				// console.log(result3);
 
 				var like_num = result1[0].count;
 				var user_id = result1[0].nickname;

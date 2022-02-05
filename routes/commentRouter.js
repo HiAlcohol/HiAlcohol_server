@@ -21,6 +21,7 @@ const sanitizeHtml = require('sanitize-html');
 router.post('/', function(req, res) {
 	const body = req.body;
 	const queryData = req.query;
+	console.log('user',req.user);
 	
 	if (!req.isAuthenticated()) {
 		res.status(401).send('<script>alert("로그인이 필요한 서비스입니다.");\
@@ -35,7 +36,7 @@ router.post('/', function(req, res) {
 		function(err, result) {
 			if (err)
 				throw err
-			console.log(result);
+			// console.log(result);
 			// res.status(201).json({message: '댓글 추가 성공'});
 			res.status(200).send(`<script>alert("댓글을 입력했습니다.");\
 		location.href="/board/view?id=${queryData.postId}";</script>`);
@@ -46,7 +47,7 @@ router.post('/', function(req, res) {
 // 댓글 삭제
 // {userId: , postId: , commentId: }
 router.post('/del', async function(req, res) {
-	console.log("req", req.user)
+	// console.log("req", req.user)
     queryData = req.query;
 
 	if (!req.isAuthenticated()) {
@@ -61,13 +62,13 @@ router.post('/del', async function(req, res) {
 				throw err
 			if (req.user.id == queryData.userId &&
 				result[0].postId == queryData.postId)
-				resolve(result[0].id)
+				resolve(req.user.id)
 			else
 				resolve(0)
 		})
 	});
 	let commentId = await promise;
-	console.log(commentId);
+	// console.log(commentId);
 
 	if (commentId === 0){
 		res.status(401).send(`<script>alert("자신의 댓글만 삭제할 수 있습니다.");\
