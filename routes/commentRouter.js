@@ -54,6 +54,7 @@ router.post('/del', async function(req, res) {
 		res.status(401).send('<script>alert("로그인이 필요한 서비스입니다.");\
             location.href="/oauth/kakao";</script>');
 	}
+	else{
 
 	let promise = new Promise((resolve, reject) => {
 		db.query("SELECT * FROM comment WHERE id = ?", [parseInt(queryData.commentId)],
@@ -82,6 +83,7 @@ router.post('/del', async function(req, res) {
 			// res.status(200).send({message: '댓글 삭제 성공'});
 		})
 	}
+}
 });
 
 module.exports = router;
