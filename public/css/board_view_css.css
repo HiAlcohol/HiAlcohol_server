@@ -27,6 +27,7 @@ a {
 .container{
     margin: 0 auto;
     max-width: 700px;
+
 }
 .heading{
     display: flex;
@@ -103,8 +104,14 @@ input#del{
     padding: 10px;
     /* height: 100px; */
     width: 80.7%;
+    max-width: 700px;
     border: 1px solid #ffffff;    
     border-radius: 10px;
+}
+
+.comwrite {
+    /* max-width: 1200px; */
+    margin: auto;
 }
 
 .comview div{
@@ -132,6 +139,7 @@ input#del{
 #write{
     height: 45px;
     width: 70%;
+    max-width: 600px;
     margin: 0 auto;
     border: 1px solid #0BF3BC;
     color: #dddddd;
@@ -146,6 +154,7 @@ input#del{
 #ok {
     height: 45px;
     margin-left: 2%;
+    max-width: 80px;
     width: 10%;
     background-color: #242424;
     border: 1px solid #0BF3BC;
