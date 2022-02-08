@@ -23,6 +23,10 @@ p {
     color: white;
 }
 
+header{
+    margin-top: 50px;
+}
+
 body {
     margin: auto;
     background-color: #242424;
@@ -30,7 +34,7 @@ body {
 }
 
 main {
-    margin-top: 150px;
+    margin-top: 100px;
 }
 
 .progress_bar {
@@ -61,6 +65,7 @@ main {
 .qna {
     margin: auto;
     padding: 30px;
+    height: 430px;
     background-color: #202020;
     border-radius: 10px;
     width: 350px;
