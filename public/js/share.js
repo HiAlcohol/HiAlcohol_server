@@ -1,3 +1,5 @@
+var testurl = 'hialcohol.xyz/mbti';
+
 function copyToClipboard(val) {
     const t = document.createElement("textarea");
     document.body.appendChild(t);
@@ -7,7 +9,7 @@ function copyToClipboard(val) {
     document.body.removeChild(t);
   }
   function copy() {
-    copyToClipboard('테스트 시작링크');
+    copyToClipboard(testurl);
     alert("테스트 링크가 복사되었습니다.");
   }
 
@@ -20,16 +22,16 @@ function sendLink() {
        description: '나에게 어울리는 술 추천받으러 가기',
        imageUrl: '/public/img/cocktail.png',
        link: {
-        mobileWebUrl: 'https://developers.kakao.com',
-        webUrl: 'https://developers.kakao.com',
+        mobileWebUrl: testurl,
+        webUrl: testurl,
        },
      },
      buttons: [
        {
          title: '웹으로 보기',
          link: {
-           mobileWebUrl: 'https://developers.kakao.com',
-           webUrl: 'https://developers.kakao.com',
+           mobileWebUrl: testurl,
+           webUrl: testurl,
         },
        },
      ],
