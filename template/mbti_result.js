@@ -8,13 +8,14 @@ module.exports = {
        ${tail}
        `
     },
-    HOME: function(data, des) {
+    HOME: function(data, des, cockid) {
        return `
        <body>
          <div class="result">
            <a>당신에게 어울리는 술은</a><br>
            <img src="/public/img/cocktail.png"><br>
-           <a><span style="font-size: 30px">${data.cocktail}</span></a>
+           <a><span style="font-size: 30px">${data.cocktail}  <a href="/search_list/recipe?id=${cockid}" >></a></span></a>
+         
            <div class="exp" style="color: white">
              <ul>
                ${des}
