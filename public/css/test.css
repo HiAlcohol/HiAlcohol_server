@@ -36,7 +36,7 @@ main {
 .progress_bar {
     width: 60%;
     height: 10px;
-    background-color: #303030;
+    /* background-color: #303030; */
     text-align: center;
     border-radius: 5px;
     margin: auto;
@@ -61,9 +61,9 @@ main {
 .qna {
     margin: auto;
     padding: 30px;
-    background-color: #202020;
+    /* background-color: #202020; */
     border-radius: 10px;
-    width: 350px;
+    /* width: 350px; */
 }
 
 .button button {
