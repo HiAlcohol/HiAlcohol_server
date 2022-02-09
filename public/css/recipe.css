@@ -39,7 +39,7 @@ h2 {
     width: 100%;
     height: 80px;
 
-    padding: 20px;
+    /* padding: 20px; */
     box-sizing: border-box;
 
     position: absolute;
@@ -87,7 +87,7 @@ body {
 }
 
 .recipe{
-    padding-top: 100px;;
+    padding-top: 150px;;
 }
 
 .recipe div{
