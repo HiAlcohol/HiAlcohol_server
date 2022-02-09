@@ -1,7 +1,4 @@
 *{margin:0;padding:0;}
-html{
-	overflow: hidden;
-}
 header{
     margin-top: 120px;
     margin-bottom: 30px;
@@ -87,4 +84,18 @@ a {
 .homebar__recommend {
     margin: 0 auto;
     margin-top: 40px;
+}
+
+.blank {
+    height: 100px;
+}
+.button button{
+    color: white;
+    font-size: 17px;
+    margin: auto;
+    width: 185px;
+    height: 40px;
+    background-color: #0BF3BC;
+    border: #0BF3BC;
+    border-radius: 50px;
 }

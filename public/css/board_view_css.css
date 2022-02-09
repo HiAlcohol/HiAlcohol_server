@@ -27,6 +27,7 @@ a {
 .container{
     margin: 0 auto;
     max-width: 700px;
+
 }
 .heading{
     display: flex;
@@ -42,7 +43,7 @@ a {
 
 }
 .user_data p{
-   color: gray;
+   color: #adb5bd;
    font-size: 12px;
 }
 .user_data p:nth-child(2){
@@ -98,3 +99,65 @@ input#del{
     color: white;
 }
 
+.comment{
+    margin: auto;
+    padding: 10px;
+    /* height: 100px; */
+    width: 80.7%;
+    max-width: 700px;
+    border: 1px solid #ffffff;    
+    border-radius: 10px;
+}
+
+.comwrite {
+    /* max-width: 1200px; */
+    margin: auto;
+}
+
+.comview div{
+    float: left;
+}
+
+#conick{
+    font-size: 12px;
+    color: #adb5bd;
+}
+
+#codate{
+    font-size: 12px;
+    color: #adb5bd;
+}
+
+#codel input{
+    margin-left: 5px;
+    background-color: #242424;
+    color: white;
+    border: none;   
+    color: #adb5bd;
+}
+
+#write{
+    height: 45px;
+    width: 70%;
+    max-width: 600px;
+    margin: 0 auto;
+    border: 1px solid #0BF3BC;
+    color: #dddddd;
+    background-color: #242424;
+    border-radius: 10px;
+}
+
+#write:focus {
+    outline: none;
+}
+
+#ok {
+    height: 45px;
+    margin-left: 2%;
+    max-width: 80px;
+    width: 10%;
+    background-color: #242424;
+    border: 1px solid #0BF3BC;
+    border-radius: 10px;
+    color: white;
+}

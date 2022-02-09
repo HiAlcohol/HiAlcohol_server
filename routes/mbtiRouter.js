@@ -3,7 +3,6 @@ const router = express.Router();
 const mbti_start = require('../template/mbti_start.js');
 const mbti_test = require('../template/mbti_test.js');
 const mbti_result = require('../template/mbti_result.js');
-// var db = require('../config/db'); // db.js 폴더 경로
 
 const fs = require('fs');
 const { query } = require('../config/db.js');
@@ -76,6 +75,7 @@ router.get('/result', function(request, response){
 		var tf = parseInt(cookie[2]) + parseInt(cookie[6]) + parseInt(cookie[10])
 		var pj = parseInt(cookie[3]) + parseInt(cookie[7]) + parseInt(cookie[11])
 		var result = ''
+		var cockid = ''
 		if (ei <= 4)
 			result += 'e'
 		else result += 'i'
@@ -93,9 +93,46 @@ router.get('/result', function(request, response){
 		maxAge: 0
 	})
     var mbti = result;
+	if(mbti == 'istj')
+		cockid = 26
+	else if(mbti == 'istp')
+		cockid = 36
+	else if(mbti == 'isfj')
+		cockid = 37
+	else if(mbti == 'isfp')
+		cockid = 32
+
+	else if(mbti == 'intj')
+		cockid = 29
+	else if(mbti == 'intp')
+		cockid = 7
+	else if(mbti == 'infj')
+		cockid = 21
+	else if(mbti == 'infp')
+		cockid = 39
+	
+	else if(mbti == 'estj')
+		cockid = 34
+	else if(mbti == 'estp')
+		cockid = 19
+	else if(mbti == 'esfj')
+		cockid = 38
+	else if(mbti == 'esfp')
+		cockid = 9
+
+	else if(mbti == 'entj')
+		cockid = 27
+	else if(mbti == 'entp')
+		cockid = 3
+	else if(mbti == 'enfj')
+		cockid = 24
+	else if(mbti == 'enfp')
+		cockid = 25
+		
     data = rData[mbti];
+	
     const des = mbti_result.DES(data);
-    const body = mbti_result.HOME(data, des);
+    const body = mbti_result.HOME(data, des, cockid);
 	response.send(mbti_result.HTML(body));
 });
 

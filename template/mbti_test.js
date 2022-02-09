@@ -13,13 +13,13 @@ module.exports = {
        <body>
  
        <header>
-       
+       <a href="/" style="font-family: 'Pattaya', sans-serif; font-size:25px;color: #0bf3bc">Hi Alcohol</a>
+   
        </header>
        <main>
-      
+
            ${qna}
-           
-       
+          
        </main>
      
     `
@@ -59,13 +59,10 @@ module.exports = {
 
           <input type="hidden" name="q" value="${qid}">
           <div class="button"><button type="submit" name="a" value="1"  id="btn_1" class="btn">${a1}</button></div>
-          <br>
+          <br><br>
           <div class="button"><button type="submit" name="a" value="2" id="btn_2" class="btn">${a2}</button></div>
           
           </form>
-      
-         <br><br>
-   
     </div>
        `
     }

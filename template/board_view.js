@@ -1,7 +1,7 @@
 const menu = require('./menu')
 
 module.exports = {
-	HTML: function(title, user_id, date, like_num, content, id, user, check, likeImg, postId, buttonMode) {
+	HTML: function(title, user_id, date, like_num, content, id, user, check, likeImg, postId, buttonMode, comment) {
 		const menu_list = menu.MENU(user);
         if (buttonMode == "" ){
             var link = `/likes/${check}?postId=${postId}&redirect_uri=/board/view?id=${postId}`;
@@ -87,7 +87,7 @@ module.exports = {
                     <a href="${link}">
                     <button id="img_btn" class="likebtn" onclick="didTapButton(); " ${buttonMode}><input type="image" id="likeImg${postId}" src=${likeImg} ${buttonMode}></button>
                     </a>
-                    <div id=likes disabled='disabled'>${like_num}</div> 
+                    <div id=likes disabled='disabled'>&nbsp${like_num}</div> 
                 </div>
                 <script>
                 function didTapButton() {
@@ -125,13 +125,56 @@ module.exports = {
 				<div></div>
             </div>
         </div>
+        <br><br>
+        <div class = "comment">
+                <div class = "comview">
+                   ${comment}
+                    
+                    
+                </div>
+             
+        </div>
+        <br>
+        <form method="post" action="/comment?postId=${id}" class = "comwrite">
+            <input type="text" name="comment" placeholder = " 댓글을 입력해주세요" id="write">
+            <input type="submit" value="등록" id="ok">
+        </form>
         
     </div>
     </body>
 </html>
 		
 		`
-	}
+	}, 
+    COM:function(result){
+        var i=0;
+        var comment='';
+        console.log('resu;t',result);
+        if(result.length==0){
+            comment = comment+'첫 댓글을 작성해주세요';
+        }
+        else{
+           
+            for(i; i<result.length; i++){
+                comment = comment+
+                `
+                <div id = "conick">${result[i].nickname}</div><br>
+                        <div id = "coview">${result[i].content}</div><br><br>
+                        <div id = "codate">${result[i].createdate}</div>
+                        <form action="/comment/del?userId=${result[i].userId}&postId=${result[i].postId}&commentId=${result[i].id}" method="post">
+                         <div id = "codel"><input type="submit" name="codel" value="X"></div><br>
+                        </form>
+                ` ;
+                if(i!=result.length-1){
+                    comment = comment+`<hr>`;
+                }
+                
+            }
+        }
+
+       
+        return comment;
+    }
  
 };
     

@@ -80,6 +80,8 @@ main {
 }
 
 .share img {
+    margin-top: 20px;
+    margin-bottom: 20px;
     width: 50px;
 }
 
@@ -92,7 +94,7 @@ main {
     margin-bottom: 30px;
 }
 
-.copy button{
+#link{
     color: white;
     font-size: 17px;
     margin: auto;
