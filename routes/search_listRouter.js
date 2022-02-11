@@ -22,9 +22,9 @@ router.get('/', function(request, response){
 		var queryData = request.query;
 		db.escape
 		sql2 = `select recipe.id, recipe.cocktail, material.material from recipe, material  where recipe.id=any(select recipeId from inclusion 
-			where  materialId = any(select id from material 
+			where  recipe.cocktail = ` + db.escape(queryData.keyword) + ` or (materialId = any(select id from material 
 				where material= ` + db.escape(queryData.keyword) + ` or material = any(select alcolType from product where name=` + db.escape(queryData.keyword) + `))) 
-				and material.id =any(select inclusion.materialId from inclusion where inclusion.recipeId= recipe.id ) order by recipe.cocktail asc`
+				and material.id =any(select inclusion.materialId from inclusion where inclusion.recipeId= recipe.id )) order by recipe.cocktail asc`
 		
 		if(err0) throw err0;
 
