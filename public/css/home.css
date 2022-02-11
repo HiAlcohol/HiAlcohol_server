@@ -20,6 +20,9 @@ a {
 
 .homebar {
     align-items: center;
+	height: auto;
+	min-height: 100%;
+	padding-bottom: 10px;
 }
 
 .line{
@@ -87,7 +90,7 @@ a {
 }
 
 .blank {
-    height: 100px;
+    height: 80px;
 }
 .button button{
     color: white;
@@ -98,4 +101,5 @@ a {
     background-color: #0BF3BC;
     border: #0BF3BC;
     border-radius: 50px;
+	margin-bottom: 20px;
 }

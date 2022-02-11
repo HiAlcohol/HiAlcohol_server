@@ -39,7 +39,8 @@ module.exports = {
 	/>
 	<title>Hi Alcohol</title>
 	<!-- css, js 경로 수정-->
-	<link rel="stylesheet" href="public/css/home.css" />
+	<link rel="stylesheet" href="/public/css/home.css" />
+	<link rel="stylesheet" href="/public/css/footer.css" />
 	<style>
 	@import url("https://fonts.googleapis.com/css2?family=Pattaya&display=swap");
 	p {
@@ -140,7 +141,14 @@ module.exports = {
 	},
 	TAIL: function() {
 		return `
+		<div class="blank"></div>
 		</body>
+		<footer>
+			<p>developer: 
+			<a href="https://github.com/AYoungSn">@AYoungSn</a>
+			<a href="https://github.com/alreadynyeong">@alreadynyeong</a>
+			</p>
+		</footer>
 </html>
 		`
 	}
