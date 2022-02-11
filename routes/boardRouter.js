@@ -20,7 +20,6 @@ function dateFormat(date) {
 
 router.post('/', function(request, response) {
     var sql = '';
-    console.log(request)
   
     if (request.body.order === 'likes') {
         var selected = `
@@ -97,7 +96,7 @@ router.post('/', function(request, response) {
 
 router.get('/', function(request, response) {
     var sql = '';
-    console.log(request.query);
+    // console.log(request.query);
     var selected = `
             <option value="date" selected>최신순</option>
             <option value="likes" >좋아요순</option>`;
@@ -109,7 +108,6 @@ router.get('/', function(request, response) {
         if (err) throw err;
         var list = '';
         console.log('result:', result)
-
 
         if(!request.isAuthenticated()){
 

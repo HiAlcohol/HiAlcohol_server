@@ -65,6 +65,7 @@ module.exports = {
     ></script>
   </head>
   <body>
+  <div id="wrapper">
 		<div class="header">
 	<!-- hamburger menu -->
 	<div class="menu_btn">
@@ -123,7 +124,9 @@ module.exports = {
 	<div class="blank"></div>
 	<p style="color:white"><font size="4">당신에게 어울리는 술 테스트</font></p><br>
 	<div class="button"><button id="start" class="btn"  onClick="location.href='mbti/test'">테스트 시작</button></div>
+	<div class="blank"></div>
 	</nav>
+	</div>
 	`
 	},
 	HEAD: function() {
@@ -141,7 +144,7 @@ module.exports = {
 	},
 	TAIL: function() {
 		return `
-		<div class="blank"></div>
+		
 		</body>
 		<footer>
 			<p>developer: 

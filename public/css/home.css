@@ -18,11 +18,14 @@ a {
 	font-size: 35px;
 }
 
+#wrapper {
+	min-height: 100vh;
+	position: relative;
+	width: 100%;
+}
+
 .homebar {
     align-items: center;
-	height: auto;
-	min-height: 100%;
-	padding-bottom: 10px;
 }
 
 .line{
@@ -51,14 +54,24 @@ a {
 }
 
 .homebar__search input {
+	text-decoration: none;
     height: 42px;
     width: 80%;
     margin-left: 15px;
     border: 0;
     border-radius: 33px;
     color: #dddddd;
-    background-color: #242424;
+    background-color: transparent;
     float: left;
+}
+
+input:focus {
+	outline:none;
+}
+
+input:-webkit-autofill {
+	-webkit-box-shadow: 0 0 0 1000px #242424 inset;
+	-webkit-text-fill-color: #dddddd;
 }
 
 .homebar__search button {

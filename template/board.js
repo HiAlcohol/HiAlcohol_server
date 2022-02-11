@@ -68,6 +68,7 @@ module.exports = {
         <head>
         <link rel="stylesheet" href="/public/css/menu.css" />
         <link rel="stylesheet" href="/public/css/home.css" />
+		<link rel="stylesheet" href="/public/css/footer.css" />
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
         <script src="public/js/menu.js" type="text/javascript"></script>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -149,6 +150,12 @@ module.exports = {
         </div>
         </div>
         </body>
+		<footer>
+			<p>developer: 
+			<a href="https://github.com/AYoungSn">@AYoungSn</a>
+			<a href="https://github.com/alreadynyeong">@alreadynyeong</a>
+			</p>
+		</footer>
 </html>
         `
     }
