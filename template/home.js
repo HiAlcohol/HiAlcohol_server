@@ -135,6 +135,9 @@ module.exports = {
 <html lang="en">
 <head>
 	<meta charset="UTF-8" />
+
+	<title>Hi Alcohol | 하이알코올</title> 
+    <meta name= "description" content="내가 가진 재료로 만들 수 있는 칵테일은? 칵테일 레시피 검색 웹사이트 하이 알코올!">
 	
 	<link rel="stylesheet" href="/public/css/menu.css" />
 	<link rel="stylesheet" href="/public/css/home.css" />
