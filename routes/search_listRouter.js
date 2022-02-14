@@ -34,15 +34,25 @@ router.get('/', function(request, response){
 			var recipe_list = [];
 			var index = 0;
 	
+			console.log(result.length)
+			console.log(result[result.length - 1])
 			if(result.length===0){
+				var checked = [];
+				for (var i = 0; i < result0.length; i++)
+					checked[i] = 0;
 				for (var i = 0;i < result0.length - 1;i++) {
 					var item = new Item();
-					item.id = result0[i].id;
-					item.cocktail = result0[i].cocktail;
-					item.materials[0] = result0[i].material;
-					recipe_list[index] = item;
+					if (checked[i] === 0) {
+						item.id = result0[i].id;
+						item.cocktail = result0[i].cocktail;
+						item.materials[0] = result0[i].material;
+						recipe_list[index] = item;
+						checked[i] = 1;
+					}
+					
 					for (var j = i + 1; j < result0.length; j++){
-						if (result0[i].id === result0[j].id) {
+						if (checked[j] === 0 && result0[i].id === result0[j].id) {
+							checked[j] = 1;
 							recipe_list[index].materials[recipe_list[index].materials.length] = result0[j].material;
 						} else {
 							index++;
@@ -50,19 +60,28 @@ router.get('/', function(request, response){
 							break ;
 						}
 					}
+					// console.log(recipe_list[index-1])
 				}
-
+				console.log(recipe_list);
 				var list = search_list.LIST(recipe_list)
 				var html = search_list.HTML( list, request.user)
 			} else{
+				var checked = [];
+				for (var i = 0; i < result.length; i++)
+					checked[i] = 0;
 				for (var i = 0;i < result.length - 1;i++) {
 					var item = new Item();
-					item.id = result[i].id;
-					item.cocktail = result[i].cocktail;
-					item.materials[0] = result[i].material;
-					recipe_list[index] = item;
+					if (checked[i] === 0) {
+						item.id = result[i].id;
+						item.cocktail = result[i].cocktail;
+						item.materials[0] = result[i].material;
+						recipe_list[index] = item;
+						checked[i] = 1;
+					}
+					
 					for (var j = i + 1; j < result.length; j++){
-						if (result[i].id === result[j].id) {
+						if (checked[j] === 0 && result[i].id === result[j].id) {
+							checked[j] = 1;
 							recipe_list[index].materials[recipe_list[index].materials.length] = result[j].material;
 						} else {
 							index++;
