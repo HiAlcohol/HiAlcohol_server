@@ -27,7 +27,9 @@ module.exports = {
         
       <head>
          <meta charset="UTF-8">
-         <title>Hi MBTI Start</title>
+         <title>Alcohol MBTI Test | Hi Alcohol </title> 
+        <meta name= "description" content="칵테일로 알아보는 당신의 성격 유형 테스트">
+
          <meta name="viewport" content="width=device-width, initial-scale=1.0">
          <link rel="stylesheet" href="/public/css/test_start.css" />
       </head>
