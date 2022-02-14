@@ -106,6 +106,7 @@ module.exports = {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <link rel="stylesheet" href="/public/css/map.css" />
      <link rel="stylesheet" href="/public/css/menu.css" />
+	 <link rel="stylesheet" href="/public/css/footer.css"/>
      <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
      <script src="/public/js/menu.js" type="text/javascript"></script>
     <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=b305a1173710e4ff765e09b5a62e314c&libraries=services"></script>
@@ -121,6 +122,12 @@ module.exports = {
     TAIL: function() {
        return `
        </body>
+	   <footer>
+			<p>developer: 
+			<a href="https://github.com/AYoungSn">@AYoungSn</a>
+			<a href="https://github.com/alreadynyeong">@alreadynyeong</a>
+			</p>
+		</footer>
  </html>
        `
     }
