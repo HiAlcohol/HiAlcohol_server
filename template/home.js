@@ -63,6 +63,15 @@ module.exports = {
       src="https://kit.fontawesome.com/1f362cab2c.js"
       crossorigin="anonymous"
     ></script>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-C01BXKNZ6X"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-C01BXKNZ6X');
+</script>
   </head>
   <body>
   <div id="wrapper">
