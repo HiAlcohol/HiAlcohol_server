@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+
+<url>
+  <loc>https://hialcohol.xyz/</loc>
+  <lastmod>2022-02-15T13:01:10+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://hialcohol.xyz/board</loc>
+  <lastmod>2022-02-15T13:01:10+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://hialcohol.xyz/map</loc>
+  <lastmod>2022-02-15T13:01:10+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://hialcohol.xyz/search_list/recipe?id=1</loc>
+  <lastmod>2022-02-15T13:01:10+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://hialcohol.xyz/board/write</loc>
+  <lastmod>2022-02-15T13:01:10+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://hialcohol.xyz/board/view?id=7</loc>
+  <lastmod>2022-02-15T13:01:10+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://hialcohol.xyz/board/edit?id=7</loc>
+  <lastmod>2022-02-15T13:01:10+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+
+
+</urlset>
