@@ -150,7 +150,7 @@ module.exports = {
     },
     MAP: function(location){
         var a='';
-        if(typeof(location)=='undefined'){
+        if(typeof(location)=='undefined' || location.length==0){
             a = a+ `  ps.keywordSearch('주류유통', placesSearchCB, {
                 location: center, 
                 sort: kakao.maps.services.SortBy.DISTANCE
