@@ -72,6 +72,8 @@ module.exports = {
 
   gtag('config', 'G-C01BXKNZ6X');
 </script>
+<meta name="naver-site-verification" content="0cb6284316e7c4d3f961d2179b831a755c63cffe" />
+
   </head>
   <body>
   <div id="wrapper">
