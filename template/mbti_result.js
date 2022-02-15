@@ -11,6 +11,9 @@ module.exports = {
     HOME: function(data, des, cockid) {
        return `
        <body>
+	   <header>
+	       <a href="/" style="font-family: 'Pattaya', sans-serif; font-size:30px;color: #0bf3bc">Hi Alcohol</a>
+       </header>
          <div class="result">
            <a>당신에게 어울리는 술은</a><br>
            <img src="/public/img/cocktail.png"><br>

@@ -27,11 +27,19 @@ router.get('/', function(request, response){
 
 router.get('/test', function(request, response){
 
-	console.log('cookies:', request.cookies)
-	console.log('signedCookies:', request.signedCookies)
+	// console.log('cookies:', request.cookies)
+	// console.log('signedCookies:', request.signedCookies)
 	var answers = request.signedCookies.answers || ''
+	
 	if (request.query.q >= 1 && request.query.q < 13 && request.query.a) {
-		answers += String(request.query.a)
+		console.log('before: ', answers)
+		if (answers.length == request.query.q - 1) {
+			answers += String(request.query.a)
+		}else {
+			answers[request.query.q - 1] = String(request.query.a)
+		}
+		console.log(answers)
+		// answers += String(request.query.a)
 		
 		if (request.query.q < 12) {
 			var num = String(++request.query.q)
@@ -89,9 +97,9 @@ router.get('/result', function(request, response){
 			result += 'p'
 		else result += 'j'
 	}
-	response.cookie('answers', '', {
-		maxAge: 0
-	})
+	// response.cookie('answers', '', {
+	// 	maxAge: 0
+	// })
     var mbti = result;
 	if(mbti == 'istj')
 		cockid = 26
