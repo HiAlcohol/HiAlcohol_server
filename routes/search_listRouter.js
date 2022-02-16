@@ -21,14 +21,26 @@ router.get('/', function(request, response){
 		
 		var queryData = request.query;
 		db.escape
-		sql2 = `select recipe.id, recipe.cocktail, material.material from recipe, material  where recipe.id=any(select recipeId from inclusion 
-			where  recipe.cocktail = ` + db.escape(queryData.keyword) + ` or (materialId = any(select id from material 
+		sql2 = `select recipe.cocktail, recipe.id, material.material from recipe, material  
+		where ( (recipe.cocktail=` + db.escape(queryData.keyword) + `) and (material.id =
+			any(select inclusion.materialId from inclusion where inclusion.recipeId= 
+			(select recipe.id from recipe where recipe.cocktail = ` + db.escape(queryData.keyword) + `)))) or
+		 (recipe.id=any(select recipeId from inclusion 
+			where  (materialId = any(select id from material 
 				where material= ` + db.escape(queryData.keyword) + ` or material = any(select alcolType from product where name=` + db.escape(queryData.keyword) + `))) 
-				and material.id =any(select inclusion.materialId from inclusion where inclusion.recipeId= recipe.id )) order by recipe.cocktail asc`
-		
+				and material.id =any(select inclusion.materialId from inclusion where inclusion.recipeId= recipe.id ))) order by recipe.cocktail asc`
+	
+
+		// sql2 =`select recipe.cocktail, recipe.id, material.material from recipe, material 
+		// where (recipe.cocktail=` + db.escape(queryData.keyword) + `) and (material.id =
+		// any(select inclusion.materialId from inclusion where inclusion.recipeId= 
+		// (select recipe.id from recipe where recipe.cocktail = ` + db.escape(queryData.keyword) + `)))
+		// `
 		if(err0) throw err0;
 
 		db.query(sql2, function(err, result){
+
+			console.log("teet", result);
 	
 			if (err) throw err;
 			var recipe_list = [];
@@ -36,6 +48,7 @@ router.get('/', function(request, response){
 	
 			console.log(result.length)
 			console.log(result[result.length - 1])
+			// console.log(result[0]);
 			if(result.length===0){
 				var checked = [];
 				for (var i = 0; i < result0.length; i++)
