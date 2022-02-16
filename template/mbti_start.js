@@ -12,10 +12,13 @@ module.exports = {
        return `     
      <body>
        <header>
+	   	<div>
+		   <a href="/" style="font-family: 'Pattaya', sans-serif; font-size:30px;color: #0bf3bc">Hi Alcohol</a>
+		</div>
          <a>당신에게 어울리는 <span style="color:#0BF3BC ">술</span>테스트</a>
        </header>
        <main>
-         
+         <img class="img" src="/public/img/cocktail.png" alt="cocktailImg" width="150"/>
          <div class="button"><button id="start" class="btn"  onClick="location.href='mbti/test'">테스트 시작</button></div>
        </main>
     `

@@ -25,11 +25,17 @@ a {
 
 header {
     width: 100%;
-    padding-top: 240px;
+    padding-top: 130px;
     position: fixed;
+	display: block;
+}
+
+header div {
+	padding-bottom: 50px;
 }
 
 header a {
+	margin-top: 50px;
     text-decoration: none;
     font-size: 20px;
     color: white;
@@ -42,7 +48,7 @@ body {
 }
 
 main {
-    padding-top: 540px;
+    padding-top: 250px;
 }
 
 .button button{
@@ -54,4 +60,8 @@ main {
     background-color: #0BF3BC;
     border: #0BF3BC;
     border-radius: 50px;
+}
+
+.img {
+	padding: 60px;
 }

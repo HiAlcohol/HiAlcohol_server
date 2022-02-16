@@ -52,7 +52,7 @@ module.exports = {
       </div>
       <div class="blank"></div>
 
-       <div class="number"><a>${qid}/12</a></div><br>
+       <div class="number"><a>${qid} / 12</a></div><br>
        <div class="qna">
        <p id="q">Q${qid}. ${q}</p><br><br>
        <form class="my" method="get" action=test>
