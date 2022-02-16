@@ -20,14 +20,15 @@ router.get('/', function(request, response){
 	db.query(sql, function(err0, result0){
 		
 		var queryData = request.query;
-		db.escape
+		console.log(db.escape(queryData.keyword))
 		sql2 = `select recipe.cocktail, recipe.id, material.material from recipe, material  
 		where ( (recipe.cocktail=` + db.escape(queryData.keyword) + `) and (material.id =
 			any(select inclusion.materialId from inclusion where inclusion.recipeId= 
 			(select recipe.id from recipe where recipe.cocktail = ` + db.escape(queryData.keyword) + `)))) or
 		 (recipe.id=any(select recipeId from inclusion 
 			where  (materialId = any(select id from material 
-				where material= ` + db.escape(queryData.keyword) + ` or material = any(select alcolType from product where name=` + db.escape(queryData.keyword) + `))) 
+				where instr( material, ` + db.escape(queryData.keyword) +` )or 
+				material = any(select alcolType from product where instr(name, `+ db.escape(queryData.keyword) + `)))) 
 				and material.id =any(select inclusion.materialId from inclusion where inclusion.recipeId= recipe.id ))) order by recipe.cocktail asc`
 	
 
@@ -39,8 +40,6 @@ router.get('/', function(request, response){
 		if(err0) throw err0;
 
 		db.query(sql2, function(err, result){
-
-			console.log("teet", result);
 	
 			if (err) throw err;
 			var recipe_list = [];
