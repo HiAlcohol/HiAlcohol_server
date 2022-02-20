@@ -75,9 +75,15 @@ router.get('/', function(request, response){
 					// console.log(recipe_list[index-1])
 				}
 				console.log(recipe_list);
-				var list = search_list.LIST(recipe_list)
-				var html = search_list.HTML( list, request.user)
-			} else{
+				// var list = search_list.LIST(recipe_list)
+				// var html = search_list.HTML( list, request.user)
+			} else if (result.length === 1) {
+				var item = new Item();
+				item.id = result[0].id;
+				item.cocktail = result[0].cocktail;
+				item.materials[0] = result[0].material;
+				recipe_list[0] = item;
+			}else{
 				var checked = [];
 				for (var i = 0; i < result.length; i++)
 					checked[i] = 0;
@@ -103,10 +109,11 @@ router.get('/', function(request, response){
 					}
 				}
 
-				var list = search_list.LIST(recipe_list)
-				var html = search_list.HTML(list, request.user)
+				// var list = search_list.LIST(recipe_list)
+				// var html = search_list.HTML(list, request.user)
 			}
-
+			var list = search_list.LIST(recipe_list)
+			var html = search_list.HTML(list, request.user)
 			response.send(html);
 		});
 	})
