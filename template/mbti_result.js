@@ -42,11 +42,13 @@ module.exports = {
          <div class="button"><button id="restart" class="btn" onClick="location.href='../mbti' "> 처음으로</button></div><br>
          
          <button onclick="copy()" id = "link">링크복사</button><br>
-
+        <div class= "twoShare">
          <div class="share"><a id="kakao-link-btn" href="javascript:sendLink()">
             <img src="/public/img/bt_kakao.png"/>
           </a></div>
-           
+
+          <a id="twitter" class="twitter" href="javascript:shareTwitter();"><img src="/public/img/twitter.png"/></a>
+           </div><br><br><br><br><br>
            <div class="site">
            <span style= "color:white;">더 많은 술을 추천받고싶다면?<br>술 조합 추천 웹사이트</span>
            

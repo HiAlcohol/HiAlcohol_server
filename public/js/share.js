@@ -13,6 +13,11 @@ function copyToClipboard(val) {
     alert("테스트 링크가 복사되었습니다.");
   }
 
+function shareTwitter() {
+    var sendText = "나에게 어울리는 술 추천받으러 가기"; 
+    window.open("https://twitter.com/intent/tweet?text=" + sendText + "&url=" + testurl);
+}
+
 function sendLink() {
   Kakao.init('b305a1173710e4ff765e09b5a62e314c');
   Kakao.Link.sendDefault({
