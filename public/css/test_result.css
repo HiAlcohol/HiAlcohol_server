@@ -47,7 +47,7 @@ header {
 }
 
 main {
-    margin-top: 150px;
+    margin-top: 40px;
 }
 .exp {
     margin-top: 50px;
@@ -55,19 +55,18 @@ main {
 }
 .exp li{
     margin-top: 10px;
+	list-style: none;
 }
 .match {
     margin: auto;
-    width: 424px;
+    display: inline-block;
     color: white;
 }
 .match div {
     float: left;
     margin-right: 5px;
     margin-left: 5px;
-    width: 200px;
-    height: 70px;
-    padding-top: 20px;
+    padding: 20px;
     border: 1px solid #0BF3BC;
     border-radius: 10px;
 }
