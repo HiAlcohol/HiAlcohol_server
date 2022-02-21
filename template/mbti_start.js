@@ -26,11 +26,13 @@ module.exports = {
     HEAD: function() {
       return `
       <!DOCTYPE html>
-      <html lang="en">
+      <html lang="ko">
         
       <head>
          <meta charset="UTF-8">
          <title>Alcohol MBTI Test | Hi Alcohol </title> 
+		 <meta property=”og:type” content=”website”>
+		 <meta property=”og:title” content=”칵테일 mbti 테스트”>
         <meta name= "description" content="칵테일로 알아보는 당신의 성격 유형 테스트">
 
          <meta name="viewport" content="width=device-width, initial-scale=1.0">

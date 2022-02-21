@@ -145,16 +145,20 @@ module.exports = {
 	HEAD: function() {
 		return `
 		<!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
 	<meta charset="UTF-8" />
 
 	<title>Hi Alcohol | 하이알코올</title>
 	<meta property="og:type" content="website">
-	<meta property="og:title" content="Hi Alcohol">
+	<meta name="og:site_name" content="하이알코올" />
+	<meta property="og:title" content="Hi Alcohol | 하이알코올">
     <meta name= "description" content="내가 가진 재료로 만들 수 있는 칵테일은? 칵테일 레시피 검색 웹사이트 하이 알코올!">
 	<meta property="og:image" content="/public/img/cocktail.png">
 	<meta property="og:url" content="https://hialcohol.xyz">
+	<meta name="keywords" content="cocktail, alcohol, cocktail test, 칵테일, 칵테일 추천">
+	<meta name="author" content="AYoungSn, alreadynyeong">
+
 	<meta property="twitter:card" content="summary">
 	<meta property="twitter:title" content="Hi Alcohol">
 	<meta property="twitter:description" content="내가 가진 재료로 만들 수 있는 칵테일은? 칵테일 레시피 검색 웹사이트 하이 알코올!">
