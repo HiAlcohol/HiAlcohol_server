@@ -80,9 +80,9 @@ module.exports = {
         *:not(i){
         font-family:GmarketSansMedium;
         }
-        
-        
     </style>
+	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8219658684250722"
+     crossorigin="anonymous"></script>
 </head>
 <body>
 		`;

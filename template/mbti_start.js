@@ -35,6 +35,8 @@ module.exports = {
 
          <meta name="viewport" content="width=device-width, initial-scale=1.0">
          <link rel="stylesheet" href="/public/css/test_start.css" />
+		 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8219658684250722"
+     crossorigin="anonymous"></script>
       </head>
 
        `;
