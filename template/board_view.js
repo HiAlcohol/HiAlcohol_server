@@ -127,7 +127,7 @@ module.exports = {
 				<div></div>
             </div>
         </div>
-        <br><br>
+        <br>
         <div class = "comment">
                 <div class = "comview">
                    ${comment}
@@ -136,7 +136,7 @@ module.exports = {
                 </div>
              
         </div>
-        <br>
+        
         <form method="post" action="/comment?postId=${id}" class = "comwrite">
             <input type="text" name="comment" placeholder = " 댓글을 입력해주세요" id="write">
             <input type="submit" value="등록" id="ok">

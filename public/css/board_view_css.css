@@ -1,3 +1,4 @@
+*{margin:0;padding:0;}
 *:not(i) {
     font-family: GmarketSansMedium;
 }
@@ -38,7 +39,7 @@ a {
 }
 .user_data{
     display: flex;
-
+	margin-top: 10px;
 }
 .user_data p{
    color: #adb5bd;
@@ -57,6 +58,7 @@ a {
    display: flex;
    justify-content: space-between;
    align-items: center;
+   margin-top: 20px;
 }
 .option a{
    font-size: 20px;
@@ -101,15 +103,31 @@ input#del{
     margin: auto;
     padding: 10px;
     /* height: 100px; */
-    width: 80.7%;
-    max-width: 700px;
-    border: 1px solid #ffffff;    
+    /* width: 80.7%; */
+    /* max-width: 700px; */
+    /* border: 1px solid #ffffff;    
+    border-radius: 10px; */
+}
+
+.comview {
+	padding: 10px;
+	border: 1px solid #ffffff;
     border-radius: 10px;
+}
+
+.comview hr {
+	margin-top: 5px;
+	margin-bottom: 10px;
 }
 
 .comwrite {
     /* max-width: 1200px; */
     margin: auto;
+	padding: 10px;
+	/* padding-top: 0px; */
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
 }
 
 .comview div{
@@ -134,15 +152,17 @@ input#del{
     color: #adb5bd;
 }
 
-#write{
-    height: 45px;
-    width: 70%;
-    max-width: 600px;
+#write {
+    height: 43px;
+    width: 100%;
+    /* max-width: 600px; */
     margin: 0 auto;
     border: 1px solid #0BF3BC;
     color: #dddddd;
     background-color: #242424;
     border-radius: 10px;
+	padding-left: 5px;
+	padding-right: 5px;
 }
 
 #write:focus {
@@ -151,11 +171,13 @@ input#del{
 
 #ok {
     height: 45px;
-    margin-left: 2%;
+    margin-left: 5px;
+	width: 20%;
     max-width: 80px;
-    width: 10%;
     background-color: #242424;
     border: 1px solid #0BF3BC;
     border-radius: 10px;
     color: white;
+	padding-left: 5px;
+	padding-right: 5px;
 }
