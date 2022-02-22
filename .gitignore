@@ -34,3 +34,4 @@ Temporary Items
 
 config/post.sql
 config/liked.sql
+config/env.js

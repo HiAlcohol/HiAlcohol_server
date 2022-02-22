@@ -6,7 +6,8 @@ const db = mysql.createConnection({
 	user: env.user,
 	password: env.password,
 	database: env.database,
-	dateStrings: 'date'
+	dateStrings: 'date',
+	charset: 'utf8mb4'
 });
 
 db.connect();
