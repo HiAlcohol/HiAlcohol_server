@@ -58,14 +58,17 @@ main {
 }
 .match {
     margin: auto;
-    width: 424px;
+    width: auto;
+    display: inline-block;
     color: white;
+    margin-bottom: -100px;
 }
 .match div {
     float: left;
     margin-right: 5px;
     margin-left: 5px;
-    width: 200px;
+    padding-right: 10px;
+    padding-left: 10px;
     height: 70px;
     padding-top: 20px;
     border: 1px solid #0BF3BC;
