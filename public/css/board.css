@@ -86,7 +86,7 @@ a {
 
 /*content*/
 .contentList{
-    padding: 20px;
+    padding: 17px;
 	padding-left: 23px;
 	padding-right: 23px;
     box-sizing: border-box;
@@ -122,6 +122,9 @@ a {
 	align-items: center;
 }
 .like a {
+	margin-bottom: 2px;
+}
+#likeImg {
 	margin-bottom: 2px;
 }
 
