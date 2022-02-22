@@ -78,7 +78,7 @@ module.exports = {
             <p>- 비율 -</p>
             <h2>${rate}</h2>
             <br><br>
-            <h2>${content}</h2>
+            <p>${content}</p>
         </div>
     
         </div>
