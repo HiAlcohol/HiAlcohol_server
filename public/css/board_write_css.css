@@ -1,5 +1,6 @@
 body {
-    padding: 20px;
+	margin: 0px;
+    padding: 10px;
     background-color: #242424;
     font-size: 15px;
 
@@ -29,18 +30,29 @@ a {
 
 .container{
     text-align: center;
+	display: flex;
+	justify-content: space-between;
+	flex-direction: column;
+	align-items: center;
 }
 
+.title {
+	width: 100%;
+}
 
 .title input{
     background-color:#242424; 
     height: 30px; 
-    width: 90%;
+    width: 95%;
     color: white;
     margin-bottom: 20px;
     margin-top: 20px;
     border: none;
     border-bottom: white 1px solid;
+}
+
+.Contents {
+	width: 100%;
 }
 
 .Contents textarea{
@@ -50,6 +62,8 @@ a {
     color: white;
     border-radius: 0.5em;
     border-color: white;
+	padding: 10px;
+	
 }
 .completion {
     color: #0BF3BC;

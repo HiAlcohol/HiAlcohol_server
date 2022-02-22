@@ -24,7 +24,14 @@ p {
 }
 
 h2 {
-    color: white;
+	color: white;
+}
+
+h3, h4, p {
+    color: #EEEEEE;
+}
+p {
+	font-size: 20px;
 }
 
 *:not(i) {

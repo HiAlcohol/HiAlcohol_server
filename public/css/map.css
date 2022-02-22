@@ -18,11 +18,6 @@ p {
     font-family: GmarketSansMedium;
 }
 
-.header {
-	margin:10px;
-}
-
-
 body {
     margin: 0;
     background-color: #242424;
@@ -49,7 +44,7 @@ main {
 	/* display: flex;
     justify-content: center; */
     /* min-width: 700px; */
-    padding-top: 100px;
+    padding-top: 90px;
 }
 
 #map{

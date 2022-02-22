@@ -80,6 +80,8 @@ module.exports = {
         />
         <title>Hi Alcohol</title>
         <link rel="stylesheet" href="/public/css/board.css" />
+		<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8219658684250722"
+     crossorigin="anonymous"></script>
         </head>
 
         <style>

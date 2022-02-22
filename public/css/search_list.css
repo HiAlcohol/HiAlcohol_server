@@ -164,3 +164,11 @@ main {
 	padding-right: 10px;
 }
 
+input:focus {
+	outline:none;
+}
+
+input:-webkit-autofill {
+	-webkit-box-shadow: 0 0 0 1000px #242424 inset;
+	-webkit-text-fill-color: #dddddd;
+}

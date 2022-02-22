@@ -103,7 +103,7 @@ input:-webkit-autofill {
 }
 
 .blank {
-    height: 80px;
+    height: 30px;
 }
 .button button{
     color: white;

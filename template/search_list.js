@@ -78,7 +78,8 @@ module.exports = {
     <script src="/public/js/menu.js" type="text/javascript"></script>
 
     <title>Hi Alcohol List</title>
-
+	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8219658684250722"
+	crossorigin="anonymous"></script>
 </head>
 
 <body>

@@ -40,6 +40,8 @@ module.exports = {
     />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <script src="/public/js/menu.js" type="text/javascript"></script>
+	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8219658684250722"
+     crossorigin="anonymous"></script>
 </head>
 <body>
 <div class="board_wrap">
@@ -87,7 +89,7 @@ module.exports = {
                     <a href="${link}">
                     <button id="img_btn" class="likebtn" onclick="didTapButton(); " ${buttonMode}><input type="image" id="likeImg${postId}" src=${likeImg} ${buttonMode}></button>
                     </a>
-                    <div id=likes disabled='disabled'>&nbsp${like_num}</div> 
+                    <div id=likes disabled='disabled'>${like_num}</div> 
                 </div>
                 <script>
                 function didTapButton() {
@@ -125,7 +127,7 @@ module.exports = {
 				<div></div>
             </div>
         </div>
-        <br><br>
+        <br>
         <div class = "comment">
                 <div class = "comview">
                    ${comment}
@@ -134,7 +136,7 @@ module.exports = {
                 </div>
              
         </div>
-        <br>
+        
         <form method="post" action="/comment?postId=${id}" class = "comwrite">
             <input type="text" name="comment" placeholder = " 댓글을 입력해주세요" id="write">
             <input type="submit" value="등록" id="ok">
