@@ -71,14 +71,24 @@ padding: 0 30px;
 font-size: 20px;
 }
 .likebtn{
-   width: 30px;
-   height: 30px;
    background-color: #242424;
    border: none;
 }
 
+.like {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
 .like p{
    font-size: 12px;
+}
+
+#likes {
+	width: 100%;
+	text-align: center;
 }
 
 .hi_alcohol{

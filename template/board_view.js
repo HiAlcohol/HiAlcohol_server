@@ -89,7 +89,7 @@ module.exports = {
                     <a href="${link}">
                     <button id="img_btn" class="likebtn" onclick="didTapButton(); " ${buttonMode}><input type="image" id="likeImg${postId}" src=${likeImg} ${buttonMode}></button>
                     </a>
-                    <div id=likes disabled='disabled'>&nbsp${like_num}</div> 
+                    <div id=likes disabled='disabled'>${like_num}</div> 
                 </div>
                 <script>
                 function didTapButton() {
