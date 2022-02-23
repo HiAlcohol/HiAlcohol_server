@@ -14,6 +14,8 @@ module.exports = {
 	   <header>
 	       <a href="/" style="font-family: 'Pattaya', sans-serif; font-size:30px;color: #0bf3bc">Hi Alcohol</a>
        </header>
+       <main>
+       <div id="capture">
          <div class="result">
            <a>당신에게 어울리는 술은</a><br>
            <img src="/public/img/cocktail.png"><br>
@@ -36,9 +38,9 @@ module.exports = {
                <a>< ${data.worst} ></a>
              </div>
          </div>
-       
-         <main>
-         
+        </div>
+         </main>
+         <button id="pick">이미지 저장</button>
          <div class="button"><button id="restart" class="btn" onClick="location.href='../mbti' "> 처음으로</button></div><br>
          
          <button onclick="copy()" id = "link">링크복사</button><br>
@@ -55,7 +57,7 @@ module.exports = {
            <a href="/" style="font-family: 'Pattaya', sans-serif; font-size:30px;color: #0bf3bc">Hi Alcohol</a><br><br>
            </div>
            
-         </main>
+         
         
     `
     },
@@ -70,6 +72,8 @@ module.exports = {
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
         <script src="/public/js/share.js" type="text/javascript"></script>
+        <script src="/public/js/screenshot.js" type="text/javascript"></script>
+        <script src="/public/js/html2canvas.js"></script>
         <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
         
        </head>    
