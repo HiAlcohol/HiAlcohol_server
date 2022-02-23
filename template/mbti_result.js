@@ -38,6 +38,7 @@ module.exports = {
                <a>< ${data.worst} ></a>
              </div>
          </div>
+         <div id="blank"></div>
         </div>
          </main>
          <button id="pick">이미지 저장</button>

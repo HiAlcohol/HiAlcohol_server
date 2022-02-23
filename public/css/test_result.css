@@ -16,7 +16,7 @@
 
 a {
     text-decoration: none;
-    color: white;
+    /* color: white; */
 }
 
 .result {
@@ -47,7 +47,12 @@ header {
 }
 
 #capture {
-    margin-bottom: 40px;
+    margin: auto;
+    width: fit-content;
+}
+
+#blank {
+    height: 40px;
 }
 .exp {
     margin-top: 50px;
