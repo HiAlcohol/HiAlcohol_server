@@ -10,6 +10,8 @@ module.exports = {
     },
     HOME: function(data, des, cockid) {
        return `
+       
+       
        <body>
 	   <header>
 	       <a href="/" style="font-family: 'Pattaya', sans-serif; font-size:30px;color: #0bf3bc">Hi Alcohol</a>
@@ -21,7 +23,7 @@ module.exports = {
            <img src="/public/img/cocktail.png"><br>
            <a><span style="font-size: 30px">${data.cocktail}  <a href="/search_list/recipe?id=${cockid}" >></a></span></a>
          
-           <div class="exp" style="color: white">
+           <div class="exp" >
              <ul>
                ${des}
              </ul>
@@ -41,7 +43,7 @@ module.exports = {
          <div id="blank"></div>
         </div>
          </main>
-         <button id="pick">이미지 저장</button>
+          
          <div class="button"><button id="restart" class="btn" onClick="location.href='../mbti' "> 처음으로</button></div><br>
          
          <button onclick="copy()" id = "link">링크복사</button><br>
