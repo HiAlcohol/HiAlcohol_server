@@ -87,3 +87,22 @@ main {
     border: 0;
     background-color: #242424;
 }
+
+.mapview{
+    padding: 10px;
+    color: white;
+    background-color: #242424;
+}
+
+.mapview a{
+    text-decoration: none;
+    color: white;
+}
+
+.viewname{
+    color: #0BF3BC;
+}
+
+.viewblank{
+    height: 3px;
+}

@@ -101,9 +101,16 @@ module.exports = {
       
             kakao.maps.event.addListener(marker, 'click', function() {
              
-                infowindow.setContent('<div style="padding:5px;font-size:12px;">' + place.place_name + '</div>');
+                infowindow.setContent(
+                    '<div class= "mapview"><div class="viewname">' + place.place_name + '</div><hr>'+
+                    '<div class="viewblank"></div>'+
+                    '<div style="font-size:12px;">' + place.address_name + '</div>'+
+                    '<div class="viewblank"></div>'+
+                    '<div style="font-size:12px;">' + place.phone + '</div>'+
+                    '<div class="viewblank"></div>'+
+                    '<div style="font-size:12px;"><a href="' + place.place_url + '">[상세보기]</a></div></div>'
+                    );
                 infowindow.open(map, marker);
-                // console.log(place.place_name);
                 });
             }
              
