@@ -1,5 +1,7 @@
 # HiAlcohol_server
 
+https://hialcohol.xyz
+
 ### 1. 서비스를 실행하기 위해 필요한 것
 
 - mysql, nodejs 설치
