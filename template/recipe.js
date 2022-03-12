@@ -1,7 +1,7 @@
 const menu = require('./menu.js');
 
 module.exports = {
-	HTML: function(name, rate, content, user) {
+	HTML: function(name, rate, content, user, mat) {
 		var menu_list = menu.MENU(user);
 		return `
 
@@ -73,12 +73,15 @@ module.exports = {
     </div>
 
         <div class="recipe">
-            <div>&nbsp${name}&nbsp</div>
+            <div class="name">&nbsp${name}&nbsp</div>
+            <br><br>
+            ${mat}
             <br><br><br>
             <p>- 비율 -</p>
             <h2>${rate}</h2>
             <br><br>
             <p>${content}</p>
+
         </div>
     
         </div>
@@ -88,6 +91,32 @@ module.exports = {
 </html>
 		
 		`
-	}
+	},
+    MAT: function(result) {
+        var i = 0;
+
+        var list = '';
+
+
+        while(i<result.length){
+			var j = 0;
+			var materials = ``;
+            while (j < result[i].materials.length) {
+				materials += `
+                    <div>${result[i].materials[j]}</div>
+				`
+				j++;
+			}
+
+            list = list + 
+                ` 
+                <div class="material">
+                    ${materials}</div>
+                </div>`;
+            i = i + 1;
+        }
+
+        return list;
+    }
 };
     
