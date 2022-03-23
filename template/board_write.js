@@ -51,6 +51,9 @@ module.exports = {
             <div class="Contents">
                 <textarea name="content" placeholder="내용 입력"></textarea>
             </div>
+            <div class="img">
+                <input type="file" name="image"/>
+            </div>
         
         </div>
         </form>
