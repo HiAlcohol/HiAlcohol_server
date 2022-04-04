@@ -1,4 +1,5 @@
 const menu = require('./menu.js');
+const axios = require('axios');
 
 module.exports = {
 	HTML: function(list, user) {
@@ -110,7 +111,8 @@ module.exports = {
             list = list + 
                 `
                 <div class="list" id="list1">
-                <a href="/search_list/recipe?id=${result[i].id}">${result[i].cocktail}</a>
+				<button onClick=modal(${result[i].id})>${result[i].cocktail}</button>
+                <!--<a href="/search_list/recipe?id=${result[i].id}">${result[i].cocktail}</a>-->
                
                 <br><br>`+ 
                 ` 
@@ -119,6 +121,18 @@ module.exports = {
                 </div>`;
             i = i + 1;
         }
+		list += `
+		<script>
+		function modal(id) {
+//			axios.get('/search_list/recipe/' + id)
+//				.then(function(response) {
+//					console.log(response);
+//				})
+//				.catch(function(error) {
+//					console.log(error);
+//				})
+//		}
+		</script>`;
 
         return list;
     }

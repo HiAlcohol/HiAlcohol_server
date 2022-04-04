@@ -143,4 +143,30 @@ router.get('/recipe', function(request, response){
 	});
 });
 
+// json
+router.get('/recipe/:id', function(request, response){
+
+	db.query(`select * from recipe`, function(err, result){
+
+		var _url = request.url;
+		// var queryData = url.parse(_url, true).query;
+		const id = request.params;
+
+		if (err) throw err;
+		db.query(`select * from recipe WHERE id=?`, [id], function(err2, result2){
+
+			if (err2) throw err2;
+
+			var name = result2[0].cocktail;
+			var rate = result2[0].rate;
+			var content = result2[0].content;
+
+			// var html = recipe.HTML(name, rate, content, request.user);
+
+			// response.send(html);
+			response.json({name: name, rate: rate, content: content});
+		});
+	});
+});
+
 module.exports = router;
