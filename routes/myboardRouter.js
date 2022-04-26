@@ -34,9 +34,10 @@ router.get('/', function(request, response) {
 			
 				var list ='';
 
-				var date = dateFormat(result[0].createdate);
+				
 			
 				for (var i = 0;i < result.length; i++) {
+					var date = dateFormat(result[i].createdate);
 					list += `
 					<div class="content">
 						<a href='/board/view?id=${result[i].id}'>
