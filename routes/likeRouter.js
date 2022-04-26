@@ -23,27 +23,27 @@ router.get('/', function(request, response) {
         response.send('<script>alert("로그인이 필요한 서비스입니다.");\
         location.href="/oauth/kakao";</script>');
     } else {
-        db.query(`SELECT post.id, post.title, post.createdate, count(*) 'count' 
-            FROM post, liked 
-            WHERE post.id = liked.postId and liked.userId=${request.user.id} group by post.id`, 
+        db.query(`SELECT post.id, post.title, post.createdate, count(*) 'count', user.nickname 
+            FROM post, liked, user 
+            WHERE post.id = liked.postId and liked.userId=${request.user.id} and post.userId = user.id group by post.id`, 
             function(err, result) {
-            
+            console.log('result: ', result);
             if(result.length == 0){
                 response.send('<script>alert("좋아요 기록이 없습니다.");\
 			location.href="/";</script>');
             }else{
                 
             var list ='';
-            var date = dateFormat(result[0].createdate);
-            
+
             for (var i = 0;i < result.length; i++) {
+                var date = dateFormat(result[i].createdate);
                 list += `
                 
                     <div class="content">
                     <a href='/board/view?id=${result[i].id}'>
                         <div class="subject">
                             <p>${result[i].title}</p>
-                            <div class="info"><span>${request.user.nickname}</span> | <span>${date}</span></div>
+                            <div class="info"><span>${result[i].nickname}</span> | <span>${date}</span></div>
                         </div>
                         </a>
                         <div class="like">
