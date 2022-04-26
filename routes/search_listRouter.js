@@ -20,7 +20,6 @@ router.get('/', function(request, response){
 	db.query(sql, function(err0, result0){
 		
 		var queryData = request.query;
-		// console.log(db.escape(queryData.keyword))
 		sql2 = `select recipe.cocktail, recipe.id, material.material from recipe, material  
 		where ( (recipe.cocktail=` + db.escape(queryData.keyword) + `) and (material.id =
 			any(select inclusion.materialId from inclusion where inclusion.recipeId= 
@@ -31,12 +30,6 @@ router.get('/', function(request, response){
 				material = any(select alcolType from product where instr(name, `+ db.escape(queryData.keyword) + `)))) 
 				and material.id =any(select inclusion.materialId from inclusion where inclusion.recipeId= recipe.id ))) order by recipe.cocktail asc`
 	
-
-		// sql2 =`select recipe.cocktail, recipe.id, material.material from recipe, material 
-		// where (recipe.cocktail=` + db.escape(queryData.keyword) + `) and (material.id =
-		// any(select inclusion.materialId from inclusion where inclusion.recipeId= 
-		// (select recipe.id from recipe where recipe.cocktail = ` + db.escape(queryData.keyword) + `)))
-		// `
 		if(err0) throw err0;
 
 		db.query(sql2, function(err, result){
@@ -44,10 +37,6 @@ router.get('/', function(request, response){
 			if (err) throw err;
 			var recipe_list = [];
 			var index = 0;
-			// console.log(result)
-			// console.log(result.length)
-			// console.log(result[result.length - 1])
-			// console.log(result[0]);
 			if(result.length===0){
 				var checked = [];
 				for (var i = 0; i < result0.length; i++)
@@ -72,11 +61,7 @@ router.get('/', function(request, response){
 							break ;
 						}
 					}
-					// console.log(recipe_list[index-1])
 				}
-				// console.log(recipe_list);
-				// var list = search_list.LIST(recipe_list)
-				// var html = search_list.HTML( list, request.user)
 			} else if (result.length === 1) {
 				var item = new Item();
 				item.id = result[0].id;
@@ -108,16 +93,12 @@ router.get('/', function(request, response){
 						}
 					}
 				}
-
-				// var list = search_list.LIST(recipe_list)
-				// var html = search_list.HTML(list, request.user)
 			}
 			var list = search_list.LIST(recipe_list)
 			var html = search_list.HTML(list, request.user)
 			response.send(html);
 		});
 	})
-	
 });
 
 router.get('/recipe', function(request, response){
